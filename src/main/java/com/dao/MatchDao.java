@@ -42,12 +42,25 @@ public class MatchDao {
     public List<Match> getCurrentList(){
         List<Match> matchList = null;
         try {
-            String sql = "select * from `match` where NOW() BETWEEN Start AND  End order by Start";
+            String sql = "select * from `match` where NOW() BETWEEN Start AND  End order by Start limit ?";
             matchList = template.query(sql, new BeanPropertyRowMapper<>(Match.class),LIMIT);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             return matchList;
+        }
+    }
+
+    //通过Id获取竞赛
+    public Match getMatchById(int matchId){
+        Match match=null;
+        try {
+            String sql = "select * from `match` where Id= ?  ";
+            match = template.queryForObject(sql, new BeanPropertyRowMapper<>(Match.class), matchId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return match;
         }
     }
 
