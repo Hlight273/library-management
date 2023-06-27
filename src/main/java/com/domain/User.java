@@ -70,5 +70,12 @@ public class User {
         this.teamId = teamId;
     }
 
+    /**
+     *
+     * @return 该user是否是管理员
+     */
+    public boolean isAdmin() {
+        return isAdmin==1;
+    }
 
 }

@@ -1,0 +1,64 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2023/6/27
+  Time: 14:47
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<form action="${ctx}/MatchCreateServlet" method="post">
+  竞赛名称 <input type="text" name="name" id="name"><br>
+  海报主题 <input type="text" name="theme" id="theme"><br>
+  竞赛类别
+  <select class="form-control" id="category_id" name="category_id">
+    <c:forEach items="${categoryList}" var="category">
+      <c:if test="${category.id == category_id}">
+        <option value="${category.id}" selected="selected">${category.name}</option>
+      </c:if>
+      <c:if test="${category.id != category_id}">
+        <option value="${category.id}">${category.name}</option>
+      </c:if>
+    </c:forEach>
+  </select>
+  举办时间 <input type="date" name="start"> <input type="date" name="end"><br>
+  竞赛描述 <textarea name="description" rows="4" ></textarea><br>
+          <input type="hidden" name="url">
+</form>
+<form id="uploadForm" method="post">
+  竞赛头图 <input type="file" id="file" name="file">
+  <img src="" id="img" alt="图片预览" width="80" height="100">
+  <input type="button" id="uploadBtn" value="上传">
+</form>
+<div class="card-footer text-center">
+  <span class="text-danger">${msg}</span>
+</div>
+</body>
+</html>
+<script>
+  //使用Ajax请求上传宠物图片，页面不刷新
+  $(document).ready(function (){
+    $('#uploadBtn').click(function (){
+      let formData = new FormData($('#uploadForm')[0]);//获取封装表单数据
+      $.ajax({
+        url: '${ctx}/FileUploadServlet', //表单提交url
+        type: 'post',                    //表单提交方式
+        data: formData,                  //表单提交数据
+        contentType: false,              //文件上传时需设置contentType=false
+        processData: false,              //文件上传时需设置processData=false
+        success: function (returnData){  //returnData是FileUploadServlet返回的字符串，内容为宠物图片的新文件名
+          $('span.text-danger').text("图片上传成功");      //显示提示信息
+          $('#img').prop('src','${ctx}/petimg/'+returnData); //预览上传图片
+          $('#url').val(returnData);                       //表单隐藏元素photo的值设置为新文件名
+        },error:function (returnData){
+          $('span.text-danger').text("图片上传失败");
+        }
+      });
+    })
+  })
+</script>
