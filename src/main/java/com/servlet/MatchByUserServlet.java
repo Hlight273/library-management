@@ -25,10 +25,13 @@ public class MatchByUserServlet extends HttpServlet {
         List<Team> teamList=null;
         MatchDao matchDao=new MatchDao();
         List<Match> matchList=null;
+        //获得某人参与的成员列表
         List<Member> memberList=memberDao.getMemberByUserId(user.getId());
+        //通过成员列表中teamID获得某人参与的团队列表
         for (Member member : memberList) {
             teamList.add(teamDao.getTeamById(member.getTeamId()));
         }
+        //通过团队列表中teamID获得某人参与的竞赛列表
         for (Team team : teamList) {
             matchList.add(matchDao.getMatchById(team.getMatchId()));
         }
