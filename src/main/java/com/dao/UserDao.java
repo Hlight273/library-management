@@ -37,13 +37,13 @@ public class UserDao {
         }
     }
     //用户修改
-    public boolean edit(int id,String name, String phone,String status){
+    public boolean edit(int id,String name, String email){
         int affectRows = 0;
         try {
             //1.编写sql
-            String sql = "update user set Name=?, Phone=?, Status=? where Id=?";
+            String sql = "update user set Name=?, Email=?  where Id=?";
             //2.调用update方法，写入数据库
-            affectRows = template.update(sql, name, phone, status, id);
+            affectRows = template.update(sql, name, email, id);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

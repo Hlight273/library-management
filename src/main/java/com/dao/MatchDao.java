@@ -1,6 +1,5 @@
 package com.dao;
 
-
 import com.domain.Match;
 import com.utils.JDBCUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -14,7 +13,19 @@ public class MatchDao {
     private static final int LIMIT = 12;
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
 
-    //获取竞赛列表，日期倒序
+    public boolean add(String name, String start, String end, String description, String theme, int categoryid, String url){
+        int affectRows = 0;
+        try {
+            String sql = "insert into `match`(name, start, end, description, theme, categoryid, url) values(?,?,?,?,?,?,?)";
+            affectRows = template.update(sql,name, start, end, description, theme, categoryid, url);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return affectRows > 0;
+        }
+    }
+
+    //获取最近的竞赛列表，日期倒序
     public List<Match> getNewList(){
         List<Match> matchList = null;
         try {
@@ -24,6 +35,32 @@ public class MatchDao {
             e.printStackTrace();
         } finally {
             return matchList;
+        }
+    }
+
+    //获取进行中的竞赛列表
+    public List<Match> getCurrentList(){
+        List<Match> matchList = null;
+        try {
+            String sql = "select * from `match` where NOW() BETWEEN Start AND  End order by Start limit ?";
+            matchList = template.query(sql, new BeanPropertyRowMapper<>(Match.class),LIMIT);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return matchList;
+        }
+    }
+
+    //通过Id获取竞赛
+    public Match getMatchById(int matchId){
+        Match match=null;
+        try {
+            String sql = "select * from `match` where Id= ?  ";
+            match = template.queryForObject(sql, new BeanPropertyRowMapper<>(Match.class), matchId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return match;
         }
     }
 

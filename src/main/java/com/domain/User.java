@@ -7,7 +7,6 @@ public class User {
     private String email;
     private String pwd;
     private int isAdmin;
-    private int teamId;
 
     public User() {
 
@@ -19,7 +18,6 @@ public class User {
         this.email = email;
         this.pwd = pwd;
         this.isAdmin = isAdmin;
-        this.teamId = teamId;
     }
 
     public int getId() {
@@ -62,13 +60,12 @@ public class User {
         this.isAdmin = isAdmin;
     }
 
-    public int getTeamId() {
-        return teamId;
+    /**
+     *
+     * @return 该user是否是管理员
+     */
+    public boolean isAdmin() {
+        return isAdmin==1;
     }
-
-    public void setTeamId(int teamId) {
-        this.teamId = teamId;
-    }
-
 
 }
