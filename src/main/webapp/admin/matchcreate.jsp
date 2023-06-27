@@ -21,7 +21,7 @@
   </select>
   举办时间 <input type="date" name="start"> <input type="date" name="end"><br>
   竞赛描述 <textarea name="description" rows="4" ></textarea><br>
-          <input type="hidden" name="url" id="#url">
+          <input type="hidden" name="url" id="url">
   <input type="submit" value="发布竞赛">
 </form>
 <div class="card-footer text-center">
