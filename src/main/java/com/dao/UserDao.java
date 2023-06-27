@@ -8,13 +8,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class UserDao {
     private JdbcTemplate template=new JdbcTemplate(JDBCUtils.getDataSource());
     //用户注册
-    public boolean add(String name, String pwd, String phone){
+    public boolean add(String email, String pwd, String name){
         int affectRows = 0;
         try {
             //1.编写sql, deposit默认为0
-            String sql = "insert into reader(Name, Pwd, Phone, Status, Balance,IsAdmin) values(?,?,?,0,0,0)";
+            String sql = "insert into user(Email, Pwd, Name, IsAdmin) values(?,?,?,0)";
             //2.调用update方法，写入数据库
-            affectRows = template.update(sql,name, pwd, phone);
+            affectRows = template.update(sql,email, pwd, name);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -26,7 +26,7 @@ public class UserDao {
         User user = null;
         try {
             //1.编写sql
-            String sql = "select * from reader where Email = ? and Pwd = ?";
+            String sql = "select * from user where Email = ? and Pwd = ?";
             //2.调用query方法
             user = template.queryForObject(sql, new BeanPropertyRowMapper<User>
                     (User.class), email,pwd);
@@ -41,7 +41,7 @@ public class UserDao {
         int affectRows = 0;
         try {
             //1.编写sql
-            String sql = "update reader set Name=?, Phone=?, Status=? where Id=?";
+            String sql = "update user set Name=?, Phone=?, Status=? where Id=?";
             //2.调用update方法，写入数据库
             affectRows = template.update(sql, name, phone, status, id);
         } catch (Exception e) {
@@ -55,7 +55,7 @@ public class UserDao {
         int affectRows = 0;
         try {
             //1.编写sql
-            String sql = "update reader set Pwd=? where Id=? and Pwd=?";
+            String sql = "update user set Pwd=? where Id=? and Pwd=?";
             //2.调用update方法，写入数据库
             affectRows = template.update(sql,newPwd,id,oldPwd);
         } catch (Exception e) {
