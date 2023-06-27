@@ -17,7 +17,7 @@ public class MatchServlet extends HttpServlet {
         CategoryDao categoryDao = new CategoryDao();
         List<Category> categoryList = categoryDao.getList();
         request.setAttribute("categoryList",categoryList);
-        request.getRequestDispatcher("/matchcreate.jsp").forward(request,response);
+        request.getRequestDispatcher("/admin/matchcreate.jsp").forward(request,response);
     }
 
     @Override

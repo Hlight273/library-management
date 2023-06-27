@@ -15,7 +15,7 @@ import java.util.UUID;
 @WebServlet("/FileUploadServlet")
 public class FileUploadServlet extends HttpServlet {
     //虚拟路径下的 图片存放路径
-    private static final String PATH = "/img";
+    private static final String PATH = "/image";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DiskFileItemFactory factory = new DiskFileItemFactory();   //DiskFileItemFactory 是创建FileItem 对象的工厂

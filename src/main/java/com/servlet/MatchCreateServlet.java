@@ -36,7 +36,7 @@ public class MatchCreateServlet extends HttpServlet {
             request.getRequestDispatcher("/index.jsp").forward(request,response);
         }else {
             request.setAttribute("msg","创建失败");
-            request.getRequestDispatcher("/matchcreate.jsp").forward(request,response);
+            request.getRequestDispatcher("/admin/matchcreate.jsp").forward(request,response);
         }
     }
 
