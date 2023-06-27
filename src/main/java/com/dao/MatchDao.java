@@ -1,6 +1,7 @@
 package com.dao;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
+
+import com.domain.Match;
 import com.utils.JDBCUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
