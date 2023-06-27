@@ -18,12 +18,6 @@
     <link rel="stylesheet" href="./css/style-ie.css" />
     <![endif]-->
 
-    <!-- JS
-    ================================================== -->
-    <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
-    <script src="./js/bootstrap.js"></script>
-    <script src="./js/jquery.custom.js"></script>
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <!-- Begin Header -->
@@ -122,7 +116,31 @@
 
 </div>
 <!-- End Header -->
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<div class="row headline"><!-- Begin Headline -->
+
+    <!-- Slider Carousel
+   ================================================== -->
+    <div class="span8">
+        <div class="flexslider">
+            <ul class="slides">
+                <li><a href="./gallery-single.htm.html"><img src="./img/gallery/slider-img-3.jpg" alt="slider" /></a></li>
+                <li><a href="./gallery-single.htm.html"><img src="./img/gallery/slider-img-4.jpg" alt="slider" /></a></li>
+                <li><a href="./gallery-single.htm.html"><img src="./img/gallery/slider-img-5.jpg" alt="slider" /></a></li>
+                <li><a href="./gallery-single.htm.html"><img src="./img/gallery/slider-img-1.jpg" alt="slider" /></a></li>
+                <li><a href="./gallery-single.htm.html"><img src="./img/gallery/slider-img-2.jpg" alt="slider" /></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Headline Text
+    ================================================== -->
+    <div class="span4">
+        <h3>Welcome to Piccolo. <br />
+            A Big Theme in a Small Package.</h3>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium vulputate magna sit amet blandit.</p>
+        <p>Cras rutrum, massa non blandit convallis, est lacus gravida enim, eu fermentum ligula orci et tortor. In sit amet nisl ac leo pulvinar molestie. Morbi blandit ultricies ultrices.</p>
+        <a href="#"><i class="icon-plus-sign"></i>Read More</a>
+    </div>
+</div><!-- End Headline -->
 </body>
 </html>
