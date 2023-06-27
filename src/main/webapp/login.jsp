@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="css/vendor.min.css" type="text/css">
     <link rel="stylesheet" href="css/plugins.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.min.css" type="text/css">
+    <link rel="stylesheet" href="css/login.css" type="text/css">
 </head>
 <body>
 <!-- login area start -->
@@ -50,13 +51,13 @@
                                     <%--登录表单--%>
                                     <form action="${ctx}/LoginServlet" method="post">
                                         <%--输入用户名--%>
-                                        <input type="text" name="user-name" placeholder="Username">
+                                        <input type="text" name="email" placeholder="邮箱地址" value="${email}">
                                         <%--输入密码--%>
-                                        <input type="password" name="user-password" placeholder="Password">
+                                        <input type="password" name="user-password" placeholder="密码">
                                         <div class="button-box">
                                             <div class="login-toggle-btn">
                                                 <input type="checkbox">
-                                                <a class="flote-none" href="javascript:void(0)">Remember me</a>
+                                                <a class="flote-none" href="javascript:void(0)">记住我</a>
                                                 <a href="#">忘记密码?</a>
                                             </div>
                                             <%--提交按钮，将数据传到LoginServlet--%>

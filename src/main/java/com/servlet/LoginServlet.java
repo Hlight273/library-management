@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
         }
         else{
             //3.2登录失败 重定向 登录页面
-            request.setAttribute("msg","电话或密码错误！");
+            request.setAttribute("msg","邮箱或密码错误！");
             request.getRequestDispatcher("/login.jsp").forward(request,response);
         }
     }
