@@ -102,12 +102,7 @@
             <artifactId>commons-logging</artifactId>
             <version>1.2</version>
         </dependency>
-        <!-- Spring的JDBCTemplate，简化了数据库的操作 -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>6.0.6</version>
-        </dependency>
+
         <!-- JSON解析和生成器 -->
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
