@@ -12,12 +12,12 @@
   竞赛名称 <input type="text" name="name" id="name"><br>
   海报主题 <input type="text" name="theme" id="theme"><br>
   竞赛类别
-  <select class="form-control" id="category_id" name="category_id">
+  <select class="form-control" id="categoryid" name="categoryid">
     <c:forEach items="${categoryList}" var="category">
-      <c:if test="${category.id == category_id}">
+      <c:if test="${category.id == categoryid}">
         <option value="${category.id}" selected="selected">${category.name}</option>
       </c:if>
-      <c:if test="${category.id != category_id}">
+      <c:if test="${category.id != categoryid}">
         <option value="${category.id}">${category.name}</option>
       </c:if>
     </c:forEach>
