@@ -5,9 +5,6 @@
   <img src="" id="img" alt="图片预览" width="80" height="100">
   <input type="button" id="uploadBtn" value="上传">
 </form>
-<div class="card-footer text-center">
-  <span class="text-danger">${msg}</span>
-</div>
 <form action="${ctx}/MatchCreateServlet" method="post">
   竞赛名称 <input type="text" name="name" id="name"><br>
   海报主题 <input type="text" name="theme" id="theme"><br>
@@ -27,6 +24,9 @@
           <input type="hidden" name="url">
   <input type="submit" value="发布竞赛">
 </form>
+<div class="card-footer text-center">
+  <span class="text-danger">${msg}</span>
+</div>
 
 <%@ include file="/footer.jsp"%>
 <script>
