@@ -2,7 +2,7 @@ package com.domain;
 
 import java.util.Date;
 
-public class match {
+public class Match {
     private int Id;
     private String Name;
     private Date Start;
@@ -11,10 +11,10 @@ public class match {
     private String Theme;
     private int CategoryId;
 
-    public match() {
+    public Match() {
     }
 
-    public match(int id, String name, Date start, Date end, String description, String theme, int categoryId) {
+    public Match(int id, String name, Date start, Date end, String description, String theme, int categoryId) {
         Id = id;
         Name = name;
         Start = start;

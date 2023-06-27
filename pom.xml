@@ -14,16 +14,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <junit.version>5.8.1</junit.version>
+        <junit.version>5.9.2</junit.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -35,6 +29,72 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <!-- mysql数据库驱动程序包-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+        </dependency>
+        <!-- Druid 是JDBC连接池、监控组件-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+        <!-- commons-logging提供了操作日志的接口 -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <!-- Spring的JDBCTemplate，简化了数据库的操作 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>6.0.6</version>
+        </dependency>
+        <!-- JSON解析和生成器 -->
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>2.0.25</version>
+        </dependency>
+        <!-- JSTL 接口程序包-->
+        <dependency>
+            <groupId>org.apache.taglibs</groupId>
+            <artifactId>taglibs-standard-spec</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+        <!-- JSTL 实现程序包-->
+        <dependency>
+            <groupId>org.apache.taglibs</groupId>
+            <artifactId>taglibs-standard-impl</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+        <!-- IO程序包 -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+        <!-- 文件上传 -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>24.0.1</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
