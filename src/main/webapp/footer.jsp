@@ -1,24 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Piccolo Theme</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- CSS
-    ================================================== -->
-    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="./css/bootstrap.css" />
-    <link rel="stylesheet" href="./css/bootstrap-responsive.css" />
-<%--    <link rel="stylesheet" href="http://www.room122.com/demo/html/piccolo/css/jquery.lightbox-0.5.css" />--%>
-    <link rel="stylesheet" href="./css/custom-styles.css" />
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <link rel="stylesheet" href="./css/style-ie.css" />
-    <![endif]-->
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
-<body>
 <!-- Footer Area
     ================================================== -->
 
