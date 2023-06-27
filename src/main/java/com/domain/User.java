@@ -7,7 +7,6 @@ public class User {
     private String email;
     private String pwd;
     private int isAdmin;
-    private int teamId;
 
     public User() {
 
@@ -19,7 +18,6 @@ public class User {
         this.email = email;
         this.pwd = pwd;
         this.isAdmin = isAdmin;
-        this.teamId = teamId;
     }
 
     public int getId() {
@@ -60,14 +58,6 @@ public class User {
 
     public void setIsAdmin(int isAdmin) {
         this.isAdmin = isAdmin;
-    }
-
-    public int getTeamId() {
-        return teamId;
-    }
-
-    public void setTeamId(int teamId) {
-        this.teamId = teamId;
     }
 
     /**
