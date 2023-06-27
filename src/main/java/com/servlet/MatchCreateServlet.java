@@ -22,6 +22,7 @@ public class MatchCreateServlet extends HttpServlet {
             return;
         }
         //接受表单信息，新建一个比赛
+        request.setCharacterEncoding("utf-8");
         String name = request.getParameter("name");
         String start = request.getParameter("start");
         String end = request.getParameter("end");
