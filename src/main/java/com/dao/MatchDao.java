@@ -18,7 +18,7 @@ public class MatchDao {
     public List<Match> getNewList(){
         List<Match> matchList = null;
         try {
-            String sql = "select * from match order by Start limit ?";
+            String sql = "select * from `match` order by Start limit ?";
             matchList = template.query(sql, new BeanPropertyRowMapper<>(Match.class),LIMIT);
         } catch (Exception e) {
             e.printStackTrace();
@@ -33,10 +33,10 @@ public class MatchDao {
         String sql = "";
         try {
             if (category_id == 0){
-                sql = "select * from match order by Start limit ?";
+                sql = "select * from `match` order by Start limit ?";
                 matchList = template.query(sql, new BeanPropertyRowMapper<>(Match.class),LIMIT);
             }else{
-                sql = "select * from match where CategoryId = ? order by Start limit ?";
+                sql = "select * from `match` where CategoryId = ? order by Start limit ?";
                 matchList = template.query(sql, new BeanPropertyRowMapper<>(Match.class),category_id,LIMIT);
             }
         } catch (Exception e) {
@@ -50,7 +50,7 @@ public class MatchDao {
     public List<Match> getNewListByKey(String keyword) {
         List<Match> matchList = null;
         try {
-            String sql = "select * from match where Name like concat('%',?,'%') order by Start limit ?";
+            String sql = "select * from `match` where Name like concat('%',?,'%') order by Start limit ?";
             matchList = template.query(sql, new BeanPropertyRowMapper<>(Match.class),keyword,LIMIT);
         } catch (Exception e) {
             e.printStackTrace();
