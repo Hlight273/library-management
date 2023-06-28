@@ -8,7 +8,7 @@
 
     <!-- JS
     =================================================== -->
-    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
     <!-- CSS
     ================================================== -->
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
@@ -19,7 +19,7 @@
 
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <link rel="stylesheet" href="./css/style-ie.css" />
+    <link rel="stylesheet" href="../css/style-ie.css" />
     <![endif]-->
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
