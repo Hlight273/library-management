@@ -10,6 +10,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "IndexServlet", value = "/IndexServlet")
@@ -21,7 +22,13 @@ public class IndexServlet extends HttpServlet {
             category_id = "0";
         }
         MatchDao matchDao = new MatchDao();
-        List<Match> matchList = matchDao.getNewListByCategoryId(Integer.parseInt(category_id));
+        List<Match> matchList=new ArrayList<>();
+        if(category_id.equals("0") ){
+            matchList = matchDao.getAll();
+        }
+        else {
+            matchList = matchDao.getNewListByCategoryId(Integer.parseInt(category_id));
+        }
         CategoryDao categoryDao = new CategoryDao();
         List<Category> categoryList = categoryDao.getList();
         //主页默认获取的三个request域参数：matchList, categoryList, current_category_id(当前分类)
