@@ -12,7 +12,7 @@ public class TeamDao {
     private JdbcTemplate template=new JdbcTemplate(JDBCUtils.getDataSource());
     //寻找某人所属团队
     public  Team  getTeamById(int teamId){
-        Team team = null;
+        Team team =new Team();
         try {
             String sql = "select * from team where Id = ?";
             team = template.queryForObject(sql, new BeanPropertyRowMapper<>(Team.class),teamId);
