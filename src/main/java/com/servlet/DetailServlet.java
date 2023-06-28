@@ -17,7 +17,7 @@ public class DetailServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
-        int matchId= (int) request.getSession().getAttribute("matchId");
+        int matchId= Integer.parseInt(request.getParameter("matchId"));
         MatchDao matchDao=new MatchDao();
         TeamDao teamDao=new TeamDao();
         Match match=matchDao.getMatchById(matchId);
