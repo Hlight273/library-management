@@ -22,6 +22,7 @@ public class MatchCreateServlet extends HttpServlet {
             return;
         }
         //接受表单信息，新建一个比赛
+        request.setCharacterEncoding("utf-8");
         String name = request.getParameter("name");
         String start = request.getParameter("start");
         String end = request.getParameter("end");
@@ -36,7 +37,7 @@ public class MatchCreateServlet extends HttpServlet {
             request.getRequestDispatcher("/index.jsp").forward(request,response);
         }else {
             request.setAttribute("msg","创建失败");
-            request.getRequestDispatcher("/matchcreate.jsp").forward(request,response);
+            request.getRequestDispatcher("/admin/matchcreate.jsp").forward(request,response);
         }
     }
 
