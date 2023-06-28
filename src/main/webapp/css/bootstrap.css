@@ -5772,3 +5772,6 @@ a.badge:hover {
 .affix {
   position: fixed;
 }
+.span12{
+  margin: 0 auto;
+}

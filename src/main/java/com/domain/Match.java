@@ -10,11 +10,12 @@ public class Match {
     private String Description;
     private String Theme;
     private int CategoryId;
+    private String Url;
 
     public Match() {
     }
 
-    public Match(int id, String name, Date start, Date end, String description, String theme, int categoryId) {
+    public Match(int id, String name, Date start, Date end, String description, String theme, int categoryId, String url) {
         Id = id;
         Name = name;
         Start = start;
@@ -22,6 +23,7 @@ public class Match {
         Description = description;
         Theme = theme;
         CategoryId = categoryId;
+        Url = url;
     }
 
     public int getId() {
@@ -78,5 +80,13 @@ public class Match {
 
     public void setCategoryId(int categoryId) {
         CategoryId = categoryId;
+    }
+
+    public String getUrl() {
+        return Url;
+    }
+
+    public void setUrl(String url) {
+        Url = url;
     }
 }

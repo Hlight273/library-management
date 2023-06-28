@@ -1,24 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Piccolo Theme</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- CSS
-    ================================================== -->
-    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="./css/bootstrap.css" />
-    <link rel="stylesheet" href="./css/bootstrap-responsive.css" />
-    <link rel="stylesheet" href="http://www.room122.com/demo/html/piccolo/css/jquery.lightbox-0.5.css" />
-    <link rel="stylesheet" href="./css/custom-styles.css" />
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <link rel="stylesheet" href="./css/style-ie.css" />
-    <![endif]-->
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
-<body>
 <!-- Footer Area
     ================================================== -->
 
@@ -62,18 +42,18 @@
             <div class="span3 footer-col">
                 <h5>Flickr Photos</h5>
                 <ul class="img-feed">
-                    <li><a href="#"><img src="./img/gallery/flickr-img-1.jpg" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="./img/gallery/flickr-img-2.jpg" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="./img/gallery/flickr-img-3.jpg" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="./img/gallery/flickr-img-4.jpg" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="./img/gallery/flickr-img-5.jpg" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="./img/gallery/flickr-img-6.jpg" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="./img/gallery/flickr-img-7.jpg" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="./img/gallery/flickr-img-8.jpg" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="./img/gallery/flickr-img-9.jpg" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="./img/gallery/flickr-img-10.jpg" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="./img/gallery/flickr-img-11.jpg" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="./img/gallery/flickr-img-12.jpg" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
                 </ul>
             </div>
         </div>
