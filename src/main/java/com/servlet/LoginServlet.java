@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
             //3.1登录成功 user对象写入Session 重定向
             request.getSession().setAttribute("user",user);
 //            response.sendRedirect(request.getContextPath() + "/IndexServlet");
-            response.sendRedirect(request.getContextPath() + "/MatchByUserServlet");
+            response.sendRedirect(request.getContextPath() + "/IndexServlet");
         }
         else{
             //3.2登录失败 重定向 登录页面

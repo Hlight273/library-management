@@ -22,4 +22,17 @@ public class MemberDao {
             return memberList;
         }
     }
+
+    //创建团队同时添加队员
+    public boolean add(int userId, int teamId ){
+        int affectRows = 0;
+        try {
+            String sql = "insert into member (UserId, TeamId) values(?,?)";
+            affectRows = template.update(sql, userId, teamId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return affectRows > 0;
+        }
+    }
 }
