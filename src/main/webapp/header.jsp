@@ -1,11 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: mllo
-  Date: 2023/6/27
-  Time: 14:48
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <html>
 <head>
     <title>Piccolo Theme</title>
@@ -43,16 +37,15 @@
 
             <ul class="nav">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="./index.htm.html">Home <b class="caret"></b></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="./index.htm.html">登录 <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="./index.htm.html">Full Page</a></li>
-                        <li><a href="./index-gallery.htm.html">Gallery Only</a></li>
-                        <li><a href="./index-slider.htm.html">Slider Only</a></li>
+                        <li><a href="${ctx}/LoginServlet">登录</a></li>
+                        <li><a href="${ctx}/LoginServlet">注册</a></li>
                     </ul>
                 </li>
                 <li><a href="./features.htm.html">Features</a></li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="./page-full-width.htm.html">Pages <b class="caret"></b></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="./page-full-width.htm.html">个人中心<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="./page-full-width.htm.html">Full Width</a></li>
                         <li><a href="./page-right-sidebar.htm.html">Right Sidebar</a></li>
@@ -61,7 +54,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="./gallery-4col.htm.html">Gallery <b class="caret"></b></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="./gallery-4col.htm.html">历史获奖<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="./gallery-3col.htm.html">Gallery 3 Column</a></li>
                         <li><a href="./gallery-4col.htm.html">Gallery 4 Column</a></li>
@@ -71,7 +64,7 @@
                     </ul>
                 </li>
                 <li class="dropdown active">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="./blog-style1.htm.html">Blog <b class="caret"></b></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="./blog-style1.htm.html">数据统计<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="./blog-style1.htm.html">Blog Style 1</a></li>
                         <li><a href="./blog-style2.htm.html">Blog Style 2</a></li>
