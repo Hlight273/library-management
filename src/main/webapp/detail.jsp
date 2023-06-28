@@ -41,23 +41,17 @@
                 <div class="span6">
                     <h2>竞赛名称</h2>
                     <p class="lead">简介</p>
-<%--                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. --%>
-<%--                        Nulla iaculis mattis lorem, quis gravida nunc iaculis ac. Proin tristique tellus --%>
-<%--                        in est vulputate luctus fermentum ipsum molestie. Vivamus tincidunt sem eu magna varius--%>
-<%--                        elementum. Maecenas felis tellus, fermentum vitae laoreet vitae, volutpat et urna. Nulla --%>
-<%--                        faucibus ligula eget ante varius ac euismod odio placerat. Nam sit amet felis non lorem faucibus --%>
-<%--                        rhoncus vitae id dui.</p>--%>
+                    <p>简介内容</p>
 
                     <ul class="project-info">
-                        <li><h6>开始日期:</h6></li>
-                        <li><h6>结束日期:</h6></li>
-                        <li><h6>主题:</h6></li>
+                        <li><h6>开始日期:</h6>时间</li>
+                        <li><h6>结束日期:</h6>时间</li>
+                        <li><h6>竞赛主题:</h6>主题</li>
 <%--                        <li><h6>Art Director:</h6> Jane Doe</li>--%>
 <%--                        <li><h6>Designer:</h6> Jimmy Doe</li>--%>
                     </ul>
-
-                    <button class="btn btn-inverse pull-left" type="button">报名参赛</button>
-                    <a href="#" class="pull-right"><i class="icon-arrow-left"></i>返回首页</a>
+                    <a href="#"><button class="btn btn-inverse pull-left" type="button">报名参赛</button></a>
+                    <a href="IndexServlet" class="pull-right"><i class="icon-arrow-left"></i>返回首页</a>
                 </div>
             </div>
         </div>
