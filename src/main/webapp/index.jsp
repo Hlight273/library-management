@@ -18,6 +18,51 @@
     <link rel="stylesheet" href="./css/style-ie.css" />
     <![endif]-->
 
+    <!-- Favicons
+================================================== -->
+    <link rel="shortcut icon" href="./img/favicon.ico" />
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="./img/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="./img/apple-touch-icon-114x114.png" />
+    <!-- JS
+================================================== -->
+    <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.flexslider.js"></script>
+    <script src="js/jquery.custom.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#btn-blog-next").click(function () {
+                $('#blogCarousel').carousel('next')
+            });
+            $("#btn-blog-prev").click(function () {
+                $('#blogCarousel').carousel('prev')
+            });
+
+            $("#btn-client-next").click(function () {
+                $('#clientCarousel').carousel('next')
+            });
+            $("#btn-client-prev").click(function () {
+                $('#clientCarousel').carousel('prev')
+            });
+
+        });
+
+        $(window).load(function(){
+
+            $('.flexslider').flexslider({
+                animation: "slide",
+                slideshow: true,
+                start: function(slider){
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+
+    </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
@@ -30,11 +75,11 @@
     <div class="span8">
         <div class="flexslider">
             <ul class="slides">
-                <li><a href="./gallery-single.htm.html"><img src="" alt="slider" /></a></li>
-                <li><a href="./gallery-single.htm.html"><img src="" alt="slider" /></a></li>
-                <li><a href="./gallery-single.htm.html"><img src="" alt="slider" /></a></li>
-                <li><a href="./gallery-single.htm.html"><img src="" alt="slider" /></a></li>
-                <li><a href="./gallery-single.htm.html"><img src="" alt="slider" /></a></li>
+                <li><a href="./gallery-single.htm.html"><img src="image/match/img.png" alt="slider" /></a></li>
+<%--                <li><a href="./gallery-single.htm.html"><img src="image/match/img_1.png" alt="slider" /></a></li>--%>
+<%--                <li><a href="./gallery-single.htm.html"><img src="image/match/img_2.png" alt="slider" /></a></li>--%>
+<%--                <li><a href="./gallery-single.htm.html"><img src="image/match/img_3.png" alt="slider" /></a></li>--%>
+<%--                <li><a href="./gallery-single.htm.html"><img src="image/match/img_4.png" alt="slider" /></a></li>--%>
             </ul>
         </div>
     </div>
