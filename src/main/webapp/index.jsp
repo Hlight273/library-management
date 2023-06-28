@@ -8,10 +8,10 @@
         <div class="flexslider">
             <ul class="slides">
                 <li><a href="./gallery-single.htm.html"><img src="image/match/img.png" alt="slider" /></a></li>
-<%--                <li><a href="./gallery-single.htm.html"><img src="image/match/img_1.png" alt="slider" /></a></li>--%>
-<%--                <li><a href="./gallery-single.htm.html"><img src="image/match/img_2.png" alt="slider" /></a></li>--%>
-<%--                <li><a href="./gallery-single.htm.html"><img src="image/match/img_3.png" alt="slider" /></a></li>--%>
-<%--                <li><a href="./gallery-single.htm.html"><img src="image/match/img_4.png" alt="slider" /></a></li>--%>
+                <%--                <li><a href="./gallery-single.htm.html"><img src="image/match/img_1.png" alt="slider" /></a></li>--%>
+                <%--                <li><a href="./gallery-single.htm.html"><img src="image/match/img_2.png" alt="slider" /></a></li>--%>
+                <%--                <li><a href="./gallery-single.htm.html"><img src="image/match/img_3.png" alt="slider" /></a></li>--%>
+                <%--                <li><a href="./gallery-single.htm.html"><img src="image/match/img_4.png" alt="slider" /></a></li>--%>
             </ul>
         </div>
     </div>
@@ -42,19 +42,19 @@
         <div class="row clearfix no-margin">
             <ul class="gallery-post-grid holder">
                 <c:forEach items="${matchList}" var="match">
-                    <li class="span3 gallery-item" data-id="id-1" data-type="illustration">
+                <li class="span3 gallery-item" data-id="id-1" data-type="illustration">
                         <span class="gallery-hover-4col hidden-phone hidden-tablet">
                             <span class="gallery-icons">
                                 <a href="${ctx}/${match.url}.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
                                 <a href="./gallery-single.htm.html" class="item-details-link"></a>
                             </span>
                         </span>
-                        <a href="./gallery-single.htm.html"><img src="image/work/${match.url}.jpg" alt="Gallery" /></a>
-                        <span class="project-details"><a href="./gallery-single.htm.html">Custom Illustration</a>For an international ad campaign.</span>
-                    </li>
+                    <a href="./gallery-single.htm.html"><img src="image/work/${match.url}.jpg" alt="Gallery" /></a>
+                    <span class="project-details"><a href="./gallery-single.htm.html">Custom Illustration</a>For an international ad campaign.</span>
+                </li>
                 </c:forEach>
-            </div>
-                <!-- Gallery Item 1 -->
+        </div>
+        <!-- Gallery Item 1 -->
     </div>
 </div><!-- End Gallery Row -->
 <%@ include file="footer.jsp"%>
