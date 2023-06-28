@@ -41,25 +41,25 @@
 
             <ul class="nav">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="./index.htm.html">Home <b class="caret"></b></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="./index.htm.html">首页 <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="./index.htm.html">Full Page</a></li>
-                        <li><a href="./index-gallery.htm.html">Gallery Only</a></li>
-                        <li><a href="./index-slider.htm.html">Slider Only</a></li>
+                        <li><a href="./index.htm.html">FULL PAGE</a></li>
+                        <li><a href="./index-gallery.htm.html">GALLERY ONLY</a></li>
+                        <li><a href="./index-slider.htm.html">SILDER ONLY</a></li>
                     </ul>
                 </li>
-                <li><a href="./features.htm.html">Features</a></li>
+                <li><a href="./features.htm.html">特征</a></li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="./page-full-width.htm.html">Pages <b class="caret"></b></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="./page-full-width.htm.html">页数 <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="./page-full-width.htm.html">Full Width</a></li>
-                        <li><a href="./page-right-sidebar.htm.html">Right Sidebar</a></li>
-                        <li><a href="./page-left-sidebar.htm.html">Left Sidebar</a></li>
-                        <li><a href="./page-double-sidebar.htm.html">Double Sidebar</a></li>
+                        <li><a href="./page-full-width.htm.html">FULL WIDTH</a></li>
+                        <li><a href="./page-right-sidebar.htm.html">RIGHT SIDEBAR</a></li>
+                        <li><a href="./page-left-sidebar.htm.html">LEFT SIDEBAR</a></li>
+                        <li><a href="./page-double-sidebar.htm.html">DOUBLE SIDEBAR</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="./gallery-4col.htm.html">Gallery <b class="caret"></b></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="./gallery-4col.htm.html">展览 <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="./gallery-3col.htm.html">Gallery 3 Column</a></li>
                         <li><a href="./gallery-4col.htm.html">Gallery 4 Column</a></li>
@@ -69,7 +69,7 @@
                     </ul>
                 </li>
                 <li class="dropdown active">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="./blog-style1.htm.html">Blog <b class="caret"></b></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="./blog-style1.htm.html">博客 <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="./blog-style1.htm.html">Blog Style 1</a></li>
                         <li><a href="./blog-style2.htm.html">Blog Style 2</a></li>
@@ -78,7 +78,7 @@
                         <li><a href="./blog-single.htm.html">Blog Single</a></li>
                     </ul>
                 </li>
-                <li><a href="./page-contact.htm.html">Contact</a></li>
+                <li><a href="./page-contact.htm.html">联系</a></li>
             </ul>
 
         </div>

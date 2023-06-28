@@ -29,11 +29,11 @@
     <div class="span8">
         <div class="flexslider">
             <ul class="slides">
-                <li><a href="./gallery-single.htm.html"><img src="./img/gallery/slider-img-3.jpg" alt="slider" /></a></li>
-                <li><a href="./gallery-single.htm.html"><img src="./img/gallery/slider-img-4.jpg" alt="slider" /></a></li>
-                <li><a href="./gallery-single.htm.html"><img src="./img/gallery/slider-img-5.jpg" alt="slider" /></a></li>
-                <li><a href="./gallery-single.htm.html"><img src="./img/gallery/slider-img-1.jpg" alt="slider" /></a></li>
-                <li><a href="./gallery-single.htm.html"><img src="./img/gallery/slider-img-2.jpg" alt="slider" /></a></li>
+                <li><a href="./gallery-single.htm.html"><img src="" alt="slider" /></a></li>
+                <li><a href="./gallery-single.htm.html"><img src="" alt="slider" /></a></li>
+                <li><a href="./gallery-single.htm.html"><img src="" alt="slider" /></a></li>
+                <li><a href="./gallery-single.htm.html"><img src="" alt="slider" /></a></li>
+                <li><a href="./gallery-single.htm.html"><img src="" alt="slider" /></a></li>
             </ul>
         </div>
     </div>
