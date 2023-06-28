@@ -38,6 +38,19 @@ public class MatchDao {
         }
     }
 
+    //获取全部
+    public List<Match> getAll(){
+        List<Match> matchList = null;
+        try {
+            String sql = "select * from `match` order by Start";
+            matchList = template.query(sql, new BeanPropertyRowMapper<>(Match.class));
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return matchList;
+        }
+    }
+
     //获取进行中的竞赛列表
     public List<Match> getCurrentList(){
         List<Match> matchList = null;
