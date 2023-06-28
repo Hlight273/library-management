@@ -76,7 +76,6 @@ public class MatchDao {
             return match;
         }
     }
-
     //获取竞赛列表，分类筛选 (若分类id为0则不筛选)
     public List<Match> getNewListByCategoryId(int category_id){
         List<Match> matchList = null;
