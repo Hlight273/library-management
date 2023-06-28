@@ -21,12 +21,13 @@ public class LoginServlet extends HttpServlet {
         if (user != null){
             //3.1登录成功 user对象写入Session 重定向
             request.getSession().setAttribute("user",user);
-            response.sendRedirect(request.getContextPath() + "/IndexServlet");
+//            response.sendRedirect(request.getContextPath() + "/IndexServlet");
+            response.sendRedirect(request.getContextPath() + "/MatchByUserServlet");
         }
         else{
             //3.2登录失败 重定向 登录页面
             request.setAttribute("msg","邮箱或密码错误！");
-            request.getRequestDispatcher("/login.jsp").forward(request,response);
+//            request.getRequestDispatcher("/login.jsp").forward(request,response);
         }
     }
 

@@ -53,7 +53,7 @@ public class MatchDao {
 
     //通过Id获取竞赛
     public Match getMatchById(int matchId){
-        Match match=null;
+        Match match=new Match();
         try {
             String sql = "select * from `match` where Id= ?  ";
             match = template.queryForObject(sql, new BeanPropertyRowMapper<>(Match.class), matchId);

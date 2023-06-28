@@ -53,7 +53,7 @@
                                         <%--输入用户名--%>
                                         <input type="text" name="email" placeholder="邮箱地址" value="${email}">
                                         <%--输入密码--%>
-                                        <input type="password" name="user-password" placeholder="密码">
+                                        <input type="password" name="pwd" placeholder="密码">
                                         <div class="button-box">
                                             <div class="login-toggle-btn">
                                                 <input type="checkbox">

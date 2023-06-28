@@ -13,6 +13,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "MatchByUserServlet", value = "/MatchByUserServlet")
@@ -22,19 +23,24 @@ public class MatchByUserServlet extends HttpServlet {
         User user= (User) request.getSession().getAttribute("user");
         MemberDao memberDao=new MemberDao();
         TeamDao teamDao=new TeamDao();
-        List<Team> teamList=null;
+        ArrayList<Team> teamList=new ArrayList<>();
         MatchDao matchDao=new MatchDao();
-        List<Match> matchList=null;
+        ArrayList<Match> matchList=new ArrayList<>();
+        //获得某人参与的成员列表
         List<Member> memberList=memberDao.getMemberByUserId(user.getId());
-        for (Member member : memberList) {
-            teamList.add(teamDao.getTeamById(member.getTeamId()));
+        //通过成员列表中teamID获得某人参与的团队列表
+        for (int i=0; i < memberList.size(); i++) {
+            teamList.add(teamDao.getTeamById(memberList.get(i).getTeamId()));
+
         }
-        for (Team team : teamList) {
-            matchList.add(matchDao.getMatchById(team.getMatchId()));
+        //通过团队列表中teamID获得某人参与的竞赛列表
+        for (int i=0; i < teamList.size(); i++) {
+            matchList.add(matchDao.getMatchById(teamList.get(i).getMatchId()));
+
         }
         request.getSession().setAttribute("teamList",teamList);
         request.getSession().setAttribute("matchList",matchList);
-        response.sendRedirect(request.getContextPath() + "/fineList.jsp");
+        response.sendRedirect(request.getContextPath() + "/detail.jsp");
     }
 
     @Override

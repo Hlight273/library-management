@@ -28,8 +28,7 @@ public class UserDao {
             //1.编写sql
             String sql = "select * from user where Email = ? and Pwd = ?";
             //2.调用query方法
-            user = template.queryForObject(sql, new BeanPropertyRowMapper<User>
-                    (User.class), email,pwd);
+            user = template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), email,pwd);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
