@@ -109,18 +109,20 @@
 
         <div class="row clearfix no-margin">
             <ul class="gallery-post-grid holder">
-
-                <!-- Gallery Item 1 -->
-                <li class="span3 gallery-item" data-id="id-1" data-type="illustration">
+                <c:forEach items="matchList" var="match">
+                    <li class="span3 gallery-item" data-id="id-1" data-type="illustration">
                         <span class="gallery-hover-4col hidden-phone hidden-tablet">
                             <span class="gallery-icons">
-                                <a href="./img/gallery/gallery-img-1-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
+                                <a href="${ctx}/${match.url}.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
                                 <a href="./gallery-single.htm.html" class="item-details-link"></a>
                             </span>
                         </span>
-                    <a href="./gallery-single.htm.html"><img src="./img/gallery/gallery-img-1-4col.jpg" alt="Gallery" /></a>
-                    <span class="project-details"><a href="./gallery-single.htm.html">Custom Illustration</a>For an international ad campaign.</span>
-                </li>
+                        <a href="./gallery-single.htm.html"><img src="image/work/${match.url}.jpg" alt="Gallery" /></a>
+                        <span class="project-details"><a href="./gallery-single.htm.html">Custom Illustration</a>For an international ad campaign.</span>
+                    </li>
+                </c:forEach>
+                <!-- Gallery Item 1 -->
+
 
                 <!-- Gallery Item 2 -->
                 <li class="span3 gallery-item" data-id="id-2" data-type="illustration">
