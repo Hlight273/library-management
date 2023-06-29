@@ -24,6 +24,19 @@ public class TeamDao {
         }
     }
 
+    //通过userId和teamId
+    public  Team  getTeamByUserIdAdnMatchId(int userId, int matchId){
+        Team team =new Team();
+        try {
+            String sql = "select * from team where Id = ? and MatchId = ?";
+            team = template.queryForObject(sql, new BeanPropertyRowMapper<>(Team.class),userId,matchId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return team;
+        }
+    }
+
     //创建团队成功时返回TeamId
     public int add(String teamName, String description, int matchId){
         int affectRows = 0;
