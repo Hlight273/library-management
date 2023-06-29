@@ -47,7 +47,7 @@ public class ApplicationServlet extends HttpServlet {
         }
         for (int i=0; i < matchList.size(); i++) {
             if(matchList.get(i).getId()==matchId){
-                if(teamList.get(i).getUserId()== user.getId()) {
+                if(teamList.get(i).getCaptainId()== user.getId()) {
                     captainFlag = true;
                     request.setAttribute("msg","已作为队长报名参赛！");
                     request.getRequestDispatcher("/detail.jsp").forward(request,response);
