@@ -1,7 +1,9 @@
 package com.servlet;
 
 import com.dao.CategoryDao;
+import com.dao.MatchDao;
 import com.domain.Category;
+import com.domain.Match;
 import com.domain.User;
 
 import javax.servlet.*;
@@ -20,11 +22,22 @@ public class MatchServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/login.jsp");
             return;
         }
-        //要发布比赛要进这个页面，传一个分类列表到管理员编辑发布页
+        String id = request.getParameter("id");
+        MatchDao matchDao = new MatchDao();
+        Match match;
         CategoryDao categoryDao = new CategoryDao();
         List<Category> categoryList = categoryDao.getList();
         request.setAttribute("categoryList",categoryList);
-        request.getRequestDispatcher("/admin/matchcreate.jsp").forward(request,response);
+        //如果url中有match的id，说明是编辑竞赛
+        if (id!=null){
+            match = matchDao.getMatchById(Integer.parseInt(id));
+            request.setAttribute("match",match);
+            request.getRequestDispatcher("/admin/matchedit.jsp").forward(request,response);
+        }
+        //如果url中没match_id，说明是创建竞赛
+        else{
+            request.getRequestDispatcher("/admin/matchcreate.jsp").forward(request,response);
+        }
     }
 
     @Override

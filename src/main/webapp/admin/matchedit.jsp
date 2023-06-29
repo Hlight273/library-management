@@ -7,23 +7,23 @@
     <h3 class="cart-page-title">competition</h3>
     <div class="col-lg-7">
       <div class="billing-info-wrap">
-        <h3>发布新竞赛</h3>
+        <h3>编辑竞赛</h3>
 
         <div class="card-footer text-center" style="text-align: center">
           <span style="color: red">${msg}</span>
         </div>
 
-        <form id="paramForm" action="${ctx}/MatchCreateServlet" method="post">
+        <form id="paramForm" action="${ctx}/MatchEditServlet" method="post">
           <div class="col-lg-6 col-md-6">
             <div class="billing-info mb-20px">
               <label>竞赛名称</label>
-              <input type="text" name="name" id="name"><br>
+              <input type="text" name="name" id="name" value="${match.name}"><br>
             </div>
           </div>
           <div class="col-lg-6 col-md-6">
             <div class="billing-info mb-20px">
               <label>海报主题</label>
-              <input type="text" name="theme" id="theme"><br>
+              <input type="text" name="theme" id="theme" value="${match.theme}"><br>
             </div>
           </div>
           <div class="col-lg-6 col-md-6">
@@ -44,27 +44,28 @@
           <div class="col-lg-6 col-md-6" style="width: 50%;float:left">
             <div class="billing-info mb-20px">
               <label>举办时间</label>
-              <input type="date" name="start" class="datebox">
-              <input type="date" name="end" class="datebox">
+              <input type="date" name="start" value="${match.getDateString(match.start)}" class="datebox">
+              <input type="date" name="end" value="${match.getDateString(match.end)}" class="datebox">
             </div>
           </div>
           <div class="col-lg-6 col-md-6" style="width: 25%;float:left">
             <div class="billing-info mb-20px">
               <label>报名截止时间</label>
-              <input type="date" name="applicationend">
+              <input type="date" name="applicationend" value="${match.getDateString(match.applicationEnd)}">
             </div>
           </div>
           <div class="col-lg-6 col-md-6">
             <div class="billing-info mb-20px">
               <label>竞赛描述</label>
-              <textarea name="description" rows="4" ></textarea><br>
+              <textarea name="description" rows="4">${match.description}</textarea><br>
             </div>
           </div>
 
-          <input type="hidden" name="url" id="url">
-          <button class="btn btn-inverse" type="submit">发布竞赛</button>
-        </form>
+          <input type="hidden" name="url" id="url" value="${match.url}">
+          <input type="hidden" name="id" id="id" value="${match.id}">
 
+          <button class="btn btn-inverse" type="submit">修改竞赛</button>
+        </form>
         <form id="uploadForm" method="post">
           <div class="col-lg-6 col-md-6">
             <div class="billing-info mb-20px">
@@ -73,9 +74,8 @@
               <input type="button" id="uploadBtn" value="上传">
             </div>
           </div>
-          <img src="" id="img" alt="图片预览" width="200">
+          <img src="${ctx}/image/${match.url}" id="img" alt="图片预览" width="200">
         </form>
-
       </div>
     </div>
   </div>
@@ -110,8 +110,6 @@
 <script type="text/javascript">
   //使用Ajax请求上传宠物图片，页面不刷新
   $(document).ready(function (){
-    //图片预览默认隐藏
-    $('#img').hide();
     $('#uploadBtn').click(function (){
       let formData = new FormData($('#uploadForm')[0]);//获取封装表单数据
       $.ajax({
@@ -122,7 +120,7 @@
         processData: false,              //文件上传时需设置processData=false
         success: function (returnData){  //returnData是FileUploadServlet返回的字符串，内容为宠物图片的新文件名
           $('span.text-danger').text("图片上传成功");      //显示提示信息
-          $('#img').show().prop('src','${ctx}/image/'+returnData); //预览上传图片
+          $('#img').prop('src','${ctx}/image/'+returnData); //预览上传图片
           $('#url').val(returnData);                       //表单隐藏元素photo的值设置为新文件名
         },error:function (returnData){
           $('span.text-danger').text("图片上传失败");
@@ -132,3 +130,4 @@
   })
 </script>
 <%@ include file="/footer.jsp"%>
+
