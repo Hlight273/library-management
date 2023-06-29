@@ -10,18 +10,8 @@
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="./css/bootstrap.css" />
     <link rel="stylesheet" href="./css/bootstrap-responsive.css" />
-        <link rel="stylesheet" href="http://www.room122.com/demo/html/piccolo/css/jquery.lightbox-0.5.css" />
+<%--        <link rel="stylesheet" href="http://www.room122.com/demo/html/piccolo/css/jquery.lightbox-0.5.css" />--%>
     <link rel="stylesheet" href="./css/custom-styles.css" />
-    <link rel="stylesheet" href="./css/style-ie.css" />
-    <link rel="stylesheet" href=./css/vendor.min.css">
-    <link rel="stylesheet" href="./css/plugins.min.css">
-    <link rel="stylesheet" href="./css/style.min.css">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-
-    <![endif]-->
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <div class="row header">
@@ -41,7 +31,7 @@
                 <c:if test="${user.isAdmin()}">
                     <li><a href="${ctx}/MatchServlet">发布竞赛</a></li>
                 </c:if>
-                <li><a href="${ctx}/MatchByUserServlet">往届竞赛</a></li>
+                <li><a href="${ctx}/MatchListServlet">往届竞赛</a></li>
                 <c:if test="${empty user}">
                     <li class="active"><a href="${ctx}/LoginServlet">请登录！</a></li>
                 </c:if>
@@ -50,11 +40,8 @@
                         <c:if test="${!user.isAdmin()}">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchByUserServlet">个人中心<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="${ctx}/MatchByUserServlet">历史竞赛</a></li>
+                                <li><a href="${ctx}/MatchByUserServlet">我的竞赛</a></li>
                                 <li><a href="${ctx}/LogoutServlet">退出登录</a></li>
-                                <c:if test="${user.isAdmin()}">
-                                    <li><a href="./gallery-single.htm.html">管理员</a></li>>
-                                </c:if>
                             </ul>
                         </c:if>
                         <c:if test="${user.isAdmin()}">
