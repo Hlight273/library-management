@@ -48,6 +48,9 @@
                             <ul class="dropdown-menu">
                                 <li><a href="${ctx}/MatchByUserServlet">历史竞赛</a></li>
                                 <li><a href="${ctx}/LogoutServlet">退出登录</a></li>
+                                <c:if test="${user.isAdmin()}">
+                                    <li><a href="./gallery-single.htm.html">管理员</a></li>>
+                                </c:if>
                             </ul>
                         </c:if>
                         <c:if test="${user.isAdmin()}">
