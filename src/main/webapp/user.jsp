@@ -1,6 +1,6 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ include file="header.jsp"%>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/magnific-popup.css">
 <link rel="stylesheet" href="css/animate.css">
@@ -197,6 +197,4 @@
 </div>
 <script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/user.js"></script>
-</body>
-</html>
 <%@ include file="footer.jsp"%>
