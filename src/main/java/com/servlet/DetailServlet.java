@@ -26,6 +26,9 @@ public class DetailServlet extends HttpServlet {
            List<Team> teamList = teamDao.getTeamByMatchId(matchId);
             request.getSession().setAttribute("teamList",teamList);
         }
+        else{
+            Team teamList = teamDao.getTeamByUserIdAdnMatchId(user.getId(),matchId);
+        }
         response.sendRedirect(request.getContextPath() + "/detail.jsp");
 }
 

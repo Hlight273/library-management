@@ -16,7 +16,7 @@ public class EditPwdServlet extends HttpServlet {
         if(user==null){
             response.sendRedirect(request.getContextPath() + "/login.jsp");
         }
-        String pwd = request.getParameter("pwd");
+        String pwd = request.getParameter("oldpwd");
         String newpwd = request.getParameter("newpwd");
         UserDao userDao = new UserDao();
         userDao.setPwd(user.getId(),pwd,newpwd);
