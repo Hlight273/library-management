@@ -54,6 +54,9 @@ $(function() {
         if(pwd1!=pwd2){
             $('.pwd-msg').show();
         }
+        else {
+            $('.pwd-msg').hide();
+        }
     })
     $('.input2').hover(function (){
         $(this).children('input').addClass('colorchange1');
