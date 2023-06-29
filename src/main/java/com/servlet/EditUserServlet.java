@@ -12,6 +12,7 @@ import java.io.IOException;
 public class EditUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         User user = (User) request.getSession().getAttribute("user");
         if(user==null){
             response.sendRedirect(request.getContextPath() + "/login.jsp");
