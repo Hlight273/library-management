@@ -31,7 +31,7 @@
                 <c:if test="${user.isAdmin()}">
                     <li><a href="${ctx}/MatchServlet">发布竞赛</a></li>
                 </c:if>
-                <li><a href="${ctx}/MatchByUserServlet">往届竞赛</a></li>
+                <li><a href="${ctx}/MatchListServlet">往届竞赛</a></li>
                 <c:if test="${empty user}">
                     <li class="active"><a href="${ctx}/LoginServlet">请登录！</a></li>
                 </c:if>
