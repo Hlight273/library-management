@@ -1,5 +1,7 @@
 package com.domain;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Match {
@@ -11,11 +13,12 @@ public class Match {
     private String Theme;
     private int CategoryId;
     private String Url;
+    private Date ApplicationEnd;
 
     public Match() {
     }
 
-    public Match(int id, String name, Date start, Date end, String description, String theme, int categoryId, String url) {
+    public Match(int id, String name, Date start, Date end, String description, String theme, int categoryId, String url, Date applicationEnd) {
         Id = id;
         Name = name;
         Start = start;
@@ -24,6 +27,7 @@ public class Match {
         Theme = theme;
         CategoryId = categoryId;
         Url = url;
+        ApplicationEnd = applicationEnd;
     }
 
     public int getId() {
@@ -90,8 +94,45 @@ public class Match {
         Url = url;
     }
 
+    public Date getApplicationEnd() {
+        return ApplicationEnd;
+    }
+
+    public void setApplicationEnd(Date applicationEnd) {
+        ApplicationEnd = applicationEnd;
+    }
+
+    @Override
+    public String toString() {
+        return "Match{" +
+                "Id=" + Id +
+                ", Name='" + Name + '\'' +
+                ", Start=" + Start +
+                ", End=" + End +
+                ", Description='" + Description + '\'' +
+                ", Theme='" + Theme + '\'' +
+                ", CategoryId=" + CategoryId +
+                ", Url='" + Url + '\'' +
+                ", ApplicationEnd=" + ApplicationEnd +
+                '}';
+    }
+
+    /**
+     *
+     * @return 返回今天是否处于竞赛期间
+     */
     public boolean isNow(){
         Date now = new Date();
         return  this.getEnd().before(now);
+    }
+
+    /**
+     *
+     * @param date date类型的日期
+     * @return 返回日期的字符串形式，适配input:date的value
+     */
+    public String getDateString(Date date){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return dateFormat.format(date);
     }
 }
