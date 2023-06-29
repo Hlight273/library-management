@@ -1795,9 +1795,9 @@ h3.leave-comment-text {
 
 
 .select-menu{
-    width: 1200px;
+    width: 743px;
     height: 200px;
-    /*margin-right: 300px;*/
+    margin: 0 auto;
 }
 .select-menu ul{
     margin-right: 100px;
