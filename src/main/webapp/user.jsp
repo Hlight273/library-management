@@ -1,30 +1,19 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="ctx" value="${pageContext.request.contextPath}" />
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Home</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Favicon -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/et-line-icon.css">
+<link rel="stylesheet" href="css/bicon.min.css">
+<link rel="stylesheet" href="css/slick.css">
+<link rel="stylesheet" href="css/meanmenu.min.css">
+<link rel="stylesheet" href="css/bundle.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/style.css">
 
-  <!-- all css here -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/magnific-popup.css">
-  <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/et-line-icon.css">
-  <link rel="stylesheet" href="css/bicon.min.css">
-  <link rel="stylesheet" href="css/slick.css">
-  <link rel="stylesheet" href="css/meanmenu.min.css">
-  <link rel="stylesheet" href="css/bundle.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
 
 <div class="causes-area pt-120 pb-90">
   <div class="select-menu">
@@ -210,3 +199,4 @@
 <script src="js/user.js"></script>
 </body>
 </html>
+<%@ include file="footer.jsp"%>
