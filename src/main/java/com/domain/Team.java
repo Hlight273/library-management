@@ -1,5 +1,9 @@
 package com.domain;
 
+import com.dao.WorkDao;
+
+import java.util.List;
+
 public class Team {
     private int id;
     private String name;
@@ -9,12 +13,12 @@ public class Team {
     private int lv;
     private String description;
     private int matchId;
-    private int userId;
+    private int captainId;
 
     public Team() {
     }
 
-    public Team(int id, String name, int isDelete, String workName, int like, int lv, String description, int matchId, int userId) {
+    public Team(int id, String name, int isDelete, String workName, int like, int lv, String description, int matchId, int captainId) {
         this.id = id;
         this.name = name;
         this.isDelete = isDelete;
@@ -23,7 +27,7 @@ public class Team {
         this.lv = lv;
         this.description = description;
         this.matchId = matchId;
-        this.userId = userId;
+        this.captainId = captainId;
     }
 
     public int getId() {
@@ -90,11 +94,16 @@ public class Team {
         this.matchId = matchId;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getCaptainId() {
+        return captainId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setCaptainId(int captainId) {
+        this.captainId = captainId;
+    }
+
+    public List<Work> getWorkList(){
+        WorkDao workDao = new WorkDao();
+        return workDao.getWorkListByteamId(this.id);
     }
 }
