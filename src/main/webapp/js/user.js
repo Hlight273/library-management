@@ -6,6 +6,7 @@ $(function() {
         $('.container').hide();
         $('.container:eq(0)').show();
         $('.container:eq(1)').show();
+        $('.pwd-msg').hide();
     })
 
     $('.colorchange').hover(function (){
@@ -15,7 +16,7 @@ $(function() {
         $(this).removeClass('colorchange1');
     })
     $('.cansai').hover(function (){
-        $('.cansai').children('li').show();
+        $('.cansai').children('li').show(200);
     })
     $('.cansai').mouseleave(function (){
         $('.cansai').children('li').hide();
@@ -47,8 +48,14 @@ $(function() {
         $('.container:eq(3)').show();
     })
 
+    $('.newpwd2').change(function (){
+        var pwd1=$('.newpwd').val()
+        var pwd2=$('.newpwd2').val()
+        if(pwd1!=pwd2){
+            $('.pwd-msg').show();
+        }
+    })
     $('.input2').hover(function (){
-        $(this).addClass('colorchange1');
-        console.log(1)
+        $(this).children('input').addClass('colorchange1');
     })
 });
