@@ -1,18 +1,19 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp"%>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/magnific-popup.css">
-<link rel="stylesheet" href="css/animate.css">
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/font-awesome.min.css">
-<link rel="stylesheet" href="css/et-line-icon.css">
-<link rel="stylesheet" href="css/bicon.min.css">
-<link rel="stylesheet" href="css/slick.css">
-<link rel="stylesheet" href="css/meanmenu.min.css">
+<%--<link rel="stylesheet" href="css/bootstrap.min.css">--%>
+<%--<link rel="stylesheet" href="css/magnific-popup.css">--%>
+<%--<link rel="stylesheet" href="css/animate.css">--%>
+<%--<link rel="stylesheet" href="css/owl.carousel.min.css">--%>
+<%--<link rel="stylesheet" href="css/font-awesome.min.css">--%>
+<%--<link rel="stylesheet" href="css/et-line-icon.css">--%>
+<%--<link rel="stylesheet" href="css/bicon.min.css">--%>
+<%--<link rel="stylesheet" href="css/slick.css">--%>
+<%--<link rel="stylesheet" href="css/meanmenu.min.css">--%>
 <link rel="stylesheet" href="css/bundle.css">
-<link rel="stylesheet" href="css/responsive.css">
+<%--<link rel="stylesheet" href="css/responsive.css">--%>
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/user.css">
 
 
 <div class="causes-area ">
@@ -31,130 +32,64 @@
       </ul>
     </table>
   </div>
-
-
-
-
-
   <!--往届竞赛-->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-sm-4">
-        <div class="single-causes mb-30">
-          <a href="causes.html"><img src="assets/img/causes/1.jpg" alt="" /></a>
-          <div class="causes-info">
-            <h3><a href="#">往届竞赛</a></h3>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some.</p>
-            <div class="causes-meta">
-              <div class="doller-target f-left">
-                <h4>Fill Up : <span>$25,000</span></h4>
+  <div class="user-row container">
+    <c:forEach items="${matchList}" var="match">
+      <c:if test="${!match.isNow()}">
+        <div class="row-content">
+          <div class="">
+            <a href="${ctx}/UserDetailServlet?matchId=${match.id}"><img src="${ctx}/image/${match.url}" alt="${match.name}"/></a>
+            <div class="match-msg">
+              <h3><a href="${ctx}/UserDetailServlet?matchId=${match.id}">${match.name}</a></h3>
+              <p>${match.description}</p>
+              <div class="causes-meta">
+                <div class="">
+                  <h4>开始日期<span>${match.start}</span></h4>
+                </div>
+                <div class="">
+                  <h4>结束日期 <span>${match.end}</span></h4>
+                </div>
+                <div class="">
+                  <h4>报名截止日期 <span>${match.applicationEnd}</span></h4>
+                </div>
               </div>
-              <div class="doller-target f-right">
-                <h4>Target : <span>$30,000</span></h4>
-              </div>
+              <a class="button theme-bg" href="${ctx}/UserDetailServlet?matchId=${match.id}">了解更多</a>
             </div>
-            <a class="button theme-bg" href="causes.html">Read More</a>
           </div>
         </div>
-      </div>
-      <div class="col-md-4 col-sm-4">
-        <div class="single-causes mb-30">
-          <a href="causes.html"><img src="assets/img/causes/2.jpg" alt="" /></a>
-          <div class="causes-info">
-            <h3><a href="#">Clean Watter</a></h3>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some.</p>
-            <div class="causes-meta">
-              <div class="doller-target f-left">
-                <h4>Fill Up : <span>$33,000</span></h4>
-              </div>
-              <div class="doller-target f-right">
-                <h4>Target : <span>$50,000</span></h4>
-              </div>
-            </div>
-            <a class="button theme-bg" href="causes.html">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-4">
-        <div class="single-causes mb-30">
-          <a href="causes.html"><img src="assets/img/causes/3.jpg" alt="" /></a>
-          <div class="causes-info">
-            <h3><a href="#">Education Help</a></h3>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some.</p>
-            <div class="causes-meta">
-              <div class="doller-target f-left">
-                <h4>Fill Up : <span>$43,000</span></h4>
-              </div>
-              <div class="doller-target f-right">
-                <h4>Target : <span>$70,000</span></h4>
-              </div>
-            </div>
-            <a class="button theme-bg" href="causes.html">Read More</a>
-          </div>
-        </div>
-      </div>
-    </div>
+      </c:if>
+    </c:forEach>
   </div>
 
   <!--新竞赛-->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-sm-4">
-        <div class="single-causes mb-30">
-          <a href="causes.html"><img src="assets/img/causes/1.jpg" alt="" /></a>
-          <div class="causes-info">
-            <h3><a href="#">竞赛中</a></h3>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some.</p>
+  <div class="user-row container">
+    <c:forEach items="${matchList}" var="match">
+      <c:if test="${match.isNow()}">
+      <div class="row-content">
+        <div class="">
+          <a href="${ctx}/UserDetailServlet?matchId=${match.id}"><img src="${ctx}/image/${match.url}" alt="${match.name}"/></a>
+          <div class="match-msg">
+            <h3><a href="${ctx}/UserDetailServlet?matchId=${match.id}">${match.name}</a></h3>
+            <p>${match.description}</p>
             <div class="causes-meta">
-              <div class="doller-target f-left">
-                <h4>Fill Up : <span>$25,000</span></h4>
+              <div class="">
+                <h4>开始日期<span>${match.start}</span></h4>
               </div>
-              <div class="doller-target f-right">
-                <h4>Target : <span>$30,000</span></h4>
+              <div class="">
+                <h4>结束日期 <span>${match.end}</span></h4>
+              </div>
+              <div class="">
+                <h4>报名截止日期 <span>${match.applicationEnd}</span></h4>
               </div>
             </div>
-            <a class="button theme-bg" href="causes.html">Read More</a>
+            <a class="button theme-bg" href="${ctx}/UserDetailServlet?matchId=${match.id}">了解更多</a>
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-sm-4">
-        <div class="single-causes mb-30">
-          <a href="causes.html"><img src="assets/img/causes/2.jpg" alt="" /></a>
-          <div class="causes-info">
-            <h3><a href="#">Clean Watter</a></h3>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some.</p>
-            <div class="causes-meta">
-              <div class="doller-target f-left">
-                <h4>Fill Up : <span>$33,000</span></h4>
-              </div>
-              <div class="doller-target f-right">
-                <h4>Target : <span>$50,000</span></h4>
-              </div>
-            </div>
-            <a class="button theme-bg" href="causes.html">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-4">
-        <div class="single-causes mb-30">
-          <a href="causes.html"><img src="assets/img/causes/3.jpg" alt="" /></a>
-          <div class="causes-info">
-            <h3><a href="#">Education Help</a></h3>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some.</p>
-            <div class="causes-meta">
-              <div class="doller-target f-left">
-                <h4>Fill Up : <span>$43,000</span></h4>
-              </div>
-              <div class="doller-target f-right">
-                <h4>Target : <span>$70,000</span></h4>
-              </div>
-            </div>
-            <a class="button theme-bg" href="causes.html">Read More</a>
-          </div>
-        </div>
-      </div>
-    </div>
+      </c:if>
+    </c:forEach>
   </div>
+</div>
 
   <!--用户中心-->
   <div class="container">
@@ -199,4 +134,3 @@
 </div>
 <script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/user.js"></script>
-<%@ include file="footer.jsp"%>

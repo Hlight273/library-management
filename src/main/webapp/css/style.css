@@ -1794,53 +1794,6 @@ h3.leave-comment-text {
 
 
 
-.select-menu{
-    width: 683px;
-    height: 100px;
-    margin: 0 auto;
-}
-.select-menu ul{
-    margin-right: 100px;
-    font-size: 25px;
-}
-.select-menu ul li{
-    height: 25px;
-    /*margin-top: 10px;*/
-}
-.container{
-    width: 1000px;
-    height: 500px;
-}
-.container .input{
-    margin-left: 200px;
-}
-.container .input input{
-    height: 40px;
-    width: 70%;
-
-}
-.colorchange1{
-    background-color: #f3be86;
-}
-.input{
-    font-size: 20px;
-    margin-top: 30px;
-}
-.input2 input{
-    width: 126px;
-    height: 46px;
-    margin-top: 50px;
-    background-color: #baf0ff;
-    font-size: 20px;
-    margin-left: 200px;
-}
-.pwd-msg p{
-    color: red;
-    font-size: 20px;
-}
-
-
-
 
 
 

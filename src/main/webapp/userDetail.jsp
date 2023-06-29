@@ -14,7 +14,7 @@
 
             <div class="row">
                 <div class="span6">
-                    <img src="" class="align-left thumbnail" alt="image" />
+                    <img src="${ctx}/image/${match.url}" class="align-left thumbnail" alt="image" />
                 </div>
                 <div class="span6">
                     <h2>竞赛名称</h2>${match.name}
@@ -32,21 +32,38 @@
             </div>
 
             <c:if test="${!user.isAdmin()}">
-                <c:forEach items="${teamList}" var="work">
-
-                </c:forEach>
+                <table>
+                    <c:forEach items="${teamList}" var="team">
+                        <tr>
+                            <td>
+                                <p>${team.name}</p>
+                                <p>${team.workName}</p>
+                            </td>
+                            <td>
+                                <c:forEach items="${team.getWorkList()}" var="work">
+                                    <img src="${ctx}/image/${work.url}" width="50px" height="50px">
+                                </c:forEach>
+                            </td>
+                            <td>
+                                <a href="#"><button class="btn btn-inverse pull-left" type="button">提交作品</button></a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
             </c:if>
+
+
             <c:if test="${user.isAdmin()}">
                 <table>
                     <c:forEach items="${teamList}" var="team">
                         <tr>
                             <td>
-                                <p>${team.id}</p>
                                 <p>${team.name}</p>
+                                <p>${team.workName}</p>
                             </td>
                             <td>
-                                <c:forEach items="${workList}" var="work">
-                                    <img src="${work.url}" width="50px" height="50px">
+                                <c:forEach items="${team.getWorkList()}" var="work">
+                                    <img src="${ctx}/image/${work.url}" width="50px" height="50px">
                                 </c:forEach>
                             </td>
                             <td>
