@@ -4,7 +4,6 @@ $(function() {
         $('.cansai').children('li').hide();
         $('.cansai').children('li:first').show();
         $('.container').hide();
-        $('.container:eq(0)').show();
         $('.container:eq(1)').show();
         $('.pwd-msg').hide();
     })
