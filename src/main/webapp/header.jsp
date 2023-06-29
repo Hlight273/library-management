@@ -16,8 +16,8 @@
 <body>
 <div class="row header">
     <div class="span5 logo">
-        <a href="./index.htm.html"><img src="./img/piccolo-logo.png" alt="" /></a>
-        <h5>Big Things... Small Packages</h5>
+        <a href="./index.htm.html"><img src="image/logo.jpg" alt="" /></a>
+<%--        <h5>Big Things... Small Packages</h5>--%>
     </div>
 
     <div class="span7 navigation">

@@ -5775,3 +5775,6 @@ a.badge:hover {
 .span12{
   margin: 0 auto;
 }
+.logo img{
+  height: 50px;
+}
