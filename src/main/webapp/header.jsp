@@ -10,12 +10,16 @@
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="./css/bootstrap.css" />
     <link rel="stylesheet" href="./css/bootstrap-responsive.css" />
-    <%--    <link rel="stylesheet" href="http://www.room122.com/demo/html/piccolo/css/jquery.lightbox-0.5.css" />--%>
+        <link rel="stylesheet" href="http://www.room122.com/demo/html/piccolo/css/jquery.lightbox-0.5.css" />
     <link rel="stylesheet" href="./css/custom-styles.css" />
+    <link rel="stylesheet" href="./css/style-ie.css" />
+    <link rel="stylesheet" href=./css/vendor.min.css">
+    <link rel="stylesheet" href="./css/plugins.min.css">
+    <link rel="stylesheet" href="./css/style.min.css">
 
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <link rel="stylesheet" href="../css/style-ie.css" />
+
     <![endif]-->
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>

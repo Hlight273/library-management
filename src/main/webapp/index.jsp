@@ -27,16 +27,29 @@
             <a href="#"><i class="icon-plus-sign"></i>Read More</a>
         </div>
     </div><!-- End Headline -->
-
     <%--参赛作品部分--%>
     <div class="row gallery-row"><!-- Begin Gallery Row -->
-
         <div class="span12">
             <h5 class="title-bg">Recent Work
                 <small>That we are most proud of</small>
                 <button class="btn btn-mini btn-inverse hidden-phone" type="button">View Portfolio</button>
             </h5>
 
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+                <li><a href="#profile" data-toggle="tab">Profile</a></li>
+                <li><a href="#messages" data-toggle="tab">Messages</a></li>
+                <li><a href="#settings" data-toggle="tab">Settings</a></li>
+            </ul>
+            <!-- Right Side Start -->
+            <div class="select-shoing-wrap d-flex align-items-center">
+                <div class="shop-select">
+                    <form action="SearchServlet" method="post">
+                        <input type="text" placeholder="输入您要搜索的书籍" class="shop-sort" name="key">
+                    </form>
+                </div>
+            </div>
+            <!-- Right Side End -->
             <!-- Gallery Thumbnails
             ================================================== -->
 
