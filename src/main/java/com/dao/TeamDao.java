@@ -27,18 +27,18 @@ public class TeamDao {
     //创建团队成功时返回TeamId
     public int add(String teamName, String description, int matchId){
         int affectRows = 0;
-        int teamId = 0;
+        Team team = null;
         try {
-            String sql = "insert into team (Name, isDelete, WorkName, Like, LV, Description, MatchId) values(?,0,'暂无',0,0,?,?)";
+            String sql = "insert into team (Name, isDelete, WorkName,  `Like`, LV, Description, MatchId) values(?,0,'暂无',0,0,?,?)";
             affectRows = template.update(sql,teamName, description, matchId);
             if(affectRows > 0){
-                String sql1 = "select Id from team where TeamName = ? and MatchId = ?";
-                teamId = template.queryForObject(sql1, new BeanPropertyRowMapper<>(int.class),teamName, matchId);
+                String sql1 = "select * from team where Name = ? and MatchId = ?";
+                team =  template.queryForObject(sql1, new BeanPropertyRowMapper<>(Team.class),teamName, matchId);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            return teamId;
+            return team.getId();
         }
     }
 

@@ -55,7 +55,7 @@ public class ApplicationServlet extends HttpServlet {
             request.setAttribute("msg","团队名重复！");
             request.getRequestDispatcher("/application.jsp").forward(request,response);
         }
-        int teamId = teamDao.add( teamName, description, matchId);
+        int teamId = teamDao.add(teamName, description, matchId);
         if (teamId != 0) {
             memberDao.add(user.getId(), teamId);
             if(member1 != 0){

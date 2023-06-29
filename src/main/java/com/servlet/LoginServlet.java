@@ -21,7 +21,6 @@ public class LoginServlet extends HttpServlet {
         if (user != null){
             //3.1登录成功 user对象写入Session 重定向
             request.getSession().setAttribute("user",user);
-//response.sendRedirect(request.getContextPath() + "/IndexServlet");
             response.sendRedirect(request.getContextPath() + "/IndexServlet");
         }
         else{
