@@ -16,7 +16,7 @@
 <body>
 <div class="row header">
     <div class="span5 logo">
-        <a href="./index.htm.html"><img src="image/newlogo.png" alt="logo" style="height: 80px;margin:-20px;" /></a>
+        <a href="${ctx}/IndexServlet"><img src="image/newlogo.png" alt="logo" style="height: 80px;margin:-20px;" /></a>
 <%--        <h5>Big Things... Small Packages</h5>--%>
     </div>
 

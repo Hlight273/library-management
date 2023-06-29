@@ -1,11 +1,9 @@
 package com.servlet;
 
 import com.dao.MatchDao;
+import com.dao.MemberDao;
 import com.dao.TeamDao;
-import com.domain.Match;
-import com.domain.Team;
-import com.domain.User;
-import com.domain.Work;
+import com.domain.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -22,6 +20,7 @@ public class UserDetailServlet extends HttpServlet {
         int matchId= Integer.parseInt(request.getParameter("matchId"));
         MatchDao matchDao=new MatchDao();
         TeamDao teamDao=new TeamDao();
+        MemberDao memberDao=new MemberDao();
         Match match=matchDao.getMatchById(matchId);
         request.getSession().setAttribute("match",match);
         if(user.isAdmin()){
@@ -29,7 +28,16 @@ public class UserDetailServlet extends HttpServlet {
             request.getSession().setAttribute("teamList",teamList);
         }
         else{
-            Team teamList = teamDao.getTeamByUserIdAdnMatchId(user.getId(),matchId);
+            ArrayList<Team> teamList = new ArrayList<>();
+            //获得某人参与的成员列表
+            List<Member> memberList = memberDao.getMemberByUserId(user.getId());
+            //通过成员列表中teamID获得某人参与的团队列表
+            for (int i = 0; i < memberList.size(); i++) {
+                if(teamDao.getTeamById(memberList.get(i).getTeamId()).getMatchId()==matchId){
+                    teamList.add(teamDao.getTeamById(memberList.get(i).getTeamId()));
+                    request.getSession().setAttribute("teamList",teamList);
+                }
+            }
         }
         response.sendRedirect(request.getContextPath() + "/userDetail.jsp");
     }

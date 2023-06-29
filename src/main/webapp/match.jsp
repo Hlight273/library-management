@@ -19,8 +19,12 @@
     <div class="row clearfix no-margin">
       <ul class="gallery-post-grid holder">
         <c:forEach items="${matchList}" var="match">
-        <li class="span3 gallery-item" data-id="id-1" data-type="illustration">
-          <a href="${ctx}/DetailServlet?matchId=${match.id}"><img style="width: 270px;height: 370px" src="${ctx}/image/${match.url}" alt=${match.name} /></a>
+        <li class="gallery-item" data-id="id-1" data-type="illustration" style="width: 300px;">
+          <div class="img_box">
+            <a href="${ctx}/DetailServlet?matchId=${match.id}">
+              <img src="${ctx}/image/${match.url}" alt=${match.name} />
+            </a>
+          </div>
           <span class="project-details"><a href="${ctx}/DetailServlet?matchId=${match.id}">${match.name}</a>For an international ad campaign.</span>
         </li>
         </c:forEach>
@@ -36,6 +40,20 @@
     width: 1200px;
     text-align: center;
     color: darkgrey;
+  }
+  .img_box {
+    position: relative;
+    width: 270px;
+    height: 370px;
+    border: 1px solid darkgrey;
+    overflow: hidden;
+  }
+  .img_box img {
+    position: absolute;
+    width: 270px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   #searchFrom #search {
     margin-left: 200px;

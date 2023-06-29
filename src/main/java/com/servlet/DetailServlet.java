@@ -22,13 +22,6 @@ public class DetailServlet extends HttpServlet {
         TeamDao teamDao=new TeamDao();
         Match match=matchDao.getMatchById(matchId);
         request.getSession().setAttribute("match",match);
-        if(user.isAdmin()){
-           List<Team> teamList = teamDao.getTeamByMatchId(matchId);
-            request.getSession().setAttribute("teamList",teamList);
-        }
-        else{
-            Team teamList = teamDao.getTeamByUserIdAdnMatchId(user.getId(),matchId);
-        }
         response.sendRedirect(request.getContextPath() + "/detail.jsp");
 }
 
