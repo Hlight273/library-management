@@ -83,7 +83,7 @@
 
 <style>
   #uploadForm {
-    margin: 5px;
+    margin: 10px;
     float: left;
     width: 30%;
   }
@@ -98,9 +98,9 @@
     text-align: center;
   }
   #paramForm {
-    margin: 5px;
+    margin: 10px;
     float: left;
-    width: 68%;
+    width: 65%;
   }
   #paramForm input.datebox {
     width: 40%;
