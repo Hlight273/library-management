@@ -106,3 +106,12 @@ body {
     text-align: left;
     color: gray;
 }
+
+.application-msg{
+    width: 100px;
+    height: 25px;
+}
+.application-msg p{
+    font-size: 15px;
+    color: red;
+}
