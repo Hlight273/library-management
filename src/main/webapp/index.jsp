@@ -43,12 +43,13 @@
             <ul class="gallery-post-grid holder">
                 <c:forEach items="${matchList}" var="match">
                     <li class="span3 gallery-item" data-id="id-1" data-type="illustration">
-                        <a href="${ctx}/DetailServlet?matchId=${match.id}"><img src="${ctx}/image/match/${match.url}" alt=${match.name} /></a>
+                        <a href="${ctx}/DetailServlet?matchId=${match.id}"><img src="${ctx}/${match.url}" alt=${match.name} /></a>
                         <span class="project-details"><a href="${ctx}/DetailServlet?matchId=${match.id}">${match.name}</a>For an international ad campaign.</span>
                     </li>
                 </c:forEach>
             </div>
                 <!-- Gallery Item 1 -->
     </div>
-</div><!-- End Gallery Row -->
+</div>
+
 <%@ include file="footer.jsp"%>

@@ -20,10 +20,7 @@ public class ManageServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/login.jsp");
             return;
         }
-//        //管理奖项页面，先加载当前进行中的竞赛list
-//        MatchDao matchDao = new MatchDao();
-//        List<Match> matchList = matchDao.getCurrentList();
-//        request.setAttribute("matchList",matchList);
+        request.getRequestDispatcher("/admin/matchcreate.jsp").forward(request,response);
     }
 
     @Override
