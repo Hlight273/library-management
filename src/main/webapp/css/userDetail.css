@@ -1,0 +1,13 @@
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+table td{
+    border:1px solid gray;
+    margin: 0;
+}
+table .firstTd{
+    width: 200px;
+    height: 100px;
+}
