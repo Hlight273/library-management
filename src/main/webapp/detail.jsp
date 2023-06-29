@@ -13,7 +13,7 @@
 
             <div class="row">
                 <div class="span6">
-                    <img src="" class="align-left thumbnail" alt="image" />
+                    <img src="${ctx}/image/${match.url}" class="align-left thumbnail" alt="${match.name}" />
                 </div>
                 <div class="span6">
                     <h2>竞赛名称</h2>${match.name}

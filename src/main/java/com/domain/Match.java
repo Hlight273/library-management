@@ -89,4 +89,9 @@ public class Match {
     public void setUrl(String url) {
         Url = url;
     }
+
+    public boolean isNow(){
+        Date now = new Date();
+        return  this.getEnd().before(now);
+    }
 }

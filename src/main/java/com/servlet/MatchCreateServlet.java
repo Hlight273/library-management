@@ -34,10 +34,10 @@ public class MatchCreateServlet extends HttpServlet {
         boolean success = matchDao.add(name,start,end,description,theme,categoryid,url);
         //返回信息，成功回主页，失败显示
         if(success) {
-            request.getRequestDispatcher("/index.jsp").forward(request,response);
+            response.sendRedirect(request.getContextPath() + "/IndexServlet");
         }else {
             request.setAttribute("msg","创建失败");
-            request.getRequestDispatcher("/admin/matchcreate.jsp").forward(request,response);
+            request.getRequestDispatcher("/ManageServlet").forward(request,response);
         }
     }
 
