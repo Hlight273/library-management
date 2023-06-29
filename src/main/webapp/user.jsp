@@ -44,13 +44,13 @@
               <p>${match.description}</p>
               <div class="causes-meta">
                 <div class="">
-                  <h4>开始日期<span>${match.start}</span></h4>
+                  <h4>开始日期<span>${match.toDateString(match.Start)}</span></h4>
                 </div>
                 <div class="">
-                  <h4>结束日期 <span>${match.end}</span></h4>
+                  <h4>结束日期 <span>${match.toDateString(match.end)}</span></h4>
                 </div>
                 <div class="">
-                  <h4>报名截止日期 <span>${match.applicationEnd}</span></h4>
+                  <h4>报名截止日期 <span>${match.toDateString(match.applicationEnd)}</span></h4>
                 </div>
               </div>
               <a class="button theme-bg" href="${ctx}/UserDetailServlet?matchId=${match.id}">了解更多</a>
@@ -73,13 +73,13 @@
             <p>${match.description}</p>
             <div class="causes-meta">
               <div class="">
-                <h4>开始日期<span>${match.start}</span></h4>
+                <h4>开始日期<span>${match.toDateString(match.Start)}</span></h4>
               </div>
               <div class="">
-                <h4>结束日期 <span>${match.end}</span></h4>
+                <h4>结束日期 <span>${match.toDateString(match.end)}</span></h4>
               </div>
               <div class="">
-                <h4>报名截止日期 <span>${match.applicationEnd}</span></h4>
+                <h4>报名截止日期 <span>${match.toDateString(match.applicationEnd)}</span></h4>
               </div>
             </div>
             <a class="button theme-bg" href="${ctx}/UserDetailServlet?matchId=${match.id}">了解更多</a>
