@@ -1,58 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- JS
-  =================================================== -->
-  <script src="../js/jquery-3.6.0.min.js"></script>
-  <!-- CSS
-  ================================================== -->
-  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
-  <link rel="stylesheet" href="../css/bootstrap.css" />
-  <link rel="stylesheet" href="../css/bootstrap-responsive.css" />
-  <%--    <link rel="stylesheet" href="http://www.room122.com/demo/html/piccolo/css/jquery.lightbox-0.5.css" />--%>
-  <link rel="stylesheet" href="../css/custom-styles.css" />
-
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <link rel="stylesheet" href="../css/style-ie.css" />
-  <![endif]-->
-
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-  <link rel="stylesheet" href="../css/css2.css" type="text/css">
-  <link rel="stylesheet" href="../css/vendor.min.css" type="text/css">
-  <link rel="stylesheet" href="../css/plugins.min.css" type="text/css">
-  <link rel="stylesheet" href="../css/style.min.css" type="text/css">
-</head>
-<div class="breadcrumb-area">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="row breadcrumb_box  align-items-center">
-          <div class="col-lg-6 col-md-6 col-sm-12 text-center text-md-start">
-            <h2 class="breadcrumb-title">Competition</h2>
-          </div>
-          <div class="col-lg-6  col-md-6 col-sm-12">
-            <!-- breadcrumb-list start -->
-            <ul class="breadcrumb-list text-center text-md-end">
-              <li class="breadcrumb-item"><a id="fA">发布竞赛</a></li>
-              <li class="breadcrumb-item active"><a href="${ctx}/IndexServlet" id="fB">返回主页</a></li>
-            </ul>
-            <!-- breadcrumb-list end -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<%@ include file="/header.jsp"%>
+<link rel="stylesheet" href="./css/plugins.min.css" type="text/css">
+<link rel="stylesheet" href="./css/style.min.css" type="text/css">
 <div class="cart-main-area pt-100px pb-100px">
   <div class="container" id="fineA">
     <h3 class="cart-page-title">competition</h3>
     <div class="col-lg-7">
       <div class="billing-info-wrap">
-        <h3>Add New competiton</h3>
+        <h3>发布新竞赛</h3>
         <form id="uploadForm" method="post">
           <div class="col-lg-6 col-md-6">
             <div class="billing-info mb-20px">
@@ -148,10 +103,7 @@
 <%--  <span class="text-danger">${msg}</span>--%>
 <%--</div>--%>
 
-
-
-<%@ include file="/footer.jsp"%>
-<script>
+<script type="text/javascript">
   //使用Ajax请求上传宠物图片，页面不刷新
   $(document).ready(function (){
     //图片预览默认隐藏
@@ -175,3 +127,4 @@
     })
   })
 </script>
+<%@ include file="/footer.jsp"%>
