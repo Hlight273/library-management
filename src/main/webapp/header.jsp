@@ -39,7 +39,7 @@
                 </c:if>
                 <li><a href="${ctx}/MatchByUserServlet">往届竞赛</a></li>
                 <c:if test="${empty user}">
-                    <li><a href="${ctx}/MatchByUserServlet">请登录！</a></li>
+                    <li class="active"><a href="${ctx}/LoginServlet">请登录！</a></li>
                 </c:if>
                 <c:if test="${!empty user}">
                     <li class="dropdown active">
