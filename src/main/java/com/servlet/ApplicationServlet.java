@@ -3,6 +3,7 @@ package com.servlet;
 import com.dao.MatchDao;
 import com.dao.MemberDao;
 import com.dao.TeamDao;
+import com.dao.UserDao;
 import com.domain.Match;
 import com.domain.Member;
 import com.domain.Team;
@@ -29,6 +30,7 @@ public class ApplicationServlet extends HttpServlet {
         TeamDao teamDao=new TeamDao();
         MemberDao memberDao=new MemberDao();
         MatchDao matchDao=new MatchDao();
+        boolean captainFlag = false;//是否为队长
         //验证是否参赛
         List<Member> memberList = memberDao.getMemberByUserId(user.getId());
         ArrayList<Team> teamList=new ArrayList<>();
@@ -45,8 +47,15 @@ public class ApplicationServlet extends HttpServlet {
         }
         for (int i=0; i < matchList.size(); i++) {
             if(matchList.get(i).getId()==matchId){
-                request.setAttribute("msg","已报名参赛！");
-                request.getRequestDispatcher("/detail.jsp").forward(request,response);
+                if(teamList.get(i).getUserId()== user.getId()) {
+                    captainFlag = true;
+                    request.setAttribute("msg","已作为队长报名参赛！");
+                    request.getRequestDispatcher("/detail.jsp").forward(request,response);
+                }
+                else{
+                    request.setAttribute("msg","已作为队员参赛，不能以队长身份报名！");
+                    request.getRequestDispatcher("/detail.jsp").forward(request,response);
+                }
             }
 
         }
@@ -55,7 +64,7 @@ public class ApplicationServlet extends HttpServlet {
             request.setAttribute("msg","团队名重复！");
             request.getRequestDispatcher("/application.jsp").forward(request,response);
         }
-        int teamId = teamDao.add(teamName, description, matchId);
+        int teamId = teamDao.add(teamName, description, matchId, user.getId());
         if (teamId != 0) {
             memberDao.add(user.getId(), teamId);
             if(member1 != 0){

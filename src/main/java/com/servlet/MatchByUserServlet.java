@@ -40,7 +40,7 @@ public class MatchByUserServlet extends HttpServlet {
         }
         request.getSession().setAttribute("teamList",teamList);
         request.getSession().setAttribute("matchList",matchList);
-        response.sendRedirect(request.getContextPath() + "/detail.jsp");
+        response.sendRedirect(request.getContextPath() + "/user.jsp");
     }
 
     @Override
