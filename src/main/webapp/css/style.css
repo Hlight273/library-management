@@ -1806,7 +1806,7 @@ h3.leave-comment-text {
 }
 .select-menu ul li{
     height: 30px;
-    margin-top: 10px;
+    /*margin-top: 10px;*/
 }
 .container{
     width: 1000px;
@@ -1819,11 +1819,15 @@ h3.leave-comment-text {
     font-size: 20px;
     margin-top: 30px;
 }
-.input2{
+.input2 input{
     width: 126px;
     height: 46px;
     margin-top: 80px;
     background-color: #baf0ff;
+    font-size: 20px;
+}
+.pwd-msg p{
+    color: red;
     font-size: 20px;
 }
 

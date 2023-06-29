@@ -181,15 +181,17 @@
         旧密码<input type="text" value="" name="oldpwd">
       </div>
       <div class="input">
-        新密码<input type="text" value="" name="newpwd">
+        新密码<input type="text" value="" name="newpwd " class="newpwd">
       </div>
       <div class="input">
-        确认密码<input type="text" value="" name="newpwd2">
+        确认密码<input type="text" value="" name="newpwd2" class="newpwd2">
+      </div>
+      <div class="pwd-msg">
+        <p>两次输入密码不一致</p>
       </div>
       <div class="input2">
         <input type="submit" value="确认修改">
       </div>
-
 
     </form>
   </div>
