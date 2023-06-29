@@ -11,6 +11,12 @@
         <input type="text" name="member2" placeholder="队员2">
         <input type="text" name="member3" placeholder="队员3">
         <button type="submit">提交</button>
+        <div class="application-msg">
+            <c:if test="${!empty msg}">
+                <p>${msg}</p>
+            </c:if>
+        </div>
+
     </form>
 </div>
 

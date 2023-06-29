@@ -1,0 +1,11 @@
+.detail-msg{
+    width: 100px;
+    height: 25px;
+}
+.detail-msg p{
+    font-size: 20px;
+    color: green;
+}
+.row .h500{
+    height: 500px;
+}
