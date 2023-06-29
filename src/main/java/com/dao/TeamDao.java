@@ -38,12 +38,12 @@ public class TeamDao {
     }
 
     //创建团队成功时返回TeamId
-    public int add(String teamName, String description, int matchId){
+    public int add(String teamName, String description, int matchId, int userId){
         int affectRows = 0;
         Team team = null;
         try {
-            String sql = "insert into team (Name, isDelete, WorkName,  `Like`, LV, Description, MatchId) values(?,0,'暂无',0,0,?,?)";
-            affectRows = template.update(sql,teamName, description, matchId);
+            String sql = "insert into team (Name, isDelete, WorkName,  `Like`, LV, Description, MatchId, UserId) values(?,0,'暂无',0,0,?,?,?)";
+            affectRows = template.update(sql,teamName, description, matchId, userId);
             if(affectRows > 0){
                 String sql1 = "select * from team where Name = ? and MatchId = ?";
                 team =  template.queryForObject(sql1, new BeanPropertyRowMapper<>(Team.class),teamName, matchId);
@@ -94,4 +94,5 @@ public class TeamDao {
             return affectRows > 0;
         }
     }
+
 }
