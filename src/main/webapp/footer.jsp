@@ -9,9 +9,9 @@
                 <h5>About Us</h5>
                 <img src="./img/piccolo-footer-logo.png" alt="Piccolo" /><br /><br />
                 <address>
-                    <strong>Design Team</strong><br />
-                    123 Main St, Suite 500<br />
-                    New York, NY 12345<br />
+                    <strong>设计 团队</strong><br />
+                    YJP ZZQ RWS NWK LB CYH<br />
+                    China, zhejiang<br />
                 </address>
                 <ul class="social-icons">
                     <li><a href="#" class="social-icon facebook"></a></li>
@@ -24,36 +24,36 @@
             <div class="span3 footer-col">
                 <h5>Latest Tweets</h5>
                 <ul>
-                    <li><a href="#">@room122</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                    <li><a href="#">@room122</a> In interdum felis fermentum ipsum molestie sed porttitor ligula rutrum. Morbi blandit ultricies ultrices.</li>
-                    <li><a href="#">@room122</a> Vivamus nec lectus sed orci molestie molestie. Etiam mattis neque eu orci rutrum aliquam.</li>
+                    <li><a href="#">@room419</a>加入我们立享特惠</li>
+                    <li><a href="#">@地址</a>绍兴大学机械与电器工程学院计算机科学与技术211班102组</li>
+                    <li><a href="#">联系方式</a>您可以通过拨打15816364228或发送邮件到2812546851@qq.com联系我们</li>
                 </ul>
             </div>
             <div class="span3 footer-col">
                 <h5>Latest Posts</h5>
                 <ul class="post-list">
-                    <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                    <li><a href="#">Consectetur adipiscing elit est lacus gravida</a></li>
-                    <li><a href="#">Lectus sed orci molestie molestie etiam</a></li>
-                    <li><a href="#">Mattis consectetur adipiscing elit est lacus</a></li>
-                    <li><a href="#">Cras rutrum, massa non blandit convallis est</a></li>
+                    <li><a href="#">欢迎随时联系我们</a></li>
+                    <li><a href="#">全国著名专家支子绮将为您解决文档的苦恼</a></li>
+                    <li><a href="#">当您为代码苦恼时，倪文楷、卢彬将让您的代码变得简洁有效</a></li>
+                    <li><a href="#">戎威树专家专业书写jsp二十年，美化您的页面</a></li>
+                    <li><a href="#">热烈欢迎您的到来！！！</a></li>
                 </ul>
             </div>
             <div class="span3 footer-col">
                 <h5>Flickr Photos</h5>
                 <ul class="img-feed">
-                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="../image/flickr-img-1.jpg" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="../image/flickr-img-2.jpg" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="../image/flickr-img-3.jpg" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="../image/flickr-img-4.jpg" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="../image/flickr-img-5.jpg" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="../image/flickr-img-6.jpg" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="../image/flickr-img-7.jpg" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="../image/flickr-img-8.jpg" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="../image/flickr-img-9.jpg" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="../image/flickr-img-10.jpg" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="../image/flickr-img-11.jpg" alt="Image Feed" /></a></li>
+                    <li><a href="#"><img src="../image/flickr-img-12.jpg" alt="Image Feed" /></a></li>
                 </ul>
             </div>
         </div>
