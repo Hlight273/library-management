@@ -2,6 +2,7 @@ package com.servlet;
 
 import com.dao.CategoryDao;
 import com.domain.Category;
+import com.domain.User;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -13,6 +14,12 @@ import java.util.List;
 public class MatchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //先判断是不是管理员，如果不是t到登录页
+        User user = (User) request.getSession().getAttribute("user");
+        if(user==null || !user.isAdmin()){
+            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            return;
+        }
         //要发布比赛要进这个页面，传一个分类列表到管理员编辑发布页
         CategoryDao categoryDao = new CategoryDao();
         List<Category> categoryList = categoryDao.getList();
