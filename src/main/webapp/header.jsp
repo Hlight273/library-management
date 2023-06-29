@@ -35,7 +35,7 @@
                     <li><a href="${ctx}/MatchByUserServlet">报名竞赛</a></li>
                 </c:if>
                 <c:if test="${user.isAdmin()}">
-                    <li><a href="${ctx}/ManageServlet">发布竞赛</a></li>
+                    <li><a href="${ctx}/MatchServlet">发布竞赛</a></li>
                 </c:if>
                 <li><a href="${ctx}/MatchByUserServlet">往届竞赛</a></li>
                 <c:if test="${empty user}">
