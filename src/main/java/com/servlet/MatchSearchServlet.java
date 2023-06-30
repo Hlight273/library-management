@@ -18,7 +18,7 @@ public class MatchSearchServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //传入key关键词，返回matchList和categoryList，返回到主页
         request.setCharacterEncoding("utf-8");
-        String keyword = request.getParameter("keyword");
+        String keyword = request.getParameter("key");
         MatchDao bookDao = new MatchDao();
         List<Match> matchList = bookDao.getNewListByKey(keyword);
         CategoryDao categoryDao = new CategoryDao();
