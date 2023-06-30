@@ -25,7 +25,7 @@
       <ul class="f-right yonghu ">
         <li class="colorchange">用户中心</li>
       </ul>
-      <ul class="f-right cansai ">
+      <ul class="f-right cansai">
         <li class="colorchange">我的竞赛</li>
         <li class="colorchange">往届竞赛</li>
         <li class="colorchange">竞赛中</li>
