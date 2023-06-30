@@ -1,5 +1,6 @@
 package com.dao;
 
+import com.domain.Award;
 import com.domain.Match;
 import com.domain.Member;
 import com.domain.Team;
@@ -25,15 +26,15 @@ public class TeamDao {
     }
 
     //通过userId和matchId
-    public  Team  getTeamByUserIdAdnMatchId(int userId, int matchId){
-        Team team =new Team();
+    public  List<Team>  getTeamByUserIdAdnMatchId(int userId, int matchId){
+        List<Team> teamList =null;
         try {
             String sql = "select * from team where Id = ? and MatchId = ?";
-            team = template.queryForObject(sql, new BeanPropertyRowMapper<>(Team.class),userId,matchId);
+            teamList = template.query(sql, new BeanPropertyRowMapper<>(Team.class),userId,matchId);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            return team;
+            return teamList;
         }
     }
 
@@ -56,16 +57,16 @@ public class TeamDao {
     }
 
     //验证是否重名
-    public Team verifyName(String teamName, int matchId){
-        Team team = null;
+    public List<Team> verifyName(String teamName, int matchId){
+        List<Team> teamList = null;
         try {
-            String sql = "select * from team where TeamId = ? and MatchId = ?;";
-            team = template.queryForObject(sql, new BeanPropertyRowMapper<>(Team.class),teamName, matchId);
+            String sql = "select * from team where Name = ? and MatchId = ?;";
+            teamList = template.query(sql, new BeanPropertyRowMapper<>(Team.class),teamName, matchId);
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            return team;
+            return teamList;
         }
     }
 
@@ -95,4 +96,29 @@ public class TeamDao {
         }
     }
 
+    //修改团队信息
+    public boolean edit(int teamId, String teamName, String description){
+        int affectRows = 0;
+        try {
+            String sql = "update  team set Name = ?, Description = ? where Id = ?";
+            affectRows = template.update(sql, teamName, description, teamId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return affectRows > 0;
+        }
+    }
+
+    //剩余奖项
+    public Award getAward(int matchId){
+        Award awd = new Award();
+        try {
+            String sql = "SELECT count(Lv=1 or null) as Lv1  , count(Lv=2 or null) as Lv2 ,count(Lv=3 or null) as Lv3 FROM `team` WHERE MatchId = ?";
+            awd =  template.queryForObject(sql, new BeanPropertyRowMapper<>(Award.class),matchId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return awd;
+        }
+    }
 }

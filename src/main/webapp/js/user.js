@@ -47,6 +47,10 @@ $(function() {
         $('.container:eq(3)').show();
     })
 
+    $('.team').click(function (){
+        $('.container').hide();
+        $('.container:eq(4)').show();
+    })
     $('.newpwd2').change(function (){
         var pwd1=$('.newpwd').val()
         var pwd2=$('.newpwd2').val()
@@ -56,8 +60,5 @@ $(function() {
         else {
             $('.pwd-msg').hide();
         }
-    })
-    $('.input2').hover(function (){
-        $(this).children('input').addClass('colorchange1');
     })
 });
