@@ -25,15 +25,15 @@ public class TeamDao {
     }
 
     //通过userId和matchId
-    public  Team  getTeamByUserIdAdnMatchId(int userId, int matchId){
-        Team team =new Team();
+    public  List<Team>  getTeamByUserIdAdnMatchId(int userId, int matchId){
+        List<Team> teamList =null;
         try {
             String sql = "select * from team where Id = ? and MatchId = ?";
-            team = template.queryForObject(sql, new BeanPropertyRowMapper<>(Team.class),userId,matchId);
+            teamList = template.query(sql, new BeanPropertyRowMapper<>(Team.class),userId,matchId);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            return team;
+            return teamList;
         }
     }
 
@@ -56,16 +56,16 @@ public class TeamDao {
     }
 
     //验证是否重名
-    public Team verifyName(String teamName, int matchId){
-        Team team = null;
+    public List<Team> verifyName(String teamName, int matchId){
+        List<Team> teamList = null;
         try {
-            String sql = "select * from team where TeamId = ? and MatchId = ?;";
-            team = template.queryForObject(sql, new BeanPropertyRowMapper<>(Team.class),teamName, matchId);
+            String sql = "select * from team where Name = ? and MatchId = ?;";
+            teamList = template.query(sql, new BeanPropertyRowMapper<>(Team.class),teamName, matchId);
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            return team;
+            return teamList;
         }
     }
 
