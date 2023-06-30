@@ -14,7 +14,7 @@
 <%--<link rel="stylesheet" href="css/responsive.css">--%>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/user.css">
-
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
 
 <div class="causes-area ">
   <div class="select-menu">
@@ -34,6 +34,10 @@
   </div>
   <!--往届竞赛-->
   <div class="user-row container">
+    <div class="match-title">
+      <p>往届竞赛</p>
+
+    </div>
     <c:forEach items="${matchList}" var="match">
       <c:if test="${!match.isNow()}">
         <div class="row-content">
@@ -63,6 +67,9 @@
 
   <!--新竞赛-->
   <div class="user-row container">
+    <div class="match-title">
+      <p>新竞赛</p>
+    </div>
     <c:forEach items="${matchList}" var="match">
       <c:if test="${match.isNow()}">
       <div class="row-content">
@@ -105,7 +112,7 @@
         邮箱<br><input type="text" value="" name="email">
       </div>
       <div class="input2">
-        <input type="submit" value="确认修改">
+        <input type="submit" value="确认修改" class="btn btn-inverse">
       </div>
     </form>
     <!-- login area end -->
@@ -128,7 +135,7 @@
         <p>两次输入密码不一致</p>
       </div>
       <div class="input2">
-        <input type="submit" value="确认修改">
+        <input type="submit" value="确认修改" class="btn btn-inverse">
       </div>
 
     </form>

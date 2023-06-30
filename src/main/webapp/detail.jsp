@@ -10,7 +10,7 @@
         ================================================== -->
         <div class="span12 gallery-single">
 
-            <div class="row">
+            <div class="row h700">
                 <div class="span6 h500">
                     <img src="${ctx}/image/${match.url}" class="align-left thumbnail" alt="${match.name}" />
                 </div>
@@ -24,13 +24,15 @@
                         <li><h6>结束日期:</h6>${match.end}</li>
                         <li><h6>竞赛主题:</h6>${match.theme}</li>
                     </ul>
-                    <a href="application.jsp?matchId=${match.id}"><button class="btn btn-inverse pull-left" type="button">报名参赛</button></a>
+                    <div class="detail-button">
+                        <a href="application.jsp?matchId=${match.id}"><button class="btn btn-inverse pull-left" type="button">报名参赛</button></a>
+                        <a href="IndexServlet"><button class="btn btn-inverse pull-right" type="button">返回首页</button></a>
+                    </div>
                     <div class="detail-msg">
                         <c:if test="${!empty msg}">
                             <p>${msg}</p>
                         </c:if>
                     </div>
-                    <a href="IndexServlet" class="pull-right"><i class="icon-arrow-left"></i>返回首页</a>
                 </div>
             </div>
         </div>
