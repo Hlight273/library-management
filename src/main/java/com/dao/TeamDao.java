@@ -1,5 +1,6 @@
 package com.dao;
 
+import com.domain.Award;
 import com.domain.Match;
 import com.domain.Member;
 import com.domain.Team;
@@ -105,6 +106,19 @@ public class TeamDao {
             e.printStackTrace();
         } finally {
             return affectRows > 0;
+        }
+    }
+
+    //剩余奖项
+    public Award getAward(int matchId){
+        Award awd = new Award();
+        try {
+            String sql = "SELECT count(Lv=1 or null) as Lv1  , count(Lv=2 or null) as Lv2 ,count(Lv=3 or null) as Lv3 FROM `team` WHERE MatchId = ?";
+            awd =  template.queryForObject(sql, new BeanPropertyRowMapper<>(Award.class),matchId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return awd;
         }
     }
 }
