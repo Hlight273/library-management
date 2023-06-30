@@ -1,5 +1,6 @@
 package com.domain;
 
+import com.dao.MemberDao;
 import com.dao.WorkDao;
 
 import java.util.List;
@@ -105,5 +106,10 @@ public class Team {
     public List<Work> getWorkList(){
         WorkDao workDao = new WorkDao();
         return workDao.getWorkListByteamId(this.id);
+    }
+
+    public List<Member> getMemberList(){
+        MemberDao memberDao = new MemberDao();
+        return memberDao.getMemberByteamId(this.id);
     }
 }
