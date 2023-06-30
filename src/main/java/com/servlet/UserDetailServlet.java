@@ -24,8 +24,16 @@ public class UserDetailServlet extends HttpServlet {
         Match match=matchDao.getMatchById(matchId);
         request.getSession().setAttribute("match",match);
         if(user.isAdmin()){
+            int Lv1=1;
+            int Lv2=2;
+            int Lv3=3;
+            Award award = teamDao.getAward(matchId);
+            award.setLv1(Lv1 -= award.getLv1());
+            award.setLv2(Lv2 -= award.getLv2());
+            award.setLv3(Lv3 -= award.getLv3());
             List<Team> teamList = teamDao.getTeamByMatchId(matchId);
             request.getSession().setAttribute("teamList",teamList);
+            request.getSession().setAttribute("award",award);
         }
         else{
             ArrayList<Team> teamList = new ArrayList<>();

@@ -101,7 +101,7 @@
   <!--用户中心-->
   <div class="container">
     <!-- login area start -->
-    <form action="" method="">
+    <form action="EditUserServlet" method="post">
       <div class="input">
         UID ${user.id}<br><br><br>
       </div>
@@ -119,9 +119,9 @@
   </div>
 
 
-  <div class="container ">
+  <div class="container">
     <!-- login area start -->
-    <form action="" method="">
+    <form action="EditPwdServlet" method="post">
       <div class="input">
         旧密码<br><input type="text" value="" name="oldpwd">
       </div>
@@ -140,6 +140,35 @@
 
     </form>
   </div>
+<div class="container">
+  <div class="match-title">
+    <p>修改团队成员</p>
+  </div>
+<c:forEach items="${teamList}" var="team">
+  <form action="EditTeamServlet" method="post">
+    <div class="input">
+      队员1<br><input type="text" value="${team.getmemberList().get(1).userid}" name="member1">
+    </div>
+    <div class="input">
+      队员2<br><input type="text" value="${team.getmemberList().get(2).userid}" name="member2">
+    </div>
+    <div class="input">
+      队员3<br><input type="text" value="${team.getmemberList().get(3).userid}" name="member3">
+    </div>
+
+    <input type="hidden" value="${team.getmemberList().get(1).userid}" name="member1Id">
+    <input type="hidden" value="${team.getmemberList().get(2).userid}" name="member2Id">
+    <input type="hidden" value="${team.getmemberList().get(3).userid}" name="member3Id">
+
+<%--    <div class="pwd-msg">--%>
+<%--      <p>两次输入密码不一致</p>--%>
+<%--    </div>--%>
+    <div class="input2">
+      <input type="submit" value="确认修改" class="btn btn-inverse">
+    </div>
+  </form>
+</c:forEach>
+</div>
 
 </div>
 <script src="js/jquery-3.6.0.min.js"></script>
