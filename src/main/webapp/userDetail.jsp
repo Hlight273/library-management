@@ -31,17 +31,29 @@
                         <tr>
                             <td class="firstTd">
                                 <p>团队名称：${team.name}</p>
-                                <p>团队作品：${team.workName}</p>
+                                <p>作品名称：${team.workName}</p>
                             </td>
+                            <td>
+                                <p>
+                                    团队成员：
+
+                                </p>
+                            </td>
+
+                            <td>
+                                <a href="#"><button class="btn btn-inverse pull-left" type="button">提交作品</button></a>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <c:forEach items="${team.getWorkList()}" var="work">
                                     <img src="${ctx}/image/${work.url}" class="adminImg">
                                 </c:forEach>
                             </td>
-                            <td>
-                                <a href="#"><button class="btn btn-inverse pull-left" type="button">提交作品</button></a>
-                            </td>
                         </tr>
+
+
+
                     </c:forEach>
                 </table>
             </c:if>

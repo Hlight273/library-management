@@ -9,8 +9,11 @@
     font-size: 25px;
 }
 .select-menu ul li{
+    text-align: center;
     height: 25px;
     /*margin-top: 10px;*/
+    color: #777777;
+    text-shadow: 1px 1px 0 #fdfdfd, 2px 2px 0 rgba(81, 81, 81, 0.5), 0 0 1px #fdfdfd;
 }
 .container{
     width: 1000px;
@@ -25,7 +28,7 @@
 
 }
 .colorchange1{
-    background-color: #f3be86;
+    background-color: #eeb97b;
 }
 .input{
     font-size: 20px;
@@ -35,9 +38,9 @@
     width: 126px;
     height: 46px;
     margin-top: 50px;
-    background-color: #baf0ff;
     font-size: 20px;
     margin-left: 200px;
+    border: none;
 }
 .pwd-msg p{
     color: red;
@@ -51,7 +54,6 @@
 .row-content{
     width: 300px;
     /*height: 750px;*/
-    border: 1px solid rgb(0,0,0.1);
     float: left;
     margin:10px 10px;
 }
@@ -59,6 +61,10 @@
     width: 300px;
     height: 400px;
 }
+.match-msg {
+    box-shadow: 0 3px 5px rgba(85, 85, 85, 0.2);
+}
+
 .match-msg h3 a{
 
 }
@@ -68,3 +74,12 @@ color: black;
 .match-msg p{
 
 }
+.match-title p{
+    font-family: "Oswald", sans-serif;
+    font-weight: normal;
+    text-shadow: 1px 1px 0 #fdfdfd, 2px 2px 0 rgba(81, 81, 81, 0.5), 0 0 1px #fdfdfd;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+

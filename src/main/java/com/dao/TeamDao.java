@@ -95,4 +95,16 @@ public class TeamDao {
         }
     }
 
+    //修改团队信息
+    public boolean edit(int teamId, String teamName, String description){
+        int affectRows = 0;
+        try {
+            String sql = "update  team set Name = ?, Description = ? where Id = ?";
+            affectRows = template.update(sql, teamName, description, teamId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return affectRows > 0;
+        }
+    }
 }
