@@ -26,41 +26,46 @@ public class MatchByUserServlet extends HttpServlet {
         ArrayList<Team> teamList=new ArrayList<>();
         MatchDao matchDao=new MatchDao();
         ArrayList<Match> matchList=new ArrayList<>();
-
-        if(user.isAdmin()){
-            request.getSession().setAttribute("matchList",matchDao.getAll());
-        }
-        else {
-            //获得某人参与的成员列表
-            List<Member> memberList = memberDao.getMemberByUserId(user.getId());
-            //通过成员列表中teamID获得某人参与的团队列表
-            for (int i = 0; i < memberList.size(); i++) {
-                teamList.add(teamDao.getTeamById(memberList.get(i).getTeamId()));
-
+        if (user != null){
+            if(user.isAdmin()){
+                request.getSession().setAttribute("matchList",matchDao.getAll());
             }
-            //通过团队列表中teamID获得某人参与的竞赛列表
-            for (int i = 0; i < teamList.size(); i++) {
-                boolean flag = false;//检验相同竞赛
-                if(matchList!=null){
-                    for(int j = 0; j < matchList.size(); j++){
-                        if(teamList.get(i).getMatchId()==matchList.get(j).getId()){
-                            flag = true;//相同竞赛跳过
-                            break;
+            else {
+                //获得某人参与的成员列表
+                List<Member> memberList = memberDao.getMemberByUserId(user.getId());
+                //通过成员列表中teamID获得某人参与的团队列表
+                for (int i = 0; i < memberList.size(); i++) {
+                    teamList.add(teamDao.getTeamById(memberList.get(i).getTeamId()));
+
+                }
+                //通过团队列表中teamID获得某人参与的竞赛列表
+                for (int i = 0; i < teamList.size(); i++) {
+                    boolean flag = false;//检验相同竞赛
+                    if(matchList!=null){
+                        for(int j = 0; j < matchList.size(); j++){
+                            if(teamList.get(i).getMatchId()==matchList.get(j).getId()){
+                                flag = true;//相同竞赛跳过
+                                break;
+                            }
                         }
+                        if(flag){
+                            continue;
+                        }
+                        matchList.add(matchDao.getMatchById(teamList.get(i).getMatchId()));
                     }
-                    if(flag){
-                        continue;
+                    else{
+                        matchList.add(matchDao.getMatchById(teamList.get(i).getMatchId()));
                     }
-                    matchList.add(matchDao.getMatchById(teamList.get(i).getMatchId()));
                 }
-                else{
-                    matchList.add(matchDao.getMatchById(teamList.get(i).getMatchId()));
-                }
+                request.getSession().setAttribute("teamList",teamList);
+                request.getSession().setAttribute("matchList",matchList);
             }
-            request.getSession().setAttribute("teamList",teamList);
-            request.getSession().setAttribute("matchList",matchList);
+            response.sendRedirect(request.getContextPath() + "/user.jsp");
         }
-        response.sendRedirect(request.getContextPath() + "/user.jsp");
+        else{
+            response.sendRedirect(request.getContextPath() + "/login.jsp");
+        }
+
     }
 
     @Override
