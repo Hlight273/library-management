@@ -285,7 +285,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{ display: block; }
     max-width: 100%;
 }
 .project-details a {
-	margin: 0px; 
+	text-align:center;
 	font-size: 12px; 
 	font-style: normal;
 	text-shadow:none;

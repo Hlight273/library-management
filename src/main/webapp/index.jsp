@@ -35,11 +35,12 @@
                     <c:forEach items="${matchList}" var="match">
                     <li class="gallery-item" data-id="id-1" data-type="illustration" style="width: 300px;">
                         <div class="img_box">
-                            <a href="${ctx}/DetailServlet?matchId=${match.id}">
-                                <img src="${ctx}/image/${match.url}" alt=${match.name} />
-                            </a>
+                                <a href="${ctx}/DetailServlet?matchId=${match.id}">
+                                    <img src="${ctx}/image/${match.url}" alt=${match.name} />
+                                </a>
                         </div>
-                        <span class="project-details"><a href="${ctx}/DetailServlet?matchId=${match.id}">${match.name}</a>For an international ad campaign.</span>
+                        <span class="project-details" style="width: 270px;height: 75px; overflow: hidden">
+                            <a  class="smallname" href="${ctx}/DetailServlet?matchId=${match.id}">${match.name}</a>${match.description}</span>
                     </li>
                     </c:forEach>
                     <c:if test="${empty matchList}">
