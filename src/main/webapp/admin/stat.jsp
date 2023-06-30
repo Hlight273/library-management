@@ -4,17 +4,70 @@
 <input type="hidden" value="${awardStat}" id="awardStat">
 <script src="<c:url value="/js/echarts.js"/>"></script>
 <div class="content">
-    <div id="sheet1" class="sheet" style="width: 600px;height:400px;"></div>
-    <div id="sheet2" class="sheet" style="width: 600px;height:400px;"></div>
+
+    <!-- Page Left Sidebar
+        ================================================== -->
+    <div class="span3 sidebar page-left-sidebar"><!-- Begin sidebar column -->
+        <!--Latest News-->
+        <h5 class="title-bg">Latest News</h5>
+        <ul class="popular-posts">
+            <li>
+                <a href="#"><img src="${ctx}/image/1.jpg" alt="Popular Post" /></a>
+                <h6><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></h6>
+                <em>Posted on 09/01/15</em>
+            </li>
+        </ul>
+
+        <!--Testimonials-->
+        <h5 class="title-bg">Testimonials</h5>
+
+        <p class="quote-text side">"设计提升的不仅仅是思维，也有对艺术欣赏的美感，而这种美感在世俗之中常常是被忽略的"<cite> -------Yang.Mr </cite></p>
+
+        <p class="quote-text side">"我们可能不是一个好的创新者，但绝对是一个好的聆听者和执行者。"<cite> -------Cai.Mr </cite></p>
+
+        <!--Progress Bars-->
+        <h5 class="title-bg">Progress Bars</h5>
+        <div class="progress progress-info progress-striped">
+            <div class="bar" style="width: 20%"></div>
+        </div>
+        <div class="progress progress-success progress-striped">
+            <div class="bar" style="width: 40%"></div>
+        </div>
+        <div class="progress progress-warning progress-striped">
+            <div class="bar" style="width: 60%"></div>
+        </div>
+        <div class="progress progress-danger progress-striped">
+            <div class="bar" style="width: 80%"></div>
+        </div>
+    </div><!-- End sidebar column -->
+
+    <!-- Page Content
+    ================================================== -->
+    <div class="span6"><!--Begin page content column-->
+        <div id="sheet1" class="sheet" style="width: 800px;height: 290px"></div>
+        <div id="sheet2" class="sheet" style="width: 800px;height: 290px"></div>
+
+    </div> <!--End page content column-->
+
 </div>
 <style>
-    .content .sheet {
+    .content {
         min-width: 1200px;
+    }
+    .sheet{
+        min-width: 1000px;
+        height: 290px;
+    }
+    .content .sheet{
         border: 1px solid darkgrey;
-        margin:20px auto;
+        margin:100px auto;
         padding: 20px;
         justify-content:center;
         flex-flow:wrap;
+    }
+    .span6{
+        margin-top: 100px;
+        margin-left: 100px;
     }
 </style>
 <script type="text/javascript">
@@ -115,4 +168,4 @@
     }
 
 </script>
-<%@ include file="/footer.jsp"%>
+<%--<%@ include file="/footer.jsp"%>--%>
