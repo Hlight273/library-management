@@ -12,6 +12,7 @@ import java.io.IOException;
 public class EditTeamServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         int teamId= Integer.parseInt(request.getParameter("teamId"));
         String teamName= request.getParameter("teamName");
         String description= request.getParameter("description");

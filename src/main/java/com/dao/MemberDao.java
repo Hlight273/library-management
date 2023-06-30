@@ -47,4 +47,17 @@ public class MemberDao {
             return affectRows > 0;
         }
     }
+
+    //修改团队成员
+    public boolean edit(int memberId,int userId){
+        int affectRows = 0;
+        try {
+            String sql1 = "update  member set userId = ? where Id = ?";
+            affectRows = template.update(sql1, userId, memberId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return affectRows > 0;
+        }
+    }
 }
