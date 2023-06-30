@@ -25,13 +25,13 @@
                 </div>
             </div>
 
-            <c:if test="${!user.isAdmin()}">
+<%--            <c:if test="${!user.isAdmin()}">--%>
                 <table>
-                    <c:forEach items="${teamList}" var="team">
+<%--                    <c:forEach items="${teamList}" var="team">--%>
                         <tr>
                             <td class="firstTd">
-                                <p>${team.name}</p>
-                                <p>${team.workName}</p>
+                                <p>团队名称：${team.name}</p>
+                                <p>团队作品：${team.workName}</p>
                             </td>
                             <td>
                                 <c:forEach items="${team.getWorkList()}" var="work">
@@ -42,9 +42,9 @@
                                 <a href="#"><button class="btn btn-inverse pull-left" type="button">提交作品</button></a>
                             </td>
                         </tr>
-                    </c:forEach>
+<%--                    </c:forEach>--%>
                 </table>
-            </c:if>
+<%--            </c:if>--%>
 
 
             <c:if test="${user.isAdmin()}">
