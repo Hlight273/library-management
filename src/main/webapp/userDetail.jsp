@@ -30,12 +30,12 @@
                     <c:forEach items="${teamList}" var="team">
                         <tr>
                             <td class="firstTd">
-                                <p>${team.name}</p>
-                                <p>${team.workName}</p>
+                                <p>团队名称：${team.name}</p>
+                                <p>团队作品：${team.workName}</p>
                             </td>
                             <td>
                                 <c:forEach items="${team.getWorkList()}" var="work">
-                                    <img src="${ctx}/image/${work.url}" width="50px" height="50px">
+                                    <img src="${ctx}/image/${work.url}" width="270px" height="370px">
                                 </c:forEach>
                             </td>
                             <td>
@@ -52,8 +52,8 @@
                     <c:forEach items="${teamList}" var="team">
                         <tr>
                             <td class="firstTd">
-                                <p>${team.name}</p>
-                                <p>${team.workName}</p>
+                                <p>队伍名称：${team.name}</p>
+                                <p>作品名称：${team.workName}</p>
                             </td>
                             <td>
                                 <c:forEach items="${team.getWorkList()}" var="work">
