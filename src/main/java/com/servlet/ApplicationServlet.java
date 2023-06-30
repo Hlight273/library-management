@@ -24,9 +24,18 @@ public class ApplicationServlet extends HttpServlet {
         String description= request.getParameter("description");
         int matchId= Integer.parseInt(request.getParameter("matchId"));
         User user= (User) request.getSession().getAttribute("user");
-        int member1= Integer.parseInt(request.getParameter("member1"));
-        int member2= Integer.parseInt(request.getParameter("member2"));
-        int member3= Integer.parseInt(request.getParameter("member3"));
+        String member1= request.getParameter("member1");
+        String member2= request.getParameter("member2");
+        String member3= request.getParameter("member3");
+        if(member1.equals("")){
+            member1="0";
+        }
+        if(member2.equals("")){
+            member2="0";
+        }
+        if(member3.equals("")){
+            member3="0";
+        }
         TeamDao teamDao=new TeamDao();
         MemberDao memberDao=new MemberDao();
         MatchDao matchDao=new MatchDao();
@@ -60,21 +69,21 @@ public class ApplicationServlet extends HttpServlet {
 
         }
         //验证重名
-        if(teamDao.verifyName(teamName,matchId) != null){
+        if(teamDao.verifyName(teamName,matchId).size()!=0){
             request.setAttribute("msg","团队名重复！");
             request.getRequestDispatcher("/application.jsp").forward(request,response);
         }
         int teamId = teamDao.add(teamName, description, matchId, user.getId());
         if (teamId != 0) {
             memberDao.add(user.getId(), teamId);
-            if(member1 != 0){
-                memberDao.add(member1,teamId);
+            if(!member1.equals("0")){
+                memberDao.add(Integer.parseInt(member1),teamId);
             }
-            if(member2 != 0){
-                memberDao.add(member2,teamId);
+            if(!member2.equals("0")){
+                memberDao.add(Integer.parseInt(member2),teamId);
             }
-            if(member3 != 0){
-                memberDao.add(member3,teamId);
+            if(!member3.equals("0")){
+                memberDao.add(Integer.parseInt(member3),teamId);
             }
             request.setAttribute("msg","报名成功！");
             request.getRequestDispatcher("/detail.jsp").forward(request,response);

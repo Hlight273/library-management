@@ -2,6 +2,7 @@ package com.dao;
 
 import com.domain.Member;
 import com.domain.Team;
+import com.domain.Work;
 import com.utils.JDBCUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -33,6 +34,19 @@ public class MemberDao {
             e.printStackTrace();
         } finally {
             return affectRows > 0;
+        }
+    }
+
+    //获得团队成员列表
+    public List<Member> getMemberListByteamId(int teamId){
+        List<Member> memberList= null;
+        try {
+            String sql = "select * from member where TeamId = ?";
+            memberList = template.query(sql, new BeanPropertyRowMapper<>(Member.class),teamId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return memberList;
         }
     }
 }
