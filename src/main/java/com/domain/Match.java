@@ -123,7 +123,7 @@ public class Match {
      */
     public boolean isNow(){
         Date now = new Date();
-        return  this.getEnd().before(now);
+        return  this.getEnd().after(now);
     }
 
     /**
