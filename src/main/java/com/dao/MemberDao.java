@@ -24,7 +24,7 @@ public class MemberDao {
         }
     }
 
-    //创建团队同时添加队员
+    //添加队员
     public boolean add(int userId, int teamId ){
         int affectRows = 0;
         try {
@@ -49,4 +49,18 @@ public class MemberDao {
             return memberList;
         }
     }
+
+    //修改团队成员
+    public boolean edit(int memberId,int userId){
+        int affectRows = 0;
+        try {
+            String sql1 = "update  member set userId = ? ,where Id = ?";
+            affectRows = template.update(sql1, userId, memberId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return affectRows > 0;
+        }
+    }
+
 }

@@ -135,4 +135,13 @@ public class Match {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return dateFormat.format(date);
     }
+
+    /**
+     *
+     * @return 返回今天是否处于报名期间
+     */
+    public boolean isApplicationNow(){
+        Date now = new Date();
+        return  this.getApplicationEnd().after(now);
+    }
 }
