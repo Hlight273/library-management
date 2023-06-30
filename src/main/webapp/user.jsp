@@ -96,6 +96,9 @@
     <!-- login area start -->
     <form action="" method="">
       <div class="input">
+        UID ${user.id}<br><br><br>
+      </div>
+      <div class="input">
         姓名<br><input type="text" value="" name="name">
       </div>
       <div class="input">
