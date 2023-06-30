@@ -57,7 +57,4 @@ $(function() {
             $('.pwd-msg').hide();
         }
     })
-    $('.input2').hover(function (){
-        $(this).children('input').addClass('colorchange1');
-    })
 });

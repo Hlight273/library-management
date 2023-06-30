@@ -1,11 +1,17 @@
 .detail-msg{
-    width: 100px;
+    width: 500px;
     height: 25px;
 }
 .detail-msg p{
     font-size: 20px;
-    color: green;
+    color: red;
 }
 .row .h500{
     height: 500px;
+}
+.detail-button{
+    height: 50px;
+}
+.h700{
+    height: 700px;
 }
