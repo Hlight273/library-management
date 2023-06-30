@@ -15,20 +15,25 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/user.css">
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/user.js"></script>
 
 <div class="causes-area ">
   <div class="select-menu">
     <table>
-      <ul class="f-right mima">
-        <li class="colorchange">修改密码</li>
-      </ul>
-      <ul class="f-right yonghu ">
-        <li class="colorchange">用户中心</li>
-      </ul>
-      <ul class="f-right cansai">
+      <ul class="f-left cansai">
         <li class="colorchange">我的竞赛</li>
         <li class="colorchange">往届竞赛</li>
         <li class="colorchange">竞赛中</li>
+      </ul>
+      <ul class="f-left team">
+        <li class="colorchange">我的团队</li>
+      </ul>
+      <ul class="f-left yonghu ">
+        <li class="colorchange">用户中心</li>
+      </ul>
+      <ul class="f-left mima">
+        <li class="colorchange">修改密码</li>
       </ul>
     </table>
   </div>
@@ -68,7 +73,7 @@
   <!--新竞赛-->
   <div class="user-row container">
     <div class="match-title">
-      <p>新竞赛</p>
+      <p>竞赛中</p>
     </div>
     <c:forEach items="${matchList}" var="match">
       <c:if test="${match.isNow()}">
@@ -96,11 +101,12 @@
       </c:if>
     </c:forEach>
   </div>
-</div>
 
   <!--用户中心-->
   <div class="container">
-    <!-- login area start -->
+    <div class="match-title">
+      <p>修改用户信息</p>
+    </div>
     <form action="EditUserServlet" method="post">
       <div class="input">
         UID ${user.id}<br><br><br>
@@ -118,9 +124,11 @@
     <!-- login area end -->
   </div>
 
-
+<%--修改密码--%>
   <div class="container">
-    <!-- login area start -->
+    <div class="match-title">
+      <p>修改密码</p>
+    </div>
     <form action="EditPwdServlet" method="post">
       <div class="input">
         旧密码<br><input type="text" value="" name="oldpwd">
@@ -142,27 +150,29 @@
   </div>
 <div class="container">
   <div class="match-title">
-    <p>修改团队成员</p>
+    <p>修改团队</p>
   </div>
 <c:forEach items="${teamList}" var="team">
   <form action="EditTeamServlet" method="post">
     <div class="input">
-      队员1<br><input type="text" value="${team.getmemberList().get(1).userid}" name="member1">
+      团队名称<br><input type="text" value="${team.name}" name="teamName">
     </div>
     <div class="input">
-      队员2<br><input type="text" value="${team.getmemberList().get(2).userid}" name="member2">
+      团队简介<br><input type="text" value="${team.description}" name="description">
     </div>
     <div class="input">
-      队员3<br><input type="text" value="${team.getmemberList().get(3).userid}" name="member3">
+      队员1<br><input type="text" value="${team.getMemberList().get(1).userId}" name="member1">
     </div>
-
-    <input type="hidden" value="${team.getmemberList().get(1).userid}" name="member1Id">
-    <input type="hidden" value="${team.getmemberList().get(2).userid}" name="member2Id">
-    <input type="hidden" value="${team.getmemberList().get(3).userid}" name="member3Id">
-
-<%--    <div class="pwd-msg">--%>
-<%--      <p>两次输入密码不一致</p>--%>
-<%--    </div>--%>
+    <div class="input">
+      队员2<br><input type="text" value="${team.getMemberList().get(2).userId}" name="member2">
+    </div>
+    <div class="input">
+      队员3<br><input type="text" value="${team.getMemberList().get(3).userId}" name="member3">
+    </div>
+    <input type="hidden" value="${team.id}" name="teamId">
+    <input type="hidden" value="${team.getMemberList().get(1).userId}" name="member1Id">
+    <input type="hidden" value="${team.getMemberList().get(2).userId}" name="member2Id">
+    <input type="hidden" value="${team.getMemberList().get(3).userId}" name="member3Id">
     <div class="input2">
       <input type="submit" value="确认修改" class="btn btn-inverse">
     </div>
@@ -171,5 +181,3 @@
 </div>
 
 </div>
-<script src="js/jquery-3.6.0.min.js"></script>
-<script src="js/user.js"></script>

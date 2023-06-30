@@ -47,6 +47,10 @@ $(function() {
         $('.container:eq(3)').show();
     })
 
+    $('.team').click(function (){
+        $('.container').hide();
+        $('.container:eq(4)').show();
+    })
     $('.newpwd2').change(function (){
         var pwd1=$('.newpwd').val()
         var pwd2=$('.newpwd2').val()

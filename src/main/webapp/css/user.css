@@ -1,11 +1,11 @@
 
 .select-menu{
-    width: 683px;
+    width: 783px;
     height: 100px;
     margin: 0 auto;
 }
 .select-menu ul{
-    margin-right: 100px;
+    margin:10px 47px;
     font-size: 25px;
 }
 .select-menu ul li{
@@ -17,7 +17,6 @@
 }
 .container{
     width: 1000px;
-    height: 500px;
 }
 .container .input{
     margin-left: 200px;
