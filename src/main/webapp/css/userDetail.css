@@ -22,3 +22,10 @@ table .firstTd{
 .firstTd p{
     font-size: 15px;
 }
+.adminImg{
+    width: 270px;
+    height: 370px;
+}
+.align-left{
+    height: 400px;
+}

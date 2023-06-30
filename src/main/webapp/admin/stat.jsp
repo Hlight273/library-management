@@ -3,15 +3,29 @@
 <input type="hidden" value="${countStat}" id="countStat">
 <input type="hidden" value="${awardStat}" id="awardStat">
 <script src="<c:url value="/js/echarts.js"/>"></script>
-<div id="sheet1" style="width: 600px;height:400px;"></div>
-<div id="sheet2" style="width: 600px;height:400px;"></div>
+<div class="content">
+    <div id="sheet1" class="sheet" style="width: 600px;height:400px;"></div>
+    <div id="sheet2" class="sheet" style="width: 600px;height:400px;"></div>
+</div>
+<style>
+    .content .sheet {
+        min-width: 1200px;
+        border: 1px solid darkgrey;
+        margin:20px auto;
+        padding: 20px;
+        justify-content:center;
+        flex-flow:wrap;
+    }
+</style>
 <script type="text/javascript">
     //对象数组
-    let countStat = getObj($('#countStat').val())
-    let awardStat = getObj($('#awardStat').val())
-
+    let countStat = [], cs = $('#countStat').val()
+    if(cs !== '[]') countStat = getObj(cs)
+    let awardStat = [], as = $('#awardStat').val()
+    if(as !== '[]') awardStat = getObj(as)
     console.log(awardStat)
-
+    //公用配置
+    let widthScale = '30%'
     var countChart = echarts.init(document.getElementById('sheet1'));
     var countOption = {
         title: {
@@ -39,7 +53,7 @@
             {
                 name: '参与数',
                 type: 'bar',
-                barWidth: "40%",
+                barWidth: widthScale,
                 data: countStat.map(x => {return x.applyCount})
             }
         ]
@@ -76,7 +90,7 @@
             {
                 name: '获奖数',
                 type: 'bar',
-                barWidth: "40%",
+                barWidth: widthScale,
                 data: awardStat.map(x => {return x.awardCount})
             }
         ]
