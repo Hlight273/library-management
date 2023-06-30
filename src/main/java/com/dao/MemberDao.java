@@ -54,7 +54,7 @@ public class MemberDao {
     public boolean edit(int memberId,int userId){
         int affectRows = 0;
         try {
-            String sql1 = "update  member set userId = ? ,where Id = ?";
+            String sql1 = "update  member set userId = ? where Id = ?";
             affectRows = template.update(sql1, userId, memberId);
         } catch (Exception e) {
             e.printStackTrace();
