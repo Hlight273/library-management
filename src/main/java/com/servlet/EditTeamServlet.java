@@ -55,7 +55,7 @@ public class EditTeamServlet extends HttpServlet {
         else if(way3.equals("edit")){
             memberDao.edit(Integer.parseInt(member3Id),Integer.parseInt(member3));
         }
-        response.sendRedirect(request.getContextPath() + "/user.jsp");
+        response.sendRedirect(request.getContextPath() + "/MatchByUserServlet");
     }
 
     @Override

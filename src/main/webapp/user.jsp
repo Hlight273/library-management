@@ -32,7 +32,7 @@
                 <li class="colorchange">用户中心</li>
             </ul>
             <ul class="f-left mima">
-                <li class="colorchange">修改密码</li>1
+                <li class="colorchange">修改密码</li>
             </ul>
         </table>
     </div>
