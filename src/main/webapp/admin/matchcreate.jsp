@@ -108,7 +108,6 @@
 </style>
 
 <script type="text/javascript">
-  //使用Ajax请求上传宠物图片，页面不刷新
   $(document).ready(function (){
     //图片预览默认隐藏
     $('#img').hide();
