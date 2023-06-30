@@ -30,8 +30,8 @@
                     <c:forEach items="${teamList}" var="team">
                         <tr>
                             <td class="firstTd">
-                                <p>${team.name}</p>
-                                <p>${team.workName}</p>
+                                <p>团队名称：${team.name}</p>
+                                <p>团队作品：${team.workName}</p>
                             </td>
                             <td>
                                 <c:forEach items="${team.getWorkList()}" var="work">

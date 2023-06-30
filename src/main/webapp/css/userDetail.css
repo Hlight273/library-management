@@ -3,14 +3,19 @@ table{
     border-collapse: collapse;
     width: 100%;
     margin: 0 auto;
+    display: table-cell;
+    vertical-align: middle;
 }
 table td{
     border:1px solid #8080804a;
+    text-align: center;
+    vertical-align: middle;
     margin: 0;
 }
 table .firstTd{
     line-height: 100px;
     text-align: center;
+    vertical-align: middle;
     width: 200px;
     height: 100px;
 }
