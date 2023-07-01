@@ -13,15 +13,19 @@
                     <img src="${ctx}/image/${match.url}" class="align-left thumbnail" alt="image" />
                 </div>
                 <div class="span6">
-                    <h2>竞赛名称</h2>${match.name}
-                    <p class="lead">简介</p>
-                    <p>简介内容</p>
-                    ${match.description}
+                    <h2>${match.name}</h2>
                     <ul class="project-info">
-                        <li><h6>开始日期:</h6>${match.start}</li>
-                        <li><h6>结束日期:</h6>${match.end}</li>
+                        <li><p class="lead">简介</p>${match.description}</li>
+                    </ul>
+
+                    <ul class="project-info">
+                        <li><h6>竞赛时间:</h6>${match.getDateString(match.start)} - ${match.getDateString(match.end)}</li>
+                        <li><h6>报名截止:</h6>${match.getDateString(match.applicationEnd)}</li>
                         <li><h6>竞赛主题:</h6>${match.theme}</li>
                     </ul>
+                    <c:if test="${match.isApplicationNow()&&match.isNow()}"><div class="big_info">竞赛进行中</div></c:if>
+                    <c:if test="${!match.isApplicationNow()&&match.isNow()}"><div class="big_info">报名已结束</div></c:if>
+                    <c:if test="${!match.isNow()}"><div class="big_info">竞赛已结束</div></c:if>
                 </div>
             </div>
 
@@ -35,9 +39,12 @@
                             <p>成员：<c:forEach items="${team.getMemberList()}" var="member">${member.getMemberRealname()}&nbsp;</c:forEach></p>
                             <c:if test="${team.lv!=0}">
                                 <div class="check_award">
-                                    ${team.getLvString()}
+                                    恭喜你，获得 ${team.getLvString()}
                                     <a href="${ctx}/CreteServlet?teamId=${team.id}">查看奖状</a>
                                 </div>
+                            </c:if>
+                            <c:if test="${team.lv==0}">
+                                <div class="check_award">很遗憾，未能获奖 </div>
                             </c:if>
                         </div>
                         <div class="description">简介：${team.description}</div>
@@ -188,6 +195,10 @@
 </div>
 
 <style>
+    .big_info {
+        color: red;
+        font-size: 20px;
+    }
     .match_imgbox {
         position: relative;
         width: 400px;
