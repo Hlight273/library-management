@@ -18,16 +18,16 @@
                 <h5>Latest Tweets</h5>
                 <ul>
                     <li><a href="#">419:</a>加入我们立享特惠</li>
-                    <li><a href="#">地址:</a>绍兴大学机械与电器工程学院计算机科学与技术211班102组</li>
+                    <li><a href="#">地址:</a>绍兴大学机械与电气工程学院计算机科学与技术211班102组</li>
                     <li><a href="#">联系方式:</a>您可以通过拨打15816364228或发送邮件到2812546851@qq.com联系我们</li>
                 </ul>
             </div>
             <div class="span3 footer-col">
                 <h5>Latest Posts</h5>
                 <ul class="post-list">
-                    <li><a href="#">欢迎随时联系我们</a></li>
+                    <li><a href="https://baike.baidu.com/item/%E4%B8%81%E7%9C%9F%E7%8F%8D%E7%8F%A0/55355315?fromModule=lemma_search-box&fromtitle=%E4%B8%81%E7%9C%9F&fromid=54518786">欢迎随时联系我们</a></li>
                     <li><a href="#">全国著名专家支子绮将为您解决文档的苦恼</a></li>
-                    <li><a href="#">当您为代码苦恼时，倪文楷、卢彬将让您的代码变得简洁有效</a></li>
+                    <li><a href="https://baike.baidu.com/item/%E5%8D%A2%E5%BD%AC/53743">当您为代码苦恼时，倪文楷、卢彬将让您的代码变得简洁有效</a></li>
                     <li><a href="#">戎威树专家专业书写jsp二十年，美化您的页面</a></li>
                     <li><a href="#">热烈欢迎您的到来！！！</a></li>
                 </ul>
