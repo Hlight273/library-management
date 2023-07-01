@@ -1,9 +1,12 @@
 package com.dao;
 
+import com.domain.Match;
 import com.domain.User;
 import com.utils.JDBCUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
 
 public class UserDao {
     private JdbcTemplate template=new JdbcTemplate(JDBCUtils.getDataSource());
@@ -61,6 +64,19 @@ public class UserDao {
             e.printStackTrace();
         } finally {
             return affectRows > 0;
+        }
+    }
+
+    //获得真名，根据id
+    public String getNameById(int userid){
+        User user = null;
+        try {
+            String sql = "select * from user where Id = ?";
+            user = template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), userid);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return user.getName();
         }
     }
 }

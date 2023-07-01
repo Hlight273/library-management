@@ -46,7 +46,7 @@
                     <li><a href="#"><img src="${ctx}/image/flickr-img-9.jpg" alt="Image Feed" /></a></li>
                     <li><a href="#"><img src="${ctx}/image/flickr-img-10.jpg" alt="Image Feed" /></a></li>
                     <li><a href="#"><img src="${ctx}/image/flickr-img-11.jpg" alt="Image Feed" /></a></li>
-                    <li><a href="#"><img src="${ctx}/image/flickr-img-12.jpg" alt="Image Feed" /></a></li>
+                    <li><a href="https://baike.baidu.com/item/%E8%94%A1%E5%BE%90%E5%9D%A4/8511458"><img src="${ctx}/image/flickr-img-12.jpg" alt="Image Feed" /></a></li>
                 </ul>
             </div>
         </div>
