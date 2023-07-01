@@ -74,7 +74,7 @@ public class ImageMarkUtils {
         }
     }
 
-    public static String crete(String path,String webPath, String date ,String name, String matchName, String teamName, int lv) {
+    public static String crete(String path,String webPath, String date ,String name, String matchName, String teamName, String lv) {
         String[] num = {"一", "二", "三"};
         //模板文件地址
         String srcImgPath = path+"award_template.png";
@@ -85,7 +85,7 @@ public class ImageMarkUtils {
         //list.add(createImageDTO("SOIDMN9929399", Color.BLACK, FontUtil.loadFontResource(Font.PLAIN, 24), 250, 1290, false));
         list.add(createImageDTO(name+" 同学:", Color.BLACK, FontUtil.loadFontResource(Font.PLAIN, 30), 304-80, 318, false));
         list.add(createImageDTO("在"+matchName+"中，你所属的"+teamName+"荣获", Color.BLACK, FontUtil.loadFontResource(Font.PLAIN, 24), 572-80, 374, true));
-        list.add(createImageDTO("第"+num[lv-1]+"名", new Color(200,0,0), FontUtil.loadFontResource(Font.BOLD, 60), 593-80, 477, true));
+        list.add(createImageDTO(lv, new Color(200,0,0), FontUtil.loadFontResource(Font.BOLD, 60), 593-80, 477, true));
         list.add(createImageDTO("特颁此证，以资鼓励", Color.BLACK, FontUtil.loadFontResource(Font.PLAIN, 24), 316-80, 621, false));
         list.add(createImageDTO("绍兴文理学院", Color.BLACK, FontUtil.loadFontResource(Font.PLAIN, 24), 902-80, 621, false));
         list.add(createImageDTO(date, Color.BLACK, FontUtil.loadFontResource(Font.PLAIN, 18), 900-70, 662, false));

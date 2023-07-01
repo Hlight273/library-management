@@ -33,6 +33,12 @@
                             <div class="team_name"><span>${team.name}</span></div>
                             <p>作品名：${team.workName}</p>
                             <p>成员：<c:forEach items="${team.getMemberList()}" var="member">${member.getMemberRealname()}&nbsp;</c:forEach></p>
+                            <c:if test="${team.lv!=0}">
+                                <div class="check_award">
+                                    ${team.getLvString()}
+                                    <a href="${ctx}/CreteServlet?teamId=${team.id}">查看奖状</a>
+                                </div>
+                            </c:if>
                         </div>
                         <div class="description">简介：${team.description}</div>
                         <div class="msg" style="text-align: center">
@@ -70,8 +76,8 @@
 
                     //如果该比赛过期，全局隐藏修改界面
                     if(${!match.isNow()}){
-                        $('.add_box').hide()
-                        $('.delete').hide()
+                        $('.add_box').remove()
+                        $('.delete').remove()
                     }
 
                     $('.uploadBtn').click(function (){
@@ -227,6 +233,10 @@
     .infobox .header p {
         float: left;
         margin: 0 20px;
+    }
+    .infobox .header .check_award {
+        float: right;
+        margin-right: 10px;
     }
     .infobox .description {
         margin: 10px

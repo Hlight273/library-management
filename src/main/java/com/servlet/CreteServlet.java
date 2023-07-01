@@ -27,7 +27,7 @@ public class CreteServlet extends HttpServlet {
         String pattern = "yyyy年MM月dd日";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String date = simpleDateFormat.format(match.getEnd());
-        String imgUrl = ImageMarkUtils.crete(request.getSession().getServletContext().getRealPath("/img/"),request.getContextPath(),date,user.getName(),match.getName(),team.getName(),team.getLv());
+        String imgUrl = ImageMarkUtils.crete(request.getSession().getServletContext().getRealPath("/img/"),request.getContextPath(),date,user.getName(),match.getName(),team.getName(), team.getLvString());
         request.getSession().setAttribute("awardimg",imgUrl);
         response.sendRedirect(request.getContextPath() + "/img/award.png");
     }
