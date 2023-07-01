@@ -22,10 +22,16 @@
                     <ul class="project-info">
                         <li><h6>开始日期:</h6>${match.start}</li>
                         <li><h6>结束日期:</h6>${match.end}</li>
+                        <li><h6>报名截至日期:</h6>${match.applicationEnd}</li>
                         <li><h6>竞赛主题:</h6>${match.theme}</li>
                     </ul>
                     <div class="detail-button">
-                        <a href="application.jsp?matchId=${match.id}"><button class="btn btn-inverse pull-left" type="button">报名参赛</button></a>
+                        <c:if test="${user.isAdmin()}">
+                            <a href="MatchServlet?id=${match.id}"><button class="btn btn-inverse pull-left" type="button">修改竞赛</button></a>
+                        </c:if>
+                        <c:if test="${!user.isAdmin()}">
+                            <a href="application.jsp?matchId=${match.id}"><button class="btn btn-inverse pull-left" type="button">报名参赛</button></a>
+                        </c:if>
                         <a href="IndexServlet"><button class="btn btn-inverse pull-right" type="button">返回首页</button></a>
                     </div>
                     <div class="detail-msg">

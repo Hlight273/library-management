@@ -44,6 +44,7 @@
 .pwd-msg p{
     color: red;
     font-size: 20px;
+    margin-left: 200px;
 }
 .user-row{
     height: 800px;
