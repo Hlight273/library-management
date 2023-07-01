@@ -36,7 +36,6 @@ a, a:hover { color:#d8450b; }
 
 /***** Misc *****/
 i {margin-right: 3px;}
-p {margin-bottom: 20px;}
 blockquote {
 	font-size:16px; 
 	line-height:24px; 
@@ -294,7 +293,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{ display: block; }
 	font-weight: normal;
 	text-transform:uppercase; 
 }
-.project-details {color: #6f6f6f;}
+.project-details {color: #6f6f6f;text-align: center}
 .project-details a {color: #333333;}
 .project-details a:hover {color:#d8450b; text-decoration: none;}
 

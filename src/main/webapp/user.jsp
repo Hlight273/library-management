@@ -32,7 +32,7 @@
                 <li class="colorchange">用户中心</li>
             </ul>
             <ul class="f-left mima">
-                <li class="colorchange">修改密码</li>1
+                <li class="colorchange">修改密码</li>
             </ul>
         </table>
     </div>
@@ -155,6 +155,13 @@
         </div>
         <c:forEach items="${teamList}" var="team">
             <form action="EditTeamServlet" method="post">
+                <c:forEach items="${matchList}" var="match">
+                    <c:if test="${match.id == team.matchId}">
+                        <div class="input">
+                            竞赛名称： ${match.id}<br>
+                        </div>
+                    </c:if>
+                </c:forEach>
                 <div class="input">
                     团队名称<br><input type="text" value="${team.name}" name="teamName">
                 </div>
