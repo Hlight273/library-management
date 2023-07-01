@@ -1,5 +1,6 @@
 package com.domain;
 
+import com.dao.HeartDao;
 import com.dao.MemberDao;
 import com.dao.WorkDao;
 
@@ -121,5 +122,15 @@ public class Team {
         String[] num = {"一", "二", "三"};
         if(this.lv != 0) return num[this.lv-1]+"等奖";
         return "未获奖";
+    }
+
+    /**
+     *
+     * @param myUserId 待查询用户的id
+     * @return 返回该id的用户是否给这个team点赞过
+     */
+    public boolean ifMeLikedTeam(int myUserId){
+        HeartDao heartDao = new HeartDao();
+        return heartDao.isRepeat(myUserId, this.id);
     }
 }

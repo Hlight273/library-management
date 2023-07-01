@@ -22,18 +22,12 @@ public class UserDetailServlet extends HttpServlet {
         TeamDao teamDao=new TeamDao();
         MemberDao memberDao=new MemberDao();
         Match match=matchDao.getMatchById(matchId);
-        request.getSession().setAttribute("match",match);
+        request.setAttribute("match",match);
         if(user.isAdmin()){
-            int Lv1=1;
-            int Lv2=2;
-            int Lv3=3;
             Award award = teamDao.getAward(matchId);
-            award.setLv1(Lv1 -= award.getLv1());
-            award.setLv2(Lv2 -= award.getLv2());
-            award.setLv3(Lv3 -= award.getLv3());
             List<Team> teamList = teamDao.getTeamByMatchId(matchId);
-            request.getSession().setAttribute("teamList",teamList);
-            request.getSession().setAttribute("award",award);
+            request.setAttribute("teamList",teamList);
+            request.setAttribute("award",award);
         }
         else{
             ArrayList<Team> teamList = new ArrayList<>();
@@ -43,11 +37,11 @@ public class UserDetailServlet extends HttpServlet {
             for (int i = 0; i < memberList.size(); i++) {
                 if(teamDao.getTeamById(memberList.get(i).getTeamId()).getMatchId()==matchId){
                     teamList.add(teamDao.getTeamById(memberList.get(i).getTeamId()));
-                    request.getSession().setAttribute("teamList",teamList);
+                    request.setAttribute("teamList",teamList);
                 }
             }
         }
-        response.sendRedirect(request.getContextPath() + "/userDetail.jsp");
+        request.getRequestDispatcher("/userDetail.jsp").forward(request,response);
     }
 
     @Override
