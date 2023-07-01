@@ -34,6 +34,7 @@
                             <p>作品名：${team.workName}</p>
                             <p>成员：<c:forEach items="${team.getMemberList()}" var="member">${member.getMemberRealname()}&nbsp;</c:forEach></p>
                         </div>
+                        <div class="description">简介：${team.description}</div>
                         <div class="msg" style="text-align: center">
                             <span style="color: red">${msg}</span>
                         </div>
@@ -66,6 +67,13 @@
             </c:if>
             <script type="text/javascript">
                 $(document).ready(function (){
+
+                    //如果该比赛过期，全局隐藏修改界面
+                    if(${!match.isNow()}){
+                        $('.add_box').hide()
+                        $('.delete').hide()
+                    }
+
                     $('.uploadBtn').click(function (){
                         let $infobox = $(this).closest('.infobox');
                         let $form = $infobox.find('.uploadForm');
@@ -121,35 +129,53 @@
                 })
                 //msg改变信息
                 showMsg = ($infobox, text) => $infobox.find('.msg span').text(text);
-
             </script>
 
             <c:if test="${user.isAdmin()}">
-                <table>
-                    <c:forEach items="${teamList}" var="team">
-                        <tr>
-                            <td class="firstTd">
-                                <p>队伍名称：${team.name}</p>
-                                <p>作品名称：${team.workName}</p>
-                            </td>
-                            <td>
-                                <c:forEach items="${team.getWorkList()}" var="work">
-                                    <img src="${ctx}/image/${work.url}" width="50px" height="50px">
-                                </c:forEach>
-                            </td>
-                            <td>
-                                <select>
-                                    <option>-请选择-</option>
-                                    <option>一等奖</option>
-                                    <option>二等奖</option>
-                                    <option>三等奖</option>
+                <ul>
+                <c:forEach items="${teamList}" var="team">
+                    <li class="infobox" data-teamid="${team.id}">
+                        <div class="header">
+                            <div class="team_name"><span>${team.name}</span></div>
+                            <p>作品名：${team.workName}</p>
+                            <form class="setAwardForm" action="${ctx}/SetAwardServlet">
+                                <input type="hidden" name="teamId" value="${team.id}">
+                                <select name="lv" class="lv">
+                                    <option value="0" ${team.lv eq 0?'selected':'' }>未获奖</option>
+                                    <option value="1" ${team.lv eq 1?'selected':'' }>一等奖</option>
+                                    <option value="2" ${team.lv eq 2?'selected':'' }>二等奖</option>
+                                    <option value="3" ${team.lv eq 3?'selected':'' }>三等奖</option>
                                 </select>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </table>
-
+                                <button class="btn btn-mini btn-inverse hidden-phone" type="submit">评奖</button>
+                            </form>
+                        </div>
+                        <div class="description">简介：${team.description}</div>
+                        <div class="msg" style="text-align: center">
+                            <span style="color: red">${msg}</span>
+                        </div>
+                        作品展示：
+                        <ul>
+                            <c:forEach items="${team.getWorkList()}" var="work">
+                                <li class="img_box" data-workid="${work.id}">
+                                    <a href="${ctx}/image/${work.url}">
+                                        <img class="img" src="${ctx}/image/${work.url}">
+                                    </a>
+                                    <button class="delete" type="button">X</button>
+                                </li>
+                            </c:forEach>
+                        </ul>
+                        <c:if test="${empty team.getWorkList()}">
+                            <div class="empty_info_mini">该团队还没有上传作品！</div>
+                        </c:if>
+                    </li>
+                </c:forEach>
+                </ul>
+                <c:if test="${empty teamList}">
+                    <div class="empty_info">当前还没有人报名竞赛！</div>
+                </c:if>
             </c:if>
+
+
         </div>
     </div>
 
@@ -173,6 +199,8 @@
     .infobox {
         overflow:hidden;
         margin: 20px;
+        padding-bottom: 40px;
+        border: 1px solid darkgrey;
     }
     .infobox .header {
         width: 100%;
@@ -180,7 +208,7 @@
         font-size: 16px;
         line-height: 40px;
         overflow: hidden;
-        border: 1px solid darkgrey;
+        border-bottom: 1px solid darkgrey;
     }
     .infobox .header .team_name {
         float: left;
@@ -199,6 +227,9 @@
     .infobox .header p {
         float: left;
         margin: 0 20px;
+    }
+    .infobox .description {
+        margin: 10px
     }
     .infobox .img_box {
         margin-right: 20px;
@@ -243,6 +274,32 @@
         padding: 20px;
         color: grey;
         border: grey 1px solid;
+    }
+    /*评奖表单*/
+    .infobox .header .setAwardForm {
+        margin-right: 20px;
+        float: right;
+    }
+    .infobox .header .setAwardForm .lv {
+        margin-top: 5px;
+        outline: none;
+    }
+    .infobox .header .setAwardForm button {
+        margin-left: 5px;
+        margin-top: -3px;
+        outline: none;
+    }
+    .empty_info {
+        margin: 100px 0 150px -30px;
+        width: 1200px;
+        text-align: center;
+        color: darkgrey;
+    }
+    .empty_info_mini {
+        margin: 20px 0 25px -30px;
+        width: 1200px;
+        text-align: center;
+        color: darkgrey;
     }
 </style>
 
