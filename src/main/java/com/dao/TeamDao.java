@@ -87,8 +87,8 @@ public class TeamDao {
     public boolean setAward(int teamId, int lv ){
         int affectRows = 0;
         try {
-            String sql = "update  team set Lv = ?, IsDelete = ?";
-            affectRows = template.update(sql, teamId, 1);
+            String sql = "update  team set Lv = ?, IsDelete = ? where Id = ?";
+            affectRows = template.update(sql, lv, 1, teamId);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
