@@ -110,6 +110,6 @@ public class Team {
 
     public List<Member> getMemberList(){
         MemberDao memberDao = new MemberDao();
-        return memberDao.getMemberListByteamId(this.id);
+        return memberDao.getMemberByteamId(this.id);
     }
 }

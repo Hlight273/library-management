@@ -12,6 +12,7 @@ import java.io.IOException;
 public class EditTeamServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         int teamId= Integer.parseInt(request.getParameter("teamId"));
         String teamName= request.getParameter("teamName");
         String description= request.getParameter("description");
@@ -54,7 +55,7 @@ public class EditTeamServlet extends HttpServlet {
         else if(way3.equals("edit")){
             memberDao.edit(Integer.parseInt(member3Id),Integer.parseInt(member3));
         }
-        response.sendRedirect(request.getContextPath() + "/user.jsp");
+        response.sendRedirect(request.getContextPath() + "/MatchByUserServlet");
     }
 
     @Override

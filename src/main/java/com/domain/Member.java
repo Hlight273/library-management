@@ -1,5 +1,7 @@
 package com.domain;
 
+import com.dao.UserDao;
+
 public class Member {
     private int id;
     private int userId;
@@ -36,5 +38,10 @@ public class Member {
 
     public void setTeamId(int teamId) {
         TeamId = teamId;
+    }
+
+    public String getMemberRealname(){
+        UserDao userDao = new UserDao();
+        return userDao.getNameById(this.userId);
     }
 }
