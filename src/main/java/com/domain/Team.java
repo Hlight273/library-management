@@ -112,4 +112,14 @@ public class Team {
         MemberDao memberDao = new MemberDao();
         return memberDao.getMemberByteamId(this.id);
     }
+
+    /**
+     *
+     * @return 根据lv返回几等奖的字符串，0返回空
+     */
+    public String getLvString(){
+        String[] num = {"一", "二", "三"};
+        if(this.lv != 0) return num[this.lv-1]+"等奖";
+        return "未获奖";
+    }
 }
