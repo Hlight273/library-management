@@ -5,50 +5,52 @@
 <head>
     <title>海报设计</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
     <!-- CSS-->
-    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="./css/bootstrap.css" />
-    <link rel="stylesheet" href="./css/bootstrap-responsive.css" />
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/bootstrap-responsive.css"/>
 <%--        <link rel="stylesheet" href="http://www.room122.com/demo/html/piccolo/css/jquery.lightbox-0.5.css" />--%>
-    <link rel="stylesheet" href="./css/custom-styles.css" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+    <link rel="stylesheet" href="css/custom-styles.css"/>
+    <script src="js/header.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
 <body>
 <div class="row header">
     <div class="span5 logo">
         <a href="${ctx}/IndexServlet"><img src="image/newlogo.png" alt="logo" style="height: 80px;margin:-20px;" /></a>
 <%--        <h5>Big Things... Small Packages</h5>--%>
     </div>
-
     <div class="span7 navigation">
         <div class="navbar hidden-phone">
 
             <ul class="nav">
-                <li><a href="${ctx}/IndexServlet">首页</a></li>
+                <li class="dropdown" id="a1"><a href="${ctx}/IndexServlet">首页</a></li>
                 <c:if test="${!user.isAdmin()}">
-                    <li><a href="${ctx}/MatchByUserServlet">报名竞赛</a></li>
+                    <li class="dropdown" id="a2"><a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchByUserServlet">报名竞赛</a></li>
                 </c:if>
                 <c:if test="${user.isAdmin()}">
-                    <li><a href="${ctx}/MatchServlet">发布竞赛</a></li>
+                    <li class="dropdown" id="a3"><a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchServlet">发布竞赛</a></li>
                 </c:if>
-                <li><a href="${ctx}/MatchListServlet">往届竞赛</a></li>
+                <li class="dropdown" id="a4"><a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchListServlet">往届竞赛</a></li>
                 <c:if test="${empty user}">
-                    <li class="active"><a href="${ctx}/LoginServlet">请登录！</a></li>
+                    <li class="dropdown" id="a5"><a href="${ctx}/LoginServlet">请登录！</a></li>
                 </c:if>
                 <c:if test="${!empty user}">
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <c:if test="${!user.isAdmin()}">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchByUserServlet">个人中心<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="${ctx}/MatchByUserServlet">我的竞赛</a></li>
-                                <li><a href="${ctx}/LogoutServlet">退出登录</a></li>
+                                <li class="dropdown"><a href="${ctx}/MatchByUserServlet">我的竞赛</a></li>
+                                <li class="dropdown"><a href="${ctx}/LogoutServlet">退出登录</a></li>
                             </ul>
                         </c:if>
                         <c:if test="${user.isAdmin()}">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchByUserServlet">管理中心<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="${ctx}/StatServlet">统计信息</a></li>
-                                <li><a href="${ctx}/LogoutServlet">退出登录</a></li>
+                                <li class="dropdown"><a href="${ctx}/StatServlet">统计信息</a></li>
+                                <li class="dropdown"><a href="${ctx}/LogoutServlet">退出登录</a></li>
                             </ul>
                         </c:if>
                     </li>
