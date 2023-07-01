@@ -41,6 +41,8 @@
                         </div>
                         <span class="project-details" style="width: 270px;height: 75px; overflow: hidden">
                             <a  class="smallname" href="${ctx}/DetailServlet?matchId=${match.id}">${match.name}</a>${match.description}</span>
+                            <p class="start">开始日期:${match.start}</p>
+                            <p class="end">结束日期:${match.end}</p>
                     </li>
                     </c:forEach>
                     <c:if test="${empty matchList}">
@@ -72,6 +74,11 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+    p{
+        text-align: center;
+        width: 270px;
+    }
+
 </style>
 
 <%@ include file="footer.jsp"%>
