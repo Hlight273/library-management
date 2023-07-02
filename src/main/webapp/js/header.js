@@ -55,26 +55,30 @@ $(function() {
                 $(".nav li a").removeClass("font-color2");
                 $(".nav li:eq(0) a").addClass("font-color1");
             }
-            // if("http://localhost:8080/Poster/user.jsp"==String(window.location)){
-            //     $(".nav li").removeClass("color");
-            //     $(".nav li:eq(1)").addClass("color");
-            // }
+            if("http://localhost:8080/Poster/MatchListServlet?sort=1"==String(window.location)){
+                $(".nav li").removeClass("color");
+                $(".nav li a").removeClass("font-color1");
+                $(".nav li a").addClass("font-color2");
+                $(".nav li:eq(1)").addClass("color");
+                $(".nav li a").removeClass("font-color2");
+                $(".nav li:eq(1) a").addClass("font-color1");
+            }
 
-            if("http://localhost:8080/Poster/MatchListServlet"==String(window.location)){
+            // if("http://localhost:8080/Poster/MatchListServlet"==String(window.location)){
+            //     $(".nav li").removeClass("color");
+            //     $(".nav li a").removeClass("font-color1");
+            //     $(".nav li a").addClass("font-color2");
+            //     $(".nav li:eq(2)").addClass("color");
+            //     $(".nav li a").removeClass("font-color2");
+            //     $(".nav li:eq(2) a").addClass("font-color1");
+            // }
+            if("http://localhost:8080/Poster/user.jsp"==String(window.location)){
                 $(".nav li").removeClass("color");
                 $(".nav li a").removeClass("font-color1");
                 $(".nav li a").addClass("font-color2");
                 $(".nav li:eq(2)").addClass("color");
                 $(".nav li a").removeClass("font-color2");
                 $(".nav li:eq(2) a").addClass("font-color1");
-            }
-            if("http://localhost:8080/Poster/user.jsp"==String(window.location)){
-                $(".nav li").removeClass("color");
-                $(".nav li a").removeClass("font-color1");
-                $(".nav li a").addClass("font-color2");
-                $(".nav li:eq(3)").addClass("color");
-                $(".nav li a").removeClass("font-color2");
-                $(".nav li:eq(3) a").addClass("font-color1");
             }
         })
     })

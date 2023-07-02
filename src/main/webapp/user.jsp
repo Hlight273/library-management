@@ -132,13 +132,13 @@
         </div>
         <form action="EditPwdServlet" method="post">
             <div class="input">
-                旧密码<br><input type="text" value="" name="oldpwd">
+                旧密码<br><input type="text"  name="oldpwd">
             </div>
             <div class="input">
-                新密码<br><input type="text" value="" name="newpwd " class="newpwd">
+                新密码<br><input type="text"  name="newpwd" class="newpwd">
             </div>
             <div class="input">
-                确认密码<br><input type="text" value="" name="newpwd2" class="newpwd2">
+                确认密码<br><input type="text"  name="newpwd2" class="newpwd2">
             </div>
             <div class="pwd-msg">
                 <p>两次输入密码不一致</p>

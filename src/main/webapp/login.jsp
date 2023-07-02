@@ -93,7 +93,7 @@
 </div>
 <!-- login area end -->
 
-
+<script src="js/vendor.min.js"></script>
 <script src="js/plugins.min.js"></script>
 
 <!-- Main Js -->

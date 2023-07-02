@@ -20,6 +20,7 @@ import java.util.List;
 public class ApplicationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         String teamName = request.getParameter("teamName");
         String description= request.getParameter("description");
         int matchId= Integer.parseInt(request.getParameter("matchId"));
@@ -61,10 +62,12 @@ public class ApplicationServlet extends HttpServlet {
                         captainFlag = true;
                         request.setAttribute("msg","已作为队长报名参赛！");
                         request.getRequestDispatcher("/detail.jsp").forward(request,response);
+                        return;
                     }
                     else{
                         request.setAttribute("msg","已作为队员参赛，不能以队长身份报名！");
                         request.getRequestDispatcher("/detail.jsp").forward(request,response);
+                        return;
                     }
                 }
 
@@ -73,20 +76,24 @@ public class ApplicationServlet extends HttpServlet {
             if(teamDao.verifyName(teamName,matchId).size()!=0){
                 request.setAttribute("msg","团队名重复！");
                 request.getRequestDispatcher("/application.jsp").forward(request,response);
+                return;
             }
             List<Team> teamList1 = teamDao.getTeamByMatchId(matchId);//查看队员是否有作为队长
             for (int i=0; i < teamList1.size(); i++) {
                if(Integer.parseInt(member1)==teamList1.get(i).getCaptainId()){
                    request.setAttribute("msg","队员已作为队长参赛！");
                    request.getRequestDispatcher("/application.jsp").forward(request,response);
+                   return;
                 }
                 if(Integer.parseInt(member2)==teamList1.get(i).getCaptainId()){
                     request.setAttribute("msg","队员已作为队长参赛！");
                     request.getRequestDispatcher("/application.jsp").forward(request,response);
+                    return;
                 }
                 if(Integer.parseInt(member3)==teamList1.get(i).getCaptainId()){
                     request.setAttribute("msg","队员已作为队长参赛！");
                     request.getRequestDispatcher("/application.jsp").forward(request,response);
+                    return;
                 }
 
             }

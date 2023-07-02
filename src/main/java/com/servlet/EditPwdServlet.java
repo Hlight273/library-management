@@ -18,7 +18,7 @@ public class EditPwdServlet extends HttpServlet {
         UserDao userDao = new UserDao();
         userDao.setPwd(user.getId(),pwd,newpwd);
         //更新用户信息
-        user = userDao.getByEmailAndPwd(user.getEmail(),pwd);
+        user = userDao.getByEmailAndPwd(user.getEmail(),newpwd);
         request.getSession().setAttribute("user",user);
         response.sendRedirect(request.getContextPath() + "/user.jsp");
     }

@@ -81,7 +81,8 @@
                         <div class="header">
                             <div class="team_name"><span>${team.name}</span></div>
                             <p>作品名：${team.workName}</p>
-                            <form class="setAwardForm" action="${ctx}/SetAwardServlet">
+                            <form class="setAwardForm" action="${ctx}/SetAwardServlet" method="post">
+                                <input type="hidden" name="matchId" value="${match.id}">
                                 <input type="hidden" name="teamId" value="${team.id}">
                                 <select name="lv" class="lv">
                                     <option value="0" ${team.lv eq 0?'selected':'' }>未获奖</option>
