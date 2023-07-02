@@ -50,7 +50,7 @@
                         </div>
                         <span class="project-details" style="width: 270px;height: 120px; overflow: hidden">
                             <a  class="smallname" href="${ctx}/DetailServlet?matchId=${match.id}">${match.name}</a>
-                            <p class="start">起始日期:<br>${match.start}-${match.end}</p>
+                            <p class="start">起始日期:<br>${match.getDateString(match.start)}-${match.getDateString(match.end)}</p>
                                 ${match.description}
 
                         </span>
