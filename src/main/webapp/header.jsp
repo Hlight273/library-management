@@ -28,7 +28,7 @@
             <ul class="nav">
                 <li class="dropdown" id="a1"><a href="${ctx}/IndexServlet">首页</a></li>
                 <c:if test="${!user.isAdmin()}">
-                    <li class="dropdown" id="a2"><a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchByUserServlet">报名竞赛</a></li>
+                    <li class="dropdown" id="a2"><a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchListServlet?sort=1">报名竞赛</a></li>
                 </c:if>
                 <c:if test="${user.isAdmin()}">
                     <li class="dropdown" id="a3"><a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchServlet">发布竞赛</a></li>
