@@ -33,7 +33,7 @@
                 <c:if test="${user.isAdmin()}">
                     <li class="dropdown" id="a3"><a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchServlet">发布竞赛</a></li>
                 </c:if>
-                <li class="dropdown" id="a4"><a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchListServlet">往届竞赛</a></li>
+<%--                <li class="dropdown" id="a4"><a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchListServlet">往届竞赛</a></li>--%>
                 <c:if test="${empty user}">
                     <li class="dropdown" id="a5"><a href="${ctx}/login.jsp">请登录！</a></li>
                 </c:if>
