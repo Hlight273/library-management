@@ -2,12 +2,7 @@
 <%@ include file="header.jsp"%>
 <link rel="stylesheet" href="css/userDetail.css" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="js/jquery-3.6.0.min.js"></script>
-<header>
-    <title>设置奖项</title>
-</header>
-    <div class="container main-container">
-
+<div class="container main-container">
     <div class="row">
         <div class="span12 gallery-single">
             <div class="row">

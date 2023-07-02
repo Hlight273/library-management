@@ -25,7 +25,8 @@ public class UserDetailServlet extends HttpServlet {
         request.setAttribute("match",match);
         if(user.isAdmin()){
             Award award = teamDao.getAward(matchId);
-            List<Team> teamList = teamDao.getTeamByMatchId(matchId);
+            //管理员得到的是按照获奖倒序排序的
+            List<Team> teamList = teamDao.getTeamListLvOrder(matchId);
             request.setAttribute("teamList",teamList);
             request.setAttribute("award",award);
         }
