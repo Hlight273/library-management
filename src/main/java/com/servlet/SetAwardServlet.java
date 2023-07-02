@@ -14,11 +14,11 @@ public class SetAwardServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int matchId= Integer.parseInt(request.getParameter("matchId"));
-        int teamId = (int) request.getSession().getAttribute("teamId");
+        int teamId = Integer.parseInt(request.getParameter("teamId"));
         int lv = Integer.parseInt(request.getParameter("lv"));
         TeamDao teamDao = new TeamDao();
         teamDao.setAward(teamId,lv);
-        response.sendRedirect(request.getContextPath() + "/detail.jsp");
+        response.sendRedirect(request.getContextPath() + "/UserDetailServlet?matchId="+matchId);
     }
 
     @Override
