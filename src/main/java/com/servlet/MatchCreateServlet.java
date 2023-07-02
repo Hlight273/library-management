@@ -15,12 +15,6 @@ import java.util.List;
 public class MatchCreateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //先判断是不是管理员，如果不是t到登录页
-        User user = (User) request.getSession().getAttribute("user");
-        if(user==null || !user.isAdmin()){
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
-            return;
-        }
         //接受表单信息，新建一个比赛
         request.setCharacterEncoding("utf-8");
         String name = request.getParameter("name");

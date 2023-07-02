@@ -44,6 +44,9 @@
                             <h4>注册</h4>
                         </a>
                     </div>
+                    <div class="text-center" style="text-align: center">
+                        <span style="color: red">${msg}</span>
+                    </div>
                     <div class="tab-content">
                         <div id="lg1" class="tab-pane active">
                             <div class="login-form-container">
@@ -90,7 +93,7 @@
 </div>
 <!-- login area end -->
 
-<script src="js/vendor.min.js"></script>
+
 <script src="js/plugins.min.js"></script>
 
 <!-- Main Js -->

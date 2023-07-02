@@ -14,9 +14,6 @@ public class EditUserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         User user = (User) request.getSession().getAttribute("user");
-        if(user==null){
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
-        }
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         UserDao userDao = new UserDao();

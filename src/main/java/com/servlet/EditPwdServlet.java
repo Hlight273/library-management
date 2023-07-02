@@ -13,9 +13,6 @@ public class EditPwdServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
-        if(user==null){
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
-        }
         String pwd = request.getParameter("oldpwd");
         String newpwd = request.getParameter("newpwd");
         UserDao userDao = new UserDao();

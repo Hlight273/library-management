@@ -28,14 +28,14 @@
             <ul class="nav">
                 <li class="dropdown" id="a1"><a href="${ctx}/IndexServlet">首页</a></li>
                 <c:if test="${!user.isAdmin()}">
-                    <li class="dropdown" id="a2"><a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchByUserServlet">报名竞赛</a></li>
+                    <li class="dropdown" id="a2"><a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchListServlet?sort=1">报名竞赛</a></li>
                 </c:if>
                 <c:if test="${user.isAdmin()}">
                     <li class="dropdown" id="a3"><a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchServlet">发布竞赛</a></li>
                 </c:if>
                 <li class="dropdown" id="a4"><a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchListServlet">往届竞赛</a></li>
                 <c:if test="${empty user}">
-                    <li class="dropdown" id="a5"><a href="${ctx}/LoginServlet">请登录！</a></li>
+                    <li class="dropdown" id="a5"><a href="${ctx}/login.jsp">请登录！</a></li>
                 </c:if>
                 <c:if test="${!empty user}">
                     <li class="dropdown">
@@ -49,8 +49,8 @@
                         <c:if test="${user.isAdmin()}">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchByUserServlet">管理中心<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li class="dropdown"><a href="${ctx}/StatServlet">统计信息</a></li>
-                                <li class="dropdown"><a href="${ctx}/LogoutServlet">退出登录</a></li>
+                                <li class=""><a href="${ctx}/StatServlet">统计信息</a></li>
+                                <li class=""><a href="${ctx}/LogoutServlet">退出登录</a></li>
                             </ul>
                         </c:if>
                     </li>

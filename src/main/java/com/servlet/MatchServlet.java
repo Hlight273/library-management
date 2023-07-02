@@ -16,12 +16,6 @@ import java.util.List;
 public class MatchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //先判断是不是管理员，如果不是t到登录页
-        User user = (User) request.getSession().getAttribute("user");
-        if(user==null || !user.isAdmin()){
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
-            return;
-        }
         String id = request.getParameter("id");
         MatchDao matchDao = new MatchDao();
         Match match;

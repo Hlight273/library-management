@@ -1,11 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="header.jsp"%>
 <link rel="stylesheet" href="css/userDetail.css" type="text/css">
-<header>
-    <title>设置奖项</title>
-</header>
-    <div class="container main-container">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container main-container">
     <div class="row">
         <div class="span12 gallery-single">
             <div class="row">
@@ -13,15 +10,19 @@
                     <img src="${ctx}/image/${match.url}" class="align-left thumbnail" alt="image" />
                 </div>
                 <div class="span6">
-                    <h2>竞赛名称</h2>${match.name}
-                    <p class="lead">简介</p>
-                    <p>简介内容</p>
-                    ${match.description}
+                    <h2>${match.name}</h2>
                     <ul class="project-info">
-                        <li><h6>开始日期:</h6>${match.start}</li>
-                        <li><h6>结束日期:</h6>${match.end}</li>
+                        <li><p class="lead">简介</p>${match.description}</li>
+                    </ul>
+
+                    <ul class="project-info">
+                        <li><h6>竞赛时间:</h6>${match.getDateString(match.start)} - ${match.getDateString(match.end)}</li>
+                        <li><h6>报名截止:</h6>${match.getDateString(match.applicationEnd)}</li>
                         <li><h6>竞赛主题:</h6>${match.theme}</li>
                     </ul>
+                    <c:if test="${match.isApplicationNow()&&match.isNow()}"><div class="big_info">竞赛进行中</div></c:if>
+                    <c:if test="${!match.isApplicationNow()&&match.isNow()}"><div class="big_info">报名已结束</div></c:if>
+                    <c:if test="${!match.isNow()}"><div class="big_info">竞赛已结束</div></c:if>
                 </div>
             </div>
 
@@ -30,15 +31,16 @@
                 <c:forEach items="${teamList}" var="team">
                     <li class="infobox" data-teamid="${team.id}">
                         <div class="header">
-                            <div class="team_name"><span>${team.name}</span></div>
+                            <div class="team_name"><span>${team.name}</span> </div>
                             <p>作品名：${team.workName}</p>
                             <p>成员：<c:forEach items="${team.getMemberList()}" var="member">${member.getMemberRealname()}&nbsp;</c:forEach></p>
-                            <c:if test="${team.lv!=0}">
-                                <div class="check_award">
-                                    ${team.getLvString()}
-                                    <a href="${ctx}/CreteServlet?teamId=${team.id}">查看奖状</a>
-                                </div>
-                            </c:if>
+                            <div class="like ${team.ifMeLikedTeam(user.id) ? 'liked':''}">
+                                <i class="fa fa-thumbs-up"> <span>${team.like}</span></i>
+                            </div>
+                            <div class="check_award">
+                                <c:if test="${team.lv!=0}">恭喜你，获得 ${team.getLvString()}<a href="${ctx}/CreteServlet?teamId=${team.id}"> 查看奖状</a></c:if>
+                                <c:if test="${team.lv==0&&!match.isNow()}">很遗憾，未能获奖</c:if>
+                            </div>
                         </div>
                         <div class="description">简介：${team.description}</div>
                         <div class="msg" style="text-align: center">
@@ -71,71 +73,6 @@
                 </c:forEach>
                 </ul>
             </c:if>
-            <script type="text/javascript">
-                $(document).ready(function (){
-
-                    //如果该比赛过期，全局隐藏修改界面
-                    if(${!match.isNow()}){
-                        $('.add_box').remove()
-                        $('.delete').remove()
-                    }
-
-                    $('.uploadBtn').click(function (){
-                        let $infobox = $(this).closest('.infobox');
-                        let $form = $infobox.find('.uploadForm');
-                        let $img_box_template = $infobox.find('.template');
-                        let formData = new FormData($form[0]);
-                        $.ajax({
-                            url: '${ctx}/FileUploadServlet',
-                            type: 'post',
-                            data: formData,
-                            contentType: false,
-                            processData: false,
-                            success:  (returnData) => {
-                                //这里调用新建作品的servlet,在数据库插入新的work记录，并记下该图的url
-                                $.ajax({
-                                    url: '${ctx}/WorkCreateServlet',
-                                    type: 'post',
-                                    data: {
-                                        url: returnData,
-                                        matchid: ${match.id},
-                                        teamid: $infobox.attr("data-teamid"),
-                                    },
-                                    success: (msg) => {
-                                        if(msg==600) showMsg($infobox, "不在活动时间内！")
-                                        else if(msg==601) showMsg($infobox, "网络错误！")
-                                        else {
-                                            //添加一份作品
-                                            let work_id = msg;
-                                            let $img_box_clone = $img_box_template.clone().removeClass('template');
-                                            $img_box_clone.find('a').attr('href','${ctx}/image/'+returnData)
-                                                .find('.img').attr('src','${ctx}/image/'+returnData).attr('data-workid',work_id)
-                                            $form.closest('li').before($img_box_clone);
-                                        }
-                                    }
-                                })
-                            }
-                        });
-                    })
-
-                    $('.delete').click(function (){
-                        let $img_box = $(this).closest('.img_box');
-                        $.ajax({
-                            url: '${ctx}/WorkDeleteServlet',
-                            type: 'post',
-                            data: {
-                                workid: $img_box.attr('data-workid')
-                            },
-                            success: (msg) => {
-                                if(msg==603) showMsg($infobox, "删除失败！")
-                                else $img_box.remove()
-                            }
-                        })
-                    })
-                })
-                //msg改变信息
-                showMsg = ($infobox, text) => $infobox.find('.msg span').text(text);
-            </script>
 
             <c:if test="${user.isAdmin()}">
                 <ul>
@@ -184,10 +121,113 @@
 
         </div>
     </div>
+        <script type="text/javascript">
+            $(document).ready(function (){
+                //如果该比赛过期，全局隐藏修改界面
+                if(${!match.isNow()}){
+                    $('.add_box').remove()
+                    $('.delete').remove()
+                }
+
+                //点赞&取赞
+                $('.like').click(function () {
+                    let $infobox = $(this).closest('.infobox');
+
+                    //交互，如果已赞则取消，反之
+                    changeLike($(this))
+
+                    //元素显示加减方法
+                    function changeLike($like){
+                        //这个post给后端，后端返回200表示点赞或取赞成功
+                        let URL = "${ctx}/LikeServlet";
+                        let data = {
+                            userid : ${user.id},
+                            teamid : $infobox.attr("data-teamid")
+                        };
+                        $.post(URL,data).then((msg)=>{
+                            console.log(msg)
+                            if(msg == 200) displayLike($like, true)
+                            else if (msg == 201) displayLike($like, false)
+                        })
+                    }
+                    //根据之前是赞还是没赞，改变点击后的样式
+                    function displayLike($like, shouldLike){
+                        //去掉或添加红色样式
+                        shouldLike ? $like.closest('.like').addClass('liked'):$like.removeClass('liked')
+                        //增减数字
+                        let ans = parseInt($like.find('span').text()) + (shouldLike?1:-1)
+                        $like.find('span').text(ans)
+                    }
+                })
+
+                //上传作品
+                $('.uploadBtn').click(function (){
+                    let $infobox = $(this).closest('.infobox');
+                    let $form = $infobox.find('.uploadForm');
+                    let $img_box_template = $infobox.find('.template');
+                    let formData = new FormData($form[0]);
+                    $.ajax({
+                        url: '${ctx}/FileUploadServlet',
+                        type: 'post',
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success:  (returnData) => {
+                            //这里调用新建作品的servlet,在数据库插入新的work记录，并记下该图的url
+                            $.ajax({
+                                url: '${ctx}/WorkCreateServlet',
+                                type: 'post',
+                                data: {
+                                    url: returnData,
+                                    matchid: ${match.id},
+                                    teamid: $infobox.attr("data-teamid"),
+                                },
+                                success: (msg) => {
+                                    if(msg==-2) showMsg($infobox, "不在活动时间内！")
+                                    else if(msg==-3) showMsg($infobox, "网络错误！")
+                                    else {
+                                        //添加一份作品
+                                        let work_id = msg;
+                                        let $img_box_clone = $img_box_template.clone().removeClass('template');
+                                        $img_box_clone.find('a').attr('href','${ctx}/image/'+returnData)
+                                            .find('.img').attr('src','${ctx}/image/'+returnData)
+                                        $img_box_clone.attr('data-workid',work_id)
+                                        $form.closest('li').before($img_box_clone);
+                                    }
+                                }
+                            })
+                        }
+                    });
+                })
+
+                //删除作品
+                $('body').on("click",'.img_box .delete',function (){
+                    let $img_box = $(this).closest('.img_box');
+                    $.ajax({
+                        url: '${ctx}/WorkDeleteServlet',
+                        type: 'post',
+                        data: {
+                            workid: $img_box.attr('data-workid')
+                        },
+                        success: (msg) => {
+                            if(msg==603) showMsg($infobox, "删除失败！")
+                            else $img_box.remove()
+                        }
+                    })
+                })
+            })
+
+            showMsg = ($infobox, text) => $infobox.find('.msg span').text(text);
+        </script>
 
 </div>
 
+
 <style>
+    .big_info {
+        color: red;
+        font-size: 20px;
+    }
     .match_imgbox {
         position: relative;
         width: 400px;
@@ -237,6 +277,17 @@
     .infobox .header .check_award {
         float: right;
         margin-right: 10px;
+    }
+    .infobox .header .like {
+        cursor: pointer;
+        float: right;
+        width: 60px;
+        color: grey;
+        font-size: 18px;
+        margin: 10px;
+    }
+    .infobox .header .liked {
+        color: #ff3333;
     }
     .infobox .description {
         margin: 10px
