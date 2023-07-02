@@ -35,7 +35,7 @@
                 </c:if>
                 <li class="dropdown" id="a4"><a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchListServlet">往届竞赛</a></li>
                 <c:if test="${empty user}">
-                    <li class="dropdown" id="a5"><a href="${ctx}/LoginServlet">请登录！</a></li>
+                    <li class="dropdown" id="a5"><a href="${ctx}/login.jsp">请登录！</a></li>
                 </c:if>
                 <c:if test="${!empty user}">
                     <li class="dropdown">
@@ -49,8 +49,8 @@
                         <c:if test="${user.isAdmin()}">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="${ctx}/MatchByUserServlet">管理中心<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li class="dropdown"><a href="${ctx}/StatServlet">统计信息</a></li>
-                                <li class="dropdown"><a href="${ctx}/LogoutServlet">退出登录</a></li>
+                                <li class=""><a href="${ctx}/StatServlet">统计信息</a></li>
+                                <li class=""><a href="${ctx}/LogoutServlet">退出登录</a></li>
                             </ul>
                         </c:if>
                     </li>
