@@ -1,0 +1,169 @@
+.empty_info {
+    margin: 100px 0 150px -30px;
+    width: 1200px;
+    text-align: center;
+    color: darkgrey;
+}
+
+.match_box {
+    width: 270px;
+    margin-right: 30px;
+    box-shadow: 0px 0px 8px #999;
+}
+.match_box .img_box {
+    position: relative;
+    width: 270px;
+    height: 340px;
+    border: 1px solid darkgrey;
+    overflow: hidden;
+}
+.match_box .img_box img {
+    position: absolute;
+    width: 270px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.match_box .img_box .top {
+    position: absolute;
+    top:10px;
+    left: 10px;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    font-size: 18px;
+    border-radius:20px;
+}
+.match_box .img_box .top.red {background: #ff5454;opacity: .6}
+.match_box .img_box .top.gray {background: #9d9d9d;;opacity: .6}
+
+.match_box .details {
+    box-sizing: border-box;
+    padding: 20px;
+    width: 270px;
+    height: 140px;
+    overflow: hidden
+}
+.match_box .details .title {
+    margin-bottom: 10px;
+    display: block;
+    font-size: 20px;
+}
+.match_box .details .date {
+    margin-bottom: 10px;
+    color: darkgrey;
+    border-top: 1px dotted #a9a9a9;
+}
+.match_box .details .desc {
+    height: 40px;
+    color: grey;
+    overflow: hidden;
+}
+
+* {
+    padding: 0;
+}
+
+div.lunbox {
+    width: 687px;
+    height: 381px;
+    position: relative;
+    overflow: hidden;
+    margin: 40px;
+    border: 1px dotted darkgrey;
+}
+
+div.lunbox:hover img {
+    display: block;
+}
+
+div.lunbox ul {
+    margin: 0;
+    list-style: none;
+    width: 8000px;
+    position: absolute;
+    top: 0;
+}
+
+div.lunbox>img {
+    z-index: 10;
+    display: none;
+}
+
+div.lunbox>img:hover {
+    cursor: pointer;
+}
+
+div.lunbox ul li {
+    position: relative;
+    width: 687px;
+    height: 381px;
+    float: left;
+    overflow: hidden;
+}
+
+div.lunbox ul li img {
+    position: absolute;
+    height: 381px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+div.lunbox ol {
+    margin: 20px 0;
+    list-style: none;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+div.lunbox .swithc_btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 15px 10px;
+    width: 30px;
+    text-align: center;
+    color: rgb(226, 226, 226);
+    font-size: 40px;
+    background-color: rgba(0, 0, 0, .3);
+    transform: translateY(-50%);
+    transition: .1s all;
+}
+
+div.lunbox .swithc_btn:hover {
+    padding: 20px 15px;
+}
+
+div.lunbox #back {
+    left: 0;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+div.lunbox #next {
+    right: 0;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+div.lunbox ol li {
+    width: 10px;
+    height: 10px;
+    float: left;
+    margin-left: 8px;
+    border-radius: 5px;
+    border: 2px solid orange;
+}
+
+div.lunbox ol li:hover {
+    cursor: pointer;
+}
+
+.orange {
+    background-color: orange;
+}

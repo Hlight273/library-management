@@ -1,17 +1,23 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="header.jsp"%>
+<link rel="stylesheet" href="./css/index.css">
+
 
 <div class="container">
     <%--首页介绍：轮播图+介绍--%>
     <div class="row headline">
         <div class="span8">
-            <div class="flexslider">
-<%--                <ul class="slides">--%>
-                    <a href="./gallery-single.htm.html"><img src="image/img.png" alt="slider" class="d-block w-100" id="img1" style="width:667px;height:381px;"/></a></li>
-                    <a href="image/img_1.png"><img src="image/img_1.png" alt="slider" class="d-block w-100" style="width:667px;height:381px;"/></a>
-                    <a href="image/img_2.png"><img src="image/img_2.png" alt="slider" class="d-block w-100" style="width:667px;height:381px;"/></a>
-                    <a href="image/img_3.png"><img src="image/img_3.png" alt="slider" class="d-block w-100" style="width:667px;height:381px;"/></a>
-<%--                </ul>--%>
+            <div class="lunbox">
+                <ul>
+                    <li><img src="img/lunbo/1.jpg" alt=""></li>
+                    <li><img src="img/lunbo/2.jpg" alt=""></li>
+                    <li><img src="img/lunbo/3.jpg" alt=""></li>
+                    <li><img src="img/lunbo/4.jpg" alt=""></li>
+                    <li><img src="img/lunbo/5.jpg" alt=""></li>
+                </ul>
+                <div id="back" class="swithc_btn"><i class="fa fa-angle-left"></i></div>
+                <div id="next" class="swithc_btn"><i class="fa fa-angle-right"></i></div>
+                <ol></ol>
             </div>
         </div>
         <div class="span4">
@@ -32,29 +38,23 @@
             <div class="row clearfix no-margin">
                 <ul class="gallery-post-grid holder">
                     <c:forEach items="${matchList}" var="match">
-                    <li class="gallery-item" data-id="id-1" data-type="illustration" style="width: 300px;">
+                    <li class="gallery-item match_box" data-id="id-1" data-type="illustration">
                         <div class="img_box" >
-                            <div class="photo">
-                                <a href="${ctx}/DetailServlet?matchId=${match.id}">
-                                    <img src="${ctx}/image/${match.url}" style="height: 362px;width: 270px" alt=${match.name} />
-                                </a>
-                            </div>
-                            <div class="top" style="position: absolute;top:15px;left: 15px;color: white;font-size: large;">
-                                <c:if test="${match.isNow()}">
-                                    <div style="background: red;border-radius:15px">进行中</div>
-                                </c:if>
-                                <c:if test="${!match.isNow()}">
-                                    <div style="background: gray;border-radius:15px">已过期</div>
-                                </c:if>
+                            <a href="${ctx}/DetailServlet?matchId=${match.id}">
+                                <img src="${ctx}/image/${match.url}" alt=${match.name} />
+                            </a>
+                            <div class="top ${match.isNow()?'red':'gray'}">
+                                ${match.isNow()?'进行中':'已过期'}
                             </div>
                         </div>
-                        <span class="project-details" style="width: 270px;height: 120px; overflow: hidden">
-                            <a  class="smallname" href="${ctx}/DetailServlet?matchId=${match.id}">${match.name}</a>
-                            <p class="start">起始日期:<br>${match.getDateString(match.start)}-${match.getDateString(match.end)}</p>
-                                ${match.description}
-
-                        </span>
-
+                        <div class="details">
+                            <a class="title" href="${ctx}/DetailServlet?matchId=${match.id}">${match.name}</a>
+                            <p class="date">活动日期:
+                                <c:if test="${match.isNow()}">${match.getDateString(match.start)}-${match.getDateString(match.end)}</c:if>
+                                <c:if test="${!match.isNow()}">已结束</c:if>
+                            </p>
+                            <div class="desc">${match.description}</div>
+                        </div>
                     </li>
                     </c:forEach>
                     <c:if test="${empty matchList}">
@@ -65,61 +65,130 @@
     </div>
 </div>
 
-<style>
-    .flexslider{
-        width:  695px;
-        height: 380px;
-        /*border: 1px solid #000;*/
-        overflow: hidden;    //超出隐藏
-    }
-    .top{
-        width: 60px;
-        height: 30px;
-        line-height: 30px;
-        text-align: center;
-    }
-    .photo{
-        height: 362px;
-    }
-    .empty_info {
-        margin: 100px 0 150px -30px;
-        width: 1200px;
-        text-align: center;
-        color: darkgrey;
-    }
-    .img_box {
-        position: relative;
-        width: 270px;
-        height: 360px;
-        border: 1px solid darkgrey;
-        overflow: hidden;
-    }
-    .img_box img {
-        position: absolute;
-        width: 270px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    p{
-        text-align: center;
-        width: 270px;
-    }
-
-</style>
 <script>
-        var img1=document.getElementById("img1");
-        var i=0;
+    //默认移动间隔时间3s
+    let interTime = 3000;
+    //按钮
+    var back = document.getElementById('back');
+    var next = document.getElementById('next');
+    // 标签
+    var ul = document.querySelector('.lunbox ul');
+    var ol = document.querySelector('.lunbox ol');
+
+    //图片宽度
+    var imgWidth = ul.getElementsByTagName('li')[0].offsetWidth;
+
+    //记录图片对应脚标
+    var countN = 0;
+    //记录小圆圈对应脚标
+    var countC = 0;
+    //生成小圆圈
+    for (var i = 0; i < ul.children.length; i++) {
+        var li = document.createElement('li');
+        ol.appendChild(li);
+    }
+
+    //第一个圆圈选中
+    ol.children[0].className = 'orange';
+    //点击小圆圈
+    for (let i = 0; i < ol.children.length; i++) {
+        ol.children[i].addEventListener('click', function () {
+            //变色
+            for (var j = 0; j < ol.children.length; j++) {
+                ol.children[j].className = '';
+            }
+            this.className = 'orange';
+            // 对应图片
+            countN = i;
+            countC = i;
+            animate(ul, -i * imgWidth);
+
+        })
+    }
+
+    //第一张图片复制到最后
+    var first = ul.children[0].cloneNode(true);
+    ul.appendChild(first);
+
+    //下一个按钮点击事件
+    next.addEventListener('click', function () {
+        countN++;
+        // countN = countN >= ul.children.length ? 0 : countN;
+        if (countN >= ul.children.length) {
+            countN = 1;
+            ul.style.left = 0;
+            animate(ul, -countN * imgWidth);
+
+        }
+        animate(ul, -countN * imgWidth);
 
 
-        // 5行代码解最简单的轮播图
-        setInterval("lubo()",1000);  //定时器没过1000毫秒执行该函数一次
-        function lubo(){
-        img1.style.marginLeft=i+"px";//修改css样式：图片距离box左边的距离
-        i-=667;  //距离 减(向左)  1张图片宽度
-        if(i==-667*4){
-            i=0
-        }   //一共有4张图片，所以到4的时候回到最开始
+        countC++;
+        countC = countC >= ol.children.length ? 0 : countC;
+        for (var j = 0; j < ol.children.length; j++) {
+            ol.children[j].className = '';
+        }
+        ol.children[countC].className = 'orange';
+    })
+
+    back.addEventListener('click', function () {
+        countN--;
+        // countN = countN < 0 ? ul.children.length : countN;
+        if (countN < 0) {
+            countN = ul.children.length - 2;
+            ul.style.left = -(ul.children.length - 1) * imgWidth + 'px';
+            animate(ul, -countN * imgWidth);
+        }
+        animate(ul, -countN * imgWidth);
+
+
+        countC--;
+        countC = countC < 0 ? ol.children.length - 1 : countC;
+        for (var j = 0; j < ol.children.length; j++) {
+            ol.children[j].className = '';
+        }
+        ol.children[countC].className = 'orange';
+    })
+
+    //自动播放
+    var interval = setInterval(function () {
+        //调用下一张按钮点击事件
+        next.click();
+    }, interTime)
+
+    //鼠标经过清除计时器
+    var div = document.querySelector('div.lunbox');
+    div.addEventListener('mouseenter', function () {
+        clearInterval(interval);
+
+    })
+    //离开
+    div.addEventListener('mouseleave', function () {
+        interval = setInterval(function () {
+            next.click();
+        }, interTime)
+    })
+
+    //缓动
+    function animate(obj, target, callback) {
+        // 清除以前的定时器
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            // 步长写到定时器  步长公式：（目标值-现在的位置）/10
+            var step = (target - obj.offsetLeft) / 10;
+            // 把步长改为整数，不要出现小数问题
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            if (obj.offsetLeft == target) {
+                // 停止定时器
+                clearInterval(obj.timer);
+                // 动画结束后调用，例：节流阀！！！
+                if (callback) {
+                    callback();
+                }
+            }
+            // 把每次加1这个步长改变为一个慢慢变小的值
+            obj.style.left = obj.offsetLeft + step + 'px';
+        }, 10)
     }
 </script>
 
