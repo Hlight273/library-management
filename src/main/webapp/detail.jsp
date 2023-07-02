@@ -136,36 +136,42 @@
     </div>
 </div>
     <script type="text/javascript">
-        //点赞&取赞
-        $('.like').click(function () {
-            let $infobox = $(this).closest('.infobox');
+        $(document).ready(function (){
 
-            //交互，如果已赞则取消，反之
-            changeLike($(this))
+            //点赞&取赞
+            $('.like').click(function (){
+                if ('${user.id}'===''){
+                    location.href= '${ctx}/login.jsp';
+                    return
+                }
+                //如果没登录，直接跳到登录页
+                let $infobox = $(this).closest('.infobox');
 
-            //元素显示加减方法
-            function changeLike($like){
-                //这个post给后端，后端返回200表示点赞或取赞成功
-                let URL = "${ctx}/LikeServlet";
-                let data = {
-                    userid : ${user.id},
-                    teamid : $infobox.attr("data-teamid")
-                };
-                $.post(URL,data).then((msg)=>{
-                    console.log(msg)
-                    if(msg == 200) displayLike($like, true)
-                    else if (msg == 201) displayLike($like, false)
-                })
-            }
-            //根据之前是赞还是没赞，改变点击后的样式
-            function displayLike($like, shouldLike){
-                //去掉或添加红色样式
-                shouldLike ? $like.closest('.like').addClass('liked'):$like.removeClass('liked')
-                //增减数字
-                let ans = parseInt($like.find('span').text()) + (shouldLike?1:-1)
-                console.log("我是谁"+ans)
-                $like.find('span').text(ans)
-            }
+                //交互，如果已赞则取消，反之
+                changeLike($(this))
+
+                //元素显示加减方法
+                function changeLike($like){
+                    //这个post给后端，后端返回200表示点赞或取赞成功
+                    let URL = "${ctx}/LikeServlet";
+                    let data = {
+                        userid : '${user.id}',
+                        teamid : $infobox.attr("data-teamid")
+                    };
+                    $.post(URL,data).then((msg)=>{
+                        if(msg == 200) displayLike($like, true)
+                        else if (msg == 201) displayLike($like, false)
+                    })
+                }
+                //根据之前是赞还是没赞，改变点击后的样式
+                function displayLike($like, shouldLike){
+                    //去掉或添加红色样式
+                    shouldLike ? $like.closest('.like').addClass('liked'):$like.removeClass('liked')
+                    //增减数字
+                    let ans = parseInt($like.find('span').text()) + (shouldLike?1:-1)
+                    $like.find('span').text(ans)
+                }
+            })
         })
     </script>
 
