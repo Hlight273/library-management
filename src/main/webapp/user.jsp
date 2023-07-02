@@ -113,10 +113,10 @@
                 UID ${user.id}<br><br><br>
             </div>
             <div class="input">
-                姓名<br><input type="text" value="" name="name">
+                姓名<br><input type="text" value="${user.name}" name="name">
             </div>
             <div class="input">
-                邮箱<br><input type="text" value="" name="email">
+                邮箱<br><input type="text" value="${user.email}" name="email">
             </div>
             <div class="input2">
                 <input type="submit" value="确认修改" class="btn btn-inverse">
