@@ -71,10 +71,23 @@ public class TeamDao {
     }
 
     //根据matchId寻找团队
-    public  List<Team>  getTeamByMatchId(int matchId){
+    public List<Team> getTeamByMatchId(int matchId){
         List<Team> teamList =null;
         try {
             String sql = "select * from team where MatchId = ?";
+            teamList = template.query(sql, new BeanPropertyRowMapper<>(Team.class),matchId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return teamList;
+        }
+    }
+
+    //根据matchId寻找团队
+    public List<Team> getTeamListLvOrder(int matchId){
+        List<Team> teamList =null;
+        try {
+            String sql = "select * from team where MatchId = ? ORDER BY Lv desc";
             teamList = template.query(sql, new BeanPropertyRowMapper<>(Team.class),matchId);
         } catch (Exception e) {
             e.printStackTrace();
