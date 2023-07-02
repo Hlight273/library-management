@@ -38,7 +38,7 @@
                                 <i class="fa fa-thumbs-up"> <span>${team.like}</span></i>
                             </div>
                             <div class="check_award">
-                                <c:if test="${team.lv!=0}">恭喜你，获得 ${team.getLvString()}<a href="${ctx}/CreteServlet?teamId=${team.id}"> 查看奖状</a></c:if>
+                                <c:if test="${team.lv!=0}">恭喜你，获得 ${team.getLvString()}<a href="${ctx}/CreteServlet?teamId=${team.id}&matchId=${match.id}"> 查看奖状</a></c:if>
                                 <c:if test="${team.lv==0&&!match.isNow()}">很遗憾，未能获奖</c:if>
                             </div>
                         </div>
