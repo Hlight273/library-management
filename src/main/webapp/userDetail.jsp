@@ -156,7 +156,6 @@
                         shouldLike ? $like.closest('.like').addClass('liked'):$like.removeClass('liked')
                         //增减数字
                         let ans = parseInt($like.find('span').text()) + (shouldLike?1:-1)
-                        console.log("我是谁"+ans)
                         $like.find('span').text(ans)
                     }
                 })
@@ -184,14 +183,15 @@
                                     teamid: $infobox.attr("data-teamid"),
                                 },
                                 success: (msg) => {
-                                    if(msg==600) showMsg($infobox, "不在活动时间内！")
-                                    else if(msg==601) showMsg($infobox, "网络错误！")
+                                    if(msg==-2) showMsg($infobox, "不在活动时间内！")
+                                    else if(msg==-3) showMsg($infobox, "网络错误！")
                                     else {
                                         //添加一份作品
                                         let work_id = msg;
                                         let $img_box_clone = $img_box_template.clone().removeClass('template');
                                         $img_box_clone.find('a').attr('href','${ctx}/image/'+returnData)
-                                            .find('.img').attr('src','${ctx}/image/'+returnData).attr('data-workid',work_id)
+                                            .find('.img').attr('src','${ctx}/image/'+returnData)
+                                        $img_box_clone.attr('data-workid',work_id)
                                         $form.closest('li').before($img_box_clone);
                                     }
                                 }
@@ -201,7 +201,7 @@
                 })
 
                 //删除作品
-                $('.delete').click(function (){
+                $('body').on("click",'.img_box .delete',function (){
                     let $img_box = $(this).closest('.img_box');
                     $.ajax({
                         url: '${ctx}/WorkDeleteServlet',

@@ -26,7 +26,7 @@ public class LoginFilter implements Filter {
                 "/index.jsp",
                 "/detail.jsp",
                 "/img/",
-                "/images/",
+                "/image/",
                 "/css/",
                 "/js/",
                 "/font/",

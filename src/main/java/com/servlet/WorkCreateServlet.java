@@ -24,11 +24,11 @@ public class WorkCreateServlet extends HttpServlet {
 
         //不在活动日期返回600，数据库报错返回601，其他情况返回作品id
         if(!matchDao.getMatchById(matchid).isNow()){
-            response.getWriter().print(600);
+            response.getWriter().print(-2);
         } else {
             int workid = workDao.add(url, matchid, teamid);
             if(workid!=-1) response.getWriter().print(workid);
-            else response.getWriter().print(601);
+            else response.getWriter().print(-3);
         }
     }
 
