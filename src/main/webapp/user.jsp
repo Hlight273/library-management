@@ -47,7 +47,7 @@
             <c:if test="${!match.isNow()}">
                 <li class="gallery-item match_box" data-id="id-1" data-type="illustration">
                     <div class="img_box" >
-                        <a href="${ctx}/DetailServlet?matchId=${match.id}">
+                        <a href="${ctx}/UserDetailServlet?matchId=${match.id}">
                             <img src="${ctx}/image/${match.url}" alt=${match.name} />
                         </a>
                         <div class="top ${match.isNow()?'red':'gray'}">
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div class="details">
-                        <a class="title" href="${ctx}/DetailServlet?matchId=${match.id}">${match.name}</a>
+                        <a class="title" href="${ctx}/UserDetailServlet?matchId=${match.id}">${match.name}</a>
                         <p class="date">活动日期:
                             <c:if test="${match.isNow()}">${match.getDateString(match.start)}-${match.getDateString(match.end)}</c:if>
                             <c:if test="${!match.isNow()}">已结束</c:if>
@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="details">
-                    <a class="title" href="${ctx}/DetailServlet?matchId=${match.id}">${match.name}</a>
+                    <a class="title" href="${ctx}/UserDetailServlet?matchId=${match.id}">${match.name}</a>
                     <p class="date">活动日期:
                         <c:if test="${match.isNow()}">${match.getDateString(match.start)}-${match.getDateString(match.end)}</c:if>
                         <c:if test="${!match.isNow()}">已结束</c:if>
