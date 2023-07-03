@@ -105,7 +105,7 @@
                             <span style="color: red">${msg}</span>
                         </div>
                         <div class="description">简介：${team.description}</div>
-                        <div class="description">作品展示：${team.description}</div>
+                        <div class="description">作品展示：</div>
                         <ul>
                             <c:forEach items="${team.getWorkList()}" var="work">
                                 <li class="img_box" data-workid="${work.id}">
