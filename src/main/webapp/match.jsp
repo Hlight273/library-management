@@ -16,7 +16,7 @@
         <input type="radio" name="status" value="unpaid" checked>进行中
         <input type="radio" name="status" value="paid">已结束
       </div>
-      <form action="MatchSearchServlet" method="post" id="searchFrom">
+      <form action="MatchSearchServlet${param.sort!=null?'?sort=1':''}" method="post" id="searchFrom">
         <input type="text" placeholder="输入您要搜索的竞赛" id="search" name="key">
       </form>
     </ul>
