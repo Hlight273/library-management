@@ -2,15 +2,16 @@
 .select-menu{
     width: 783px;
     height: 100px;
-    margin: 50px auto 0;
+    margin: 50px auto 40px;
 }
 .select-menu ul{
-    margin:10px 47px;
+    margin:0 39px;
     font-size: 25px;
 }
 .select-menu ul li{
     text-align: center;
     height: 25px;
+    padding: 8px;
     /*margin-top: 10px;*/
     color: #777777;
     /*text-shadow: 1px 1px 0 #fdfdfd, 2px 2px 0 rgba(81, 81, 81, 0.5), 0 0 1px #fdfdfd;*/

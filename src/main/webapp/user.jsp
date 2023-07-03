@@ -94,11 +94,6 @@
             </li>
             </c:if>
         </c:forEach>
-        <c:if test="${empty matchList}">
-            <div class="match-title">
-                <p>目前赛事空空如也</p>
-            </div>
-        </c:if>
     </div>
 
     <!--用户中心-->
