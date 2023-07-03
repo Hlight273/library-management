@@ -43,6 +43,7 @@
             <p>往届竞赛</p>
 
         </div>
+        <ul class="gallery-post-grid holder">
         <c:forEach items="${matchList}" var="match">
             <c:if test="${!match.isNow()}">
                 <li class="gallery-item match_box" data-id="id-1" data-type="illustration">
@@ -65,6 +66,7 @@
                 </li>
             </c:if>
         </c:forEach>
+        </ul>
     </div>
 
     <!--新竞赛-->
@@ -72,6 +74,7 @@
         <div class="match-title">
             <p>竞赛中</p>
         </div>
+        <ul class="gallery-post-grid holder">
         <c:forEach items="${matchList}" var="match">
             <c:if test="${match.isNow()}">
             <li class="gallery-item match_box" data-id="id-1" data-type="illustration">
@@ -94,6 +97,7 @@
             </li>
             </c:if>
         </c:forEach>
+        </ul>
         <c:if test="${empty matchList}">
             <div class="empty_info">
                 <p>目前赛事空空如也</p>

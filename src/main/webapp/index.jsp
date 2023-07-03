@@ -60,6 +60,7 @@
                     <c:if test="${empty matchList}">
                     <div class="empty_info">目前赛事空空如也</div>
                     </c:if>
+                </ul>
             </div>
         </div>
     </div>

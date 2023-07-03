@@ -49,6 +49,7 @@
         <c:if test="${!empty matchList}">
           <div class="empty_info info2" style="display: none">目前赛事空空如也</div>
         </c:if>
+      </ul>
     </div>
   </div>
 </div>
