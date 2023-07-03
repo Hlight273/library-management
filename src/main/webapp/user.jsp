@@ -168,6 +168,9 @@
                 <div class="input">
                     团队简介<br><input type="text" value="${team.description}" name="description">
                 </div>
+                <div class="input">
+                    作品名称<br><input type="text" value="${team.workName}" name="workName">
+                </div>
                 <c:if test="${!empty team.getMemberList()}">
                     <div class="input">
                     </div>
