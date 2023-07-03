@@ -230,7 +230,7 @@
                 })
             })
 
-            showMsg = ($infobox, text) => $infobox.find('.msg span').text(text);
+            showMsg = ($infobox, text) => $infobox.find('.msg span').text(text)
         </script>
 
 </div>
