@@ -2,6 +2,9 @@
     color: red;
     font-size: 20px;
 }
+.preview {
+    margin: 20px auto;
+}
 .match_imgbox {
     position: relative;
     width: 400px;

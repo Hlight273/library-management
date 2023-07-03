@@ -13,7 +13,7 @@
     </c:if>
     <div class="row">
         <div class="span12 gallery-single">
-            <div class="row">
+            <div class="row preview">
                 <div class="span6 match_imgbox">
                     <img src="${ctx}/image/${match.url}" class="thumbnail" alt="image" />
                 </div>
