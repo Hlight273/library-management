@@ -40,7 +40,7 @@
                     <li class="infobox" data-teamid="${team.id}">
                         <div class="header">
                             <div class="team_name"><span>${team.name}</span> </div>
-                            <p>作品名：${team.workName}</p>
+                            <p>作品名：<a href="${ctx}/MatchByUserServlet">${team.workName}</a></p>
                             <p>成员：<c:forEach items="${team.getMemberList()}" var="member">${member.getMemberRealname()}&nbsp;</c:forEach></p>
                             <div class="like ${team.ifMeLikedTeam(user.id) ? 'liked':''}">
                                 <i class="fa fa-thumbs-up"> <span>${team.like}</span></i>
@@ -101,11 +101,11 @@
                                 <button class="btn btn-mini btn-inverse hidden-phone" type="submit">评奖</button>
                             </form>
                         </div>
-                        <div class="description">简介：${team.description}</div>
                         <div class="msg" style="text-align: center">
                             <span style="color: red">${msg}</span>
                         </div>
-                        作品展示：
+                        <div class="description">简介：${team.description}</div>
+                        <div class="description">作品展示：${team.description}</div>
                         <ul>
                             <c:forEach items="${team.getWorkList()}" var="work">
                                 <li class="img_box" data-workid="${work.id}">
