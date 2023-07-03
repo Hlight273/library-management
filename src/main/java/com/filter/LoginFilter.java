@@ -30,7 +30,7 @@ public class LoginFilter implements Filter {
                 "/css/",
                 "/js/",
                 "/font/",
-                "/LoginServlet","/RegisterServlet","/IndexServlet","/MatchListServlet","/DetailServlet"
+                "/LoginServlet","/RegisterServlet","/IndexServlet","/MatchListServlet","/DetailServlet","/MatchSearchServlet"
         };
         //指定这些是只有管理员能进的
         String[] adminUrls = {
