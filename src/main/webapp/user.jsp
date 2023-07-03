@@ -76,7 +76,7 @@
             <c:if test="${match.isNow()}">
             <li class="gallery-item match_box" data-id="id-1" data-type="illustration">
                 <div class="img_box" >
-                    <a href="${ctx}/DetailServlet?matchId=${match.id}">
+                    <a href="${ctx}/UserDetailServlet?matchId=${match.id}">
                         <img src="${ctx}/image/${match.url}" alt=${match.name} />
                     </a>
                     <div class="top ${match.isNow()?'red':'gray'}">
@@ -95,7 +95,7 @@
             </c:if>
         </c:forEach>
         <c:if test="${empty matchList}">
-            <div class="match-title">
+            <div class="empty_info">
                 <p>目前赛事空空如也</p>
             </div>
         </c:if>
