@@ -59,7 +59,7 @@
                             <button class="btn btn-inverse pull-right" type="button">返回首页</button>
                         </a>
                     </c:if>
-                    <div class="detail-msg">
+                    <div class="detail-msg big_info">
                         <c:if test="${!empty msg}">
                             <p>${msg}</p>
                         </c:if>

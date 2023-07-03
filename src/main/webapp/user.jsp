@@ -13,6 +13,7 @@
 <%--<link rel="stylesheet" href="css/responsive.css">--%>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/user.css">
+<link rel="stylesheet" href="./css/index.css">
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'/>
 <script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/user.js"></script>
@@ -44,28 +45,24 @@
         </div>
         <c:forEach items="${matchList}" var="match">
             <c:if test="${!match.isNow()}">
-                <div class="row-content">
-                    <div class="">
-                        <a href="${ctx}/UserDetailServlet?matchId=${match.id}"><img src="${ctx}/image/${match.url}"
-                                                                                    alt="${match.name}"/></a>
-                        <div class="match-msg">
-                            <h3><a href="${ctx}/UserDetailServlet?matchId=${match.id}">${match.name}</a></h3>
-                            <p>${match.description}</p>
-                            <div class="causes-meta">
-                                <div class="">
-                                    <h4>开始日期<span>${match.getDateString(match.start)}</span></h4>
-                                </div>
-                                <div class="">
-                                    <h4>结束日期 <span>${match.getDateString(match.end)}</span></h4>
-                                </div>
-                                <div class="">
-                                    <h4>报名截止日期 <span>${match.getDateString(match.applicationEnd)}</span></h4>
-                                </div>
-                            </div>
-                            <a class="button theme-bg" href="${ctx}/UserDetailServlet?matchId=${match.id}">了解更多</a>
+                <li class="gallery-item match_box" data-id="id-1" data-type="illustration">
+                    <div class="img_box" >
+                        <a href="${ctx}/DetailServlet?matchId=${match.id}">
+                            <img src="${ctx}/image/${match.url}" alt=${match.name} />
+                        </a>
+                        <div class="top ${match.isNow()?'red':'gray'}">
+                                ${match.isNow()?'进行中':'已过期'}
                         </div>
                     </div>
-                </div>
+                    <div class="details">
+                        <a class="title" href="${ctx}/DetailServlet?matchId=${match.id}">${match.name}</a>
+                        <p class="date">活动日期:
+                            <c:if test="${match.isNow()}">${match.getDateString(match.start)}-${match.getDateString(match.end)}</c:if>
+                            <c:if test="${!match.isNow()}">已结束</c:if>
+                        </p>
+                        <div class="desc">${match.description}</div>
+                    </div>
+                </li>
             </c:if>
         </c:forEach>
     </div>
@@ -77,30 +74,31 @@
         </div>
         <c:forEach items="${matchList}" var="match">
             <c:if test="${match.isNow()}">
-                <div class="row-content">
-                    <div class="">
-                        <a href="${ctx}/UserDetailServlet?matchId=${match.id}"><img src="${ctx}/image/${match.url}"
-                                                                                    alt="${match.name}"/></a>
-                        <div class="match-msg">
-                            <h3><a href="${ctx}/UserDetailServlet?matchId=${match.id}">${match.name}</a></h3>
-                            <p>${match.description}</p>
-                            <div class="causes-meta">
-                                <div class="">
-                                    <h4>开始日期<span>${match.getDateString(match.start)}</span></h4>
-                                </div>
-                                <div class="">
-                                    <h4>结束日期 <span>${match.getDateString(match.end)}</span></h4>
-                                </div>
-                                <div class="">
-                                    <h4>报名截止日期 <span>${match.getDateString(match.applicationEnd)}</span></h4>
-                                </div>
-                            </div>
-                            <a class="button theme-bg" href="${ctx}/UserDetailServlet?matchId=${match.id}">了解更多</a>
-                        </div>
+            <li class="gallery-item match_box" data-id="id-1" data-type="illustration">
+                <div class="img_box" >
+                    <a href="${ctx}/DetailServlet?matchId=${match.id}">
+                        <img src="${ctx}/image/${match.url}" alt=${match.name} />
+                    </a>
+                    <div class="top ${match.isNow()?'red':'gray'}">
+                            ${match.isNow()?'进行中':'已过期'}
                     </div>
                 </div>
+                <div class="details">
+                    <a class="title" href="${ctx}/DetailServlet?matchId=${match.id}">${match.name}</a>
+                    <p class="date">活动日期:
+                        <c:if test="${match.isNow()}">${match.getDateString(match.start)}-${match.getDateString(match.end)}</c:if>
+                        <c:if test="${!match.isNow()}">已结束</c:if>
+                    </p>
+                    <div class="desc">${match.description}</div>
+                </div>
+            </li>
             </c:if>
         </c:forEach>
+        <c:if test="${empty matchList}">
+            <div class="match-title">
+                <p>目前赛事空空如也</p>
+            </div>
+        </c:if>
     </div>
 
     <!--用户中心-->
