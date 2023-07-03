@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/bootstrap-responsive.css"/>
 <%--        <link rel="stylesheet" href="http://www.room122.com/demo/html/piccolo/css/jquery.lightbox-0.5.css" />--%>
     <link rel="stylesheet" href="css/custom-styles.css"/>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
     <script src="js/header.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>

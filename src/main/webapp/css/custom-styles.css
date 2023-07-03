@@ -1,5 +1,5 @@
 html, body {font-size:12px; line-height:18px; }
-body {background: #f9f9f9 url(../img/page-bg-1.jpg);}
+body {background: #f9f9f9}
 
 @media (max-width: 767px) {
   body { padding-right: 0px; padding-left: 0px; }
