@@ -10,6 +10,8 @@ $(document).ready(function (){
     $nav_1.children('li').hide();
     //隐藏下拉框
     $nav_1.children('li:first').show();
+    //隐藏密码不一致
+    $('.pwd-msg').hide();
     //隐藏 空空如也
     updateInfo()
 
@@ -45,5 +47,17 @@ $(document).ready(function (){
             else $(this).find('.empty_info').hide()
         })
     }
+
+    //密码检测
+    $('.newpwd2').change(function (){
+        var pwd1=$('.newpwd').val()
+        var pwd2=$('.newpwd2').val()
+        if(pwd1!=pwd2){
+            $('.pwd-msg').show();
+        }
+        else {
+            $('.pwd-msg').hide();
+        }
+    })
 
 })

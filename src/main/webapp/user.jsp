@@ -1,16 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp" %>
-<%--<link rel="stylesheet" href="css/bootstrap.min.css">--%>
-<%--<link rel="stylesheet" href="css/magnific-popup.css">--%>
-<%--<link rel="stylesheet" href="css/animate.css">--%>
-<%--<link rel="stylesheet" href="css/owl.carousel.min.css">--%>
-<%--<link rel="stylesheet" href="css/font-awesome.min.css">--%>
-<%--<link rel="stylesheet" href="css/et-line-icon.css">--%>
-<%--<link rel="stylesheet" href="css/bicon.min.css">--%>
-<%--<link rel="stylesheet" href="css/slick.css">--%>
-<%--<link rel="stylesheet" href="css/meanmenu.min.css">--%>
 <link rel="stylesheet" href="css/bundle.css">
-<%--<link rel="stylesheet" href="css/responsive.css">--%>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/user.css">
 <link rel="stylesheet" href="./css/index.css">
@@ -21,18 +11,18 @@
 <div class="causes-area ">
     <div class="select-menu">
         <ul class="f-left cansai">
-            <li class="colorchange">我的竞赛</li>
-            <li class="colorchange">往届竞赛</li>
-            <li class="colorchange">竞赛中</li>
+            <li>我的竞赛</li>
+            <li>往届竞赛</li>
+            <li>竞赛中</li>
         </ul>
         <ul class="f-left">
-            <li class="colorchange">我的团队</li>
+            <li>用户中心</li>
         </ul>
         <ul class="f-left">
-            <li class="colorchange">用户中心</li>
+            <li>修改密码</li>
         </ul>
         <ul class="f-left">
-            <li class="colorchange">修改密码</li>
+            <li>我的团队</li>
         </ul>
     </div>
 
@@ -114,13 +104,13 @@
             </div>
             <form action="EditUserServlet" method="post">
                 <div class="input">
-                    UID ${user.id}<br><br><br>
-                </div>
-                <div class="input">
-                    姓名<br><input type="text" value="${user.name}" name="name">
+                    UID: ${user.id}<br><br><br>
                 </div>
                 <div class="input">
                     邮箱<br><input type="text" value="${user.email}" name="email">
+                </div>
+                <div class="input">
+                    姓名<br><input type="text" value="${user.name}" name="name">
                 </div>
                 <div class="input2">
                     <input type="submit" value="确认修改" class="btn btn-inverse">
@@ -153,6 +143,8 @@
 
             </form>
         </div>
+
+        <%--修改团队--%>
         <div class="container">
             <div class="match-title">
                 <p>修改团队</p>
