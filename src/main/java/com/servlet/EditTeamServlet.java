@@ -16,6 +16,7 @@ public class EditTeamServlet extends HttpServlet {
         int teamId= Integer.parseInt(request.getParameter("teamId"));
         String teamName= request.getParameter("teamName");
         String description= request.getParameter("description");
+        String workName= request.getParameter("workName");
         String way1= request.getParameter("way1");//检验队员1是新增还是修改
         String member1= request.getParameter("member1");//队员1的userId
         String member1Id=request.getParameter("member1Id");//原队员1的memberId
@@ -36,7 +37,7 @@ public class EditTeamServlet extends HttpServlet {
         }//防止txt为空
         TeamDao teamDao = new TeamDao();
         MemberDao memberDao = new MemberDao();
-        teamDao.edit(teamId, teamName, description);
+        teamDao.edit(teamId, teamName, workName, description);
         if(way1.equals("add") && !member1.equals("0")){
             memberDao.add(Integer.parseInt(member1),teamId);
         }
