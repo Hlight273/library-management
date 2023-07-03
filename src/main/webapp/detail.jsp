@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="header.jsp" %>
-<link rel="stylesheet" href="css/userDetail.css" type="text/css">
+<link rel="stylesheet" href="css/detail.css" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="js/jquery-3.6.0.min.js"></script>
 <div class="container main-container">
@@ -11,7 +11,7 @@
         <div class="span12 gallery-single">
             <div class="row">
                 <div class="span6 match_imgbox">
-                    <img src="${ctx}/image/${match.url}" class="align-left thumbnail" alt="image"/>
+                    <img src="${ctx}/image/${match.url}" class=thumbnail" alt="image"/>
                 </div>
                 <div class="span6">
                     <h2>${match.name}</h2>
@@ -188,173 +188,6 @@
         })
     })
 </script>
-
-<style>
-    .detail-msg p{
-        font-size: 20px;
-        color: red;
-    }
-    .big_info {
-        color: red;
-        font-size: 20px;
-    }
-
-    .match_imgbox {
-        position: relative;
-        width: 400px;
-        height: 500px;
-        border: 1px solid darkgrey;
-        overflow: hidden;
-    }
-
-    .match_imgbox img {
-        position: absolute;
-        width: 400px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .infobox {
-        overflow: hidden;
-        margin: 20px;
-        padding-bottom: 40px;
-        border: 1px solid darkgrey;
-    }
-
-    .infobox .header {
-        width: 100%;
-        height: 40px;
-        font-size: 16px;
-        line-height: 40px;
-        overflow: hidden;
-        border-bottom: 1px solid darkgrey;
-    }
-
-    .infobox .header .team_name {
-        float: left;
-        position: relative;
-        width: 150px;
-        height: 40px;
-        padding-left: 40px;
-        color: white;
-        border-top: 42px solid #d8450b;
-        border-right: 15px solid transparent;
-    }
-
-    .infobox .header .team_name span {
-        position: absolute;
-        top: -42px;
-    }
-
-    .infobox .header p {
-        float: left;
-        margin: 0 20px;
-    }
-
-    .infobox .header .check_award {
-        float: right;
-        margin-right: 10px;
-    }
-
-    .infobox .header .like {
-        cursor: pointer;
-        float: right;
-        width: 60px;
-        color: grey;
-        font-size: 18px;
-        margin: 10px;
-    }
-
-    .infobox .header .liked {
-        color: #ff3333;
-    }
-
-    .infobox .description {
-        margin: 10px
-    }
-
-    .infobox .img_box {
-        margin-right: 20px;
-        margin-top: 20px;
-        float: left;
-        position: relative;
-        width: 330px;
-        height: 300px;
-        border: 1px solid darkgrey;
-        overflow: hidden;
-    }
-
-    .infobox .template {
-        display: none;
-    }
-
-    .infobox .img_box img {
-        position: absolute;
-        width: 300px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .infobox .img_box .delete {
-        position: absolute;
-        right: 5px;
-        top: 5px;
-        width: 24px;
-        height: 24px;
-        line-height: 12px;
-        color: grey;
-        border-radius: 12px;
-        background: white;
-        border: 1px solid grey;
-        transition: .3s all;
-    }
-
-    .infobox .img_box .delete:hover {
-        color: red;
-        border: 1px solid red;
-    }
-
-    /*上传文件div的样式*/
-    .infobox .add_box {
-        box-sizing: border-box;
-        padding: 20px;
-        color: grey;
-        border: grey 1px solid;
-    }
-
-    /*评奖表单*/
-    .infobox .header .setAwardForm {
-        margin-right: 20px;
-        float: right;
-    }
-
-    .infobox .header .setAwardForm .lv {
-        margin-top: 5px;
-        outline: none;
-    }
-
-    .infobox .header .setAwardForm button {
-        margin-left: 5px;
-        margin-top: -3px;
-        outline: none;
-    }
-
-    .empty_info {
-        margin: 100px 0 150px -30px;
-        width: 1200px;
-        text-align: center;
-        color: darkgrey;
-    }
-
-    .empty_info_mini {
-        margin: 20px 0 25px -30px;
-        width: 1200px;
-        text-align: center;
-        color: darkgrey;
-    }
-</style>
 
 <%@ include file="footer.jsp" %>
 
