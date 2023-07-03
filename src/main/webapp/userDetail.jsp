@@ -167,6 +167,10 @@
                     let $form = $infobox.find('.uploadForm');
                     let $img_box_template = $infobox.find('.template');
                     let formData = new FormData($form[0]);
+                    if($infobox.find("input[name='file']").val()=="") {
+                        showMsg($infobox, "请先上传图片！")
+                        return false;
+                    }
                     $.ajax({
                         url: '${ctx}/FileUploadServlet',
                         type: 'post',
