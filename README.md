@@ -6,3 +6,6 @@ JSP+Servlet 配合 tomcat部署
 #### 项目详情
 首页、竞赛详情、竞赛报名、竞赛分类、个人中心，竞赛作品发布、数据统计、奖状打印
 可以用tomcat部署到云服务器
+
+#### 备注
+这是一个多人合作项目，由于某些原因，从云效import repository到github时，有几个合作者没有显示在Contributors中
